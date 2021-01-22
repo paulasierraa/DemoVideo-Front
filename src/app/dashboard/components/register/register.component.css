@@ -1,12 +1,11 @@
 .register-container{
-    background-color: white;
-    margin: 0 auto;
+    background-color: #000000b5;    margin: 0 auto;
     padding: 60px 68px 40px;
     width: 500px;
     border-radius: 40px;
     vertical-align: middle;
     margin-top: 50px;
-
+    color:white;
 }
 .register-container h2{
     margin-bottom: 25px;
@@ -19,4 +18,8 @@
 .register_form .btnEnviar{
     margin-top: 25px;
     margin-bottom: 38px;
+}
+.btnEnviar{
+background-color: #c79812;
+color:white;
 }
