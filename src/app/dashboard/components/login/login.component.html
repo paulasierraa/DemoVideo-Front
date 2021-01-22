@@ -3,11 +3,20 @@
       <h2>Iniciar Sesión</h2>
       <div class="mb-3 datos">
         <label for="usuariotxt" class="form-label">Usuario</label>
-        <input type="text" class="form-control" formControlName="usuario" id="usuariotxt" required>
+        <input type="text" class="form-control" formControlName="usuario" id="usuariotxt" 
+        [ngClass]="{'is-invalid': form.get('usuario')?.dirty && form.get('usuario')?.hasError('required')}"
+        required/>
+        <div id="validationServerUsernameFeedback" class="invalid-feedback"> 
+          Debe digitar un usuario
+        </div>
       </div>
       <div class="mb-3 datos">
         <label for="passwordtxt" class="form-label">Contraseña</label>
-        <input type="password" class="form-control" id="passwordtxt"  formControlName="password" >
+        <input type="password" class="form-control" id="passwordtxt"  formControlName="password" 
+        [ngClass]="{'is-invalid': form.get('password')?.dirty && form.get('password')?.hasError('required')}"/>
+        <div id="validationServerUsernameFeedback" class="invalid-feedback"> 
+          Debe digitar una contraseña
+        </div>
       </div>
       <button type="submit" class="btn btn-primary btnEnviar" [disabled]="form.invalid">Submit</button>
     </form>

@@ -9,7 +9,7 @@ import{FormBuilder,FormGroup,Validators,FormsModule} from '@angular/forms';
 export class RegisterComponent implements OnInit {
 
   form!:FormGroup;
-  submitted=false;
+
   constructor(private formBuilder:FormBuilder) {
     this.buildRegister();
    }
@@ -29,12 +29,11 @@ export class RegisterComponent implements OnInit {
   }
   registrar()
   {
-    this.submitted=true;
-    if(this.form.invalid)
+    if(this.form.valid)
     {
-      return;
+      console.log("registrado");
+
     }
-    console.log("registrado");
   }
   
 }
