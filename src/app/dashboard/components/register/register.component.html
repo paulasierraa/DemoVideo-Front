@@ -1,0 +1,29 @@
+<section class ="register-container">
+  <form class="register_form" [formGroup]="form">
+    <h2>Registrarse</h2>
+    <div class="mb-3 datos">
+      <label for="nombretxt" class="form-label">Nombre</label>
+      <input type="text" class="form-control" formControlName="nombre" id="nombre" required>
+      <div class="valid-feedback">
+        Looks good!
+      </div>
+    </div>
+    <div class="mb-3 datos">
+      <label for="correotxt" class="form-label">Correo</label>
+      <input type="text" class="form-control " formControlName="correo" id="correo" required>
+      <div class="valid-feedback">
+        Looks good!
+      </div>
+    </div>
+    <div class="mb-3 datos">
+      <label for="usuariotxt" class="form-label">Usuario</label>
+      <input type="text" class="form-control" formControlName="usuario" id="usuario" required>
+    </div>
+    <div class="mb-3 datos">
+      <label for="passwordtxt" class="form-label">Contraseña</label>
+      <input type="password" class="form-control" id="password"  formControlName="password" >
+    </div>
+    <button type="submit" class="btn btn-primary btnEnviar" [disabled]="form.invalid">Enviar</button>
+  </form>
+</section>
+

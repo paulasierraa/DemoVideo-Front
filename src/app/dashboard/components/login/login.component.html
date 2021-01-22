@@ -1,0 +1,16 @@
+  <section class ="login-container">
+    <form class="login_form" [formGroup]="form" (ngSubmit)="saveProduct()">
+      <h2>Iniciar Sesión</h2>
+      <div class="mb-3 datos">
+        <label for="usuariotxt" class="form-label">Usuario</label>
+        <input type="text" class="form-control" formControlName="usuario" id="usuariotxt" required>
+      </div>
+      <div class="mb-3 datos">
+        <label for="passwordtxt" class="form-label">Contraseña</label>
+        <input type="password" class="form-control" id="passwordtxt"  formControlName="password" >
+      </div>
+      <button type="submit" class="btn btn-primary btnEnviar" [disabled]="form.invalid">Submit</button>
+    </form>
+    <p class="login__container--register">No tienes ninguna cuenta  <a routerLink="/register">Regístrate</a></p>
+  </section>
+

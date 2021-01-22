@@ -1,11 +1,11 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
-import {DashboardComponent} from './dashboard/dashboard/dashboard.component';
+import { from } from 'rxjs';
 const routes: Routes = [
   {
     path:'',
-    component:DashboardComponent
-  }
+    loadChildren:()=>import('./dashboard/dashboard.module').then(m=>m.DashboardModule)
+  },
 ];
 
 @NgModule({
