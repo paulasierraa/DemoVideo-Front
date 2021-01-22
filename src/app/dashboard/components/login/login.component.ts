@@ -22,7 +22,7 @@ export class LoginComponent implements OnInit {
       password:['',Validators.required]
     });
   }
-  saveProduct()
+  login()
   {
     console.log(this.form);
   }

@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import{FormBuilder,FormGroup,Validators} from '@angular/forms';
+import{FormBuilder,FormGroup,Validators,FormsModule} from '@angular/forms';
 
 @Component({
   selector: 'app-register',
@@ -9,6 +9,7 @@ import{FormBuilder,FormGroup,Validators} from '@angular/forms';
 export class RegisterComponent implements OnInit {
 
   form!:FormGroup;
+  submitted=false;
   constructor(private formBuilder:FormBuilder) {
     this.buildRegister();
    }
@@ -26,17 +27,14 @@ export class RegisterComponent implements OnInit {
       }
     );
   }
-  validar(id:string)
+  registrar()
   {
-    const ob = document.getElementById('id');
-
-    if(this.form.get('id')?.invalid)
+    this.submitted=true;
+    if(this.form.invalid)
     {
-      ob?.classList.add("is-invalid");
+      return;
     }
-    else{
-      ob?.classList.add("is-valid");
-    }
-
-  }    
+    console.log("registrado");
+  }
+  
 }
