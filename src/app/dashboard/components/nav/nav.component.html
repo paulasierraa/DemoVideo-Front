@@ -1,0 +1,35 @@
+
+<div class="dashboard container-fluid" >
+  <div class="row">
+    <nav class="navbar navbar-expand-lg navbar-light dashboard-nav shadow p-3 rounded nav col">
+      <div class="container-fluid">
+        <a class="navbar-brand display" routerLink="">DemoVideo</a>
+          <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+            <li class="nav-item" *ngIf="getUrl()==='/'">
+              <a class="nav-link active" aria-current="page" routerLink="register">Registrarse</a>
+            </li>
+            <li class="nav-item" *ngIf="getUrl()==='/'">
+              <a class="nav-link" routerLink="login">Iniciar sesión</a>
+            </li>
+          </ul>
+        
+      </div>
+    </nav>
+  </div>
+  
+  <router-outlet></router-outlet>
+  <div class="banner container-fluid" *ngIf="getUrl()==='/'">
+      <h2 class="display-1">Comienza a crear!</h2> 
+  </div>
+  <footer class="bg-light text-center text-lg-start container-fluid">
+    <!-- Copyright -->
+    <div class="row">
+      <div class="text-center p-3 texto col">
+        © 2020 Copyright
+      </div>
+    </div>
+    
+    <!-- Copyright -->
+  </footer>
+</div>
+
