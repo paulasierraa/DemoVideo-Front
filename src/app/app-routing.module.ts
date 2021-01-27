@@ -10,7 +10,7 @@ const routes: Routes = [
   },
   {
     path:'home',
-    canActivate:[LoginGuard],
+    canActivate:[LoginGuard], 
     loadChildren:()=>import('./main/main.module').then(m=>m.MainModule)
   }
 ];
@@ -20,3 +20,6 @@ const routes: Routes = [
   exports: [RouterModule]
 })
 export class AppRoutingModule { }
+//tienes cosas que hacer?
+// Dale, estoy leyendo en el celular:v
+//vale entonce slo voy a seguir intentando jaajs

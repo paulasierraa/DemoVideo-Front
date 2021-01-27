@@ -28,8 +28,9 @@ export class AuthService {
   }
 
   setSession(session:Session):void { //guardaremos nuestro usuario
-    let session_string = JSON.stringify(session);
-    localStorage.setItem('currentUser',session_string);
+  
+    this.currentSession=session;
+    localStorage.setItem('currentUser',JSON.stringify(session));
   }
   loadSessionData() //saber qué usuario está en ese momento
   {
@@ -52,7 +53,6 @@ export class AuthService {
     }
     return null;
   };
-  
   getCurrentToken() {
     var session = this.getCurrentSession();
     return (session && session.token) ? session.token : null;
