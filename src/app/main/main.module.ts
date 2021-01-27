@@ -5,6 +5,7 @@ import { MainRoutingModule } from './main-routing.module';
 import { NavComponent } from './nav/nav.component';
 import { UploadVideoComponent } from './upload-video/upload-video.component';
 import { VideosComponent } from './videos/videos.component';
+import { NgxFileDropModule } from 'ngx-file-drop';
 
 
 @NgModule({
@@ -15,7 +16,8 @@ import { VideosComponent } from './videos/videos.component';
   ],
   imports: [
     CommonModule,
-    MainRoutingModule
+    MainRoutingModule,
+    NgxFileDropModule
   ]
 })
 export class MainModule { }

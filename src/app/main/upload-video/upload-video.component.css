@@ -1,0 +1,8 @@
+.upload-video{
+    margin:0 auto;
+}
+@media only screen and (min-width: 534px) {
+    .upload-video{
+      width: 500px;
+    }
+  }

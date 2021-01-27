@@ -1,4 +1,5 @@
-<form>
+<section class="upload-video">
+  <form>
     <div class="mb-3">
       <label for="nombretxt" class="form-label">Nombre del video</label>
       <input type="text" class="form-control" id="nombretxt" aria-describedby="nameHelp">
@@ -9,9 +10,35 @@
         <textarea class="form-control" placeholder="Describe tu video" id="floatingTextarea2" style="height: 100px"></textarea>
       </div>
     </div>
+    <!--FILEDROP-->
+    <label class="form-label">Inserta tu vídeo</label>
+    <div class="center">
+      <ngx-file-drop dropZoneLabel="Drop files here" (onFileDrop)="dropped($event)" 
+      (onFileOver)="fileOver($event)" (onFileLeave)="fileLeave($event)">
+          <ng-template ngx-file-drop-content-tmp let-openFileSelector="openFileSelector">
+            Arrastra tu vídeo aquí.
+          </ng-template>
+      </ngx-file-drop>
+      <div class="upload-table">
+          <table class="table">
+              <thead>
+                  <tr>
+                      <th>Nombre del archivo</th>
+                  </tr>
+              </thead>
+              <tbody class="upload-name-style">
+                  <tr *ngFor="let item of files; let i=index">
+                      <td><strong>{{ item.relativePath }}</strong></td>
+                  </tr>
+              </tbody>
+          </table>
+      </div>
+  </div>
+    <!--/FILEDROP  -->
     <div class="mb-3">
-      <label for="formFile" class="form-label">Inserta tu vídeo!</label>
+      <label for="formFile" class="form-label">o seleccionalo</label>
       <input class="form-control" type="file" id="formFile">
     </div>
     <button type="submit" class="btn btn-primary">Submit</button>
   </form>
+</section>
