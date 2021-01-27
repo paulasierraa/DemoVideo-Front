@@ -23,7 +23,7 @@ export class LoginComponent implements OnInit {
   private buildLogin()
   {
     this.form=this.formBuilder.group({
-      usuario:['',Validators.required],
+      user:['',Validators.required],
       password:['',Validators.required]
     });
   }

@@ -4,8 +4,6 @@ import { Observable } from 'rxjs';
 import {filter,map} from 'rxjs/operators';
 import { HttpClient,HttpHeaders } from '@angular/common/http';
 import { environment } from '../../../environments/environment';
-import { user } from '../../models/user.model';
-import { isNull } from '@angular/compiler/src/output/output_ast';
 import { Login } from '../../models/Login.model';
 
 @Injectable({
@@ -73,11 +71,4 @@ export class AuthService {
   
 
 }
-  // setToken(token:string):void
-  // {
-  //   localStorage.setItem('userInfo',token);
-  // }
-  // getToken()
-  // {
-  //   return localStorage.getItem('userInfo');
-  // }
+ 
