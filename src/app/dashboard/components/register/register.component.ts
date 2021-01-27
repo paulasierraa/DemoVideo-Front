@@ -4,7 +4,7 @@ import{FormBuilder,FormGroup,Validators,FormsModule} from '@angular/forms';
 import * as CryptoJS from 'crypto-js';
 import {UserService} from 'src/app/services/user/user.service';
 import { user } from '../../../models/user.model';
-
+import { Router } from '@angular/router';
 @Component({
   selector: 'app-register',
   templateUrl: './register.component.html',
@@ -14,7 +14,7 @@ export class RegisterComponent implements OnInit {
  
   form!:FormGroup;
  
-  constructor(private formBuilder:FormBuilder,private userService:UserService) {
+  constructor(private formBuilder:FormBuilder,private userService:UserService,private router:Router) {
     this.buildRegister();
    }
 
@@ -50,6 +50,7 @@ export class RegisterComponent implements OnInit {
       this.userService.createUser(obuser)
       .subscribe()
       {
+        this.router.navigate(['/login']);
         console.log("registrado");
       }
     }

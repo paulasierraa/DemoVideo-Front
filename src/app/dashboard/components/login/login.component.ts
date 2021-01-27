@@ -4,6 +4,7 @@ import { Router } from '@angular/router';
 import { Login } from '../../../models/Login.model';
 import { Session } from '../../../models/Session.model';
 import{FormBuilder,FormGroup,Validators} from '@angular/forms';
+
 @Component({
   selector: 'app-login',
   templateUrl: './login.component.html',
@@ -38,10 +39,12 @@ export class LoginComponent implements OnInit {
         data=> this.correctLogin(data),
         error=>console.log(error)
       );
+
     }
   }
   private correctLogin(data: Session){
     this.authService.setSession(data);
+    this.router.navigate(['/home']);
     console.log(data);
   }
 }
