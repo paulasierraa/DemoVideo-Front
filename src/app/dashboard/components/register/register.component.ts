@@ -45,7 +45,6 @@ export class RegisterComponent implements OnInit {
         value.name,
         value.email,
         value.user,
-        // this.encrypt(value.password)
         value.password
       );
       this.userService.createUser(obuser)
