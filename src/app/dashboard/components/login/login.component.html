@@ -11,11 +11,12 @@
             </div>
             <input type="text" class="form-control" formControlName="user" id="usuariotxt" 
             [ngClass]="{'is-invalid': form.get('user')?.dirty && form.get('user')?.hasError('required')}"
-            required/>
+            required />
+            <div id="validationServerUsernameFeedback" class="invalid-feedback"> 
+              Debe digitar un usuario
+            </div>
           </div>
-          <div id="validationServerUsernameFeedback" class="invalid-feedback"> 
-            Debe digitar un usuario
-          </div>
+         
         </div>
         <div class="mb-3 datos">
           <label for="passwordtxt" class="form-label">Contraseña</label>
@@ -25,10 +26,11 @@
             </div>
           <input type="password" class="form-control" id="passwordtxt"  formControlName="password" 
           [ngClass]="{'is-invalid': form.get('password')?.dirty && form.get('password')?.hasError('required')}"/>
-          </div>
-          <div id="validationServerUsernameFeedback" class="invalid-feedback"> 
+          <div id="validationServerPasswordFeedback" class="invalid-feedback"> 
             Debe digitar una contraseña
           </div>
+        </div>
+         
         </div>
       <button type="submit" class="btn btnEnviar" [disabled]="form.invalid">Ingresar</button>
     </form>

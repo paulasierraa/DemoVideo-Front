@@ -4,24 +4,24 @@
     <div class="mb-3 datos">
       <label for="nombretxt" class="form-label">Nombre</label>
         <input type="text" class="form-control" formControlName="name" id="nombretxt"
-        [ngClass]="{'is-invalid': form.get('name')?.dirty && form.get('nombre')?.hasError('required')}" 
+        [ngClass]="{'is-invalid': form.get('name')?.dirty && form.get('name')?.hasError('required')}" 
         required/>
-      <div id="validationServerUsernameFeedback" class="invalid-feedback"> 
+      <div id="validationServerNameFeedback" class="invalid-feedback"> 
         Debe digitar un nombre
       </div>
     </div>
     <div class="mb-3 datos">
       <label for="correotxt" class="form-label">Correo</label>
       <input type="text" class="form-control " formControlName="email" id="correo" 
-      [ngClass]="{'is-invalid': form.get('email')?.dirty && form.get('correo')?.hasError('required') || form.get('correo')?.hasError('email')}" required>
-      <div id="validationServerUsernameFeedback" class="invalid-feedback"> 
+      [ngClass]="{'is-invalid': form.get('email')?.dirty && form.get('email')?.hasError('required') || form.get('email')?.hasError('email')}" required>
+      <div id="validationServerEmailFeedback" class="invalid-feedback"> 
         Debe digitar un correo valido
       </div>
     </div>
     <div class="mb-3 datos">
       <label for="usuariotxt" class="form-label">Usuario</label>
       <input type="text" class="form-control" formControlName="user" id="usuario" 
-      [ngClass]="{'is-invalid': form.get('user')?.dirty && form.get('usuario')?.hasError('required')}" required>
+      [ngClass]="{'is-invalid': form.get('user')?.dirty && form.get('user')?.hasError('required')}" required>
       <div id="validationServerUsernameFeedback" class="invalid-feedback"> 
         Debe digitar un usuario
       </div>
@@ -30,7 +30,7 @@
       <label for="passwordtxt" class="form-label">Contraseña</label>
       <input type="password" class="form-control" id="passwordtxt"  formControlName="password" 
        [ngClass]="{'is-invalid': form.get('password')?.dirty && form.get('password')?.hasError('required')}" required >
-      <div id="validationServerUsernameFeedback" class="invalid-feedback"> 
+      <div id="validationServerPasswordFeedback" class="invalid-feedback"> 
         Debe digitar una contraseña
       </div>
     </div>

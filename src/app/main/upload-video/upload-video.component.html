@@ -1,3 +1,17 @@
-<p>
-  upload-video works!
-</p>
+<form>
+    <div class="mb-3">
+      <label for="nombretxt" class="form-label">Nombre del video</label>
+      <input type="text" class="form-control" id="nombretxt" aria-describedby="nameHelp">
+    </div>
+    <div class="mb-3">
+      <label class="form-label">Descripción</label>
+      <div class="form-floating">
+        <textarea class="form-control" placeholder="Describe tu video" id="floatingTextarea2" style="height: 100px"></textarea>
+      </div>
+    </div>
+    <div class="mb-3">
+      <label for="formFile" class="form-label">Inserta tu vídeo!</label>
+      <input class="form-control" type="file" id="formFile">
+    </div>
+    <button type="submit" class="btn btn-primary">Submit</button>
+  </form>
