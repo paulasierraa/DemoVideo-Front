@@ -4,13 +4,14 @@ import{FormBuilder,FormGroup,Validators,FormsModule} from '@angular/forms';
 import * as CryptoJS from 'crypto-js';
 import {UserService} from 'src/app/services/user/user.service';
 import { user } from '../../../models/user.model';
+
 @Component({
   selector: 'app-register',
   templateUrl: './register.component.html',
   styleUrls: ['./register.component.css']
 })
 export class RegisterComponent implements OnInit {
-
+ 
   form!:FormGroup;
  
   constructor(private formBuilder:FormBuilder,private userService:UserService) {
@@ -41,17 +42,18 @@ export class RegisterComponent implements OnInit {
     {
       const value = this.form.value;
      var obuser:user = new user(
-        "1",
         value.name,
         value.email,
         value.user,
         this.encrypt(value.password)
       );
-      this.userService.createUser(obuser)
-      .subscribe()
-      {
-        console.log("registrado");
-      }
+      var data = JSON.stringify(obuser);
+      console.log(data);
+      // this.userService.createUser(obuser)
+      // .subscribe()
+      // {
+      //   console.log("registrado");
+      // }
     }
   }
   

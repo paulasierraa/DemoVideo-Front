@@ -1,13 +1,13 @@
 import { stringify } from "@angular/compiler/src/util";
 
 export class user{
-    id: string;
+    id?: string;
     name:string;
     email:string;
     user:string;
     password:string;
 
-    constructor(id:string,name:string,emai:string,user:string,password:string)
+    constructor(name:string,emai:string,user:string,password:string,id?:string)
     {
         this.id=id;
         this.name=name;
