@@ -36,18 +36,19 @@ export class RegisterComponent implements OnInit {
       }
     );
   }
-  registrar()
+  register()
   {
     if(this.form.valid)
     {
       const value = this.form.value;
-     var obuser:user = new user(
-        value.name,
-        value.email,
-        value.user,
-        value.password
-      );
-      this.userService.createUser(obuser)
+      var obuser:user;
+    
+       obuser.name= value.name;
+       obuser.email= value.email;
+       obuser.user= value.user;
+       obuser.password= value.password;
+    
+      this.userService.create(obuser)
       .subscribe()
       {
         this.router.navigate(['/login']);

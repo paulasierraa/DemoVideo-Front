@@ -3,7 +3,9 @@ import { AuthService } from '../../../services/auth/auth.service';
 import { Router } from '@angular/router';
 import { Login } from '../../../models/Login.model';
 import { Session } from '../../../models/Session.model';
+import { user } from '../../../models/user.model';
 import{FormBuilder,FormGroup,Validators} from '@angular/forms';
+import { ObjectUnsubscribedError } from 'rxjs';
 
 @Component({
   selector: 'app-login',
@@ -33,16 +35,21 @@ export class LoginComponent implements OnInit {
     if(this.form.valid)
     {
       var value = this.form.value;
-      var ob = new Login(value.user,value.password);
-      this.authService.loginUser(ob).subscribe(
-        
+
+      var obUser:user;
+      obUser.user = value.user;
+      obUser.password = value.password;
+      var obLogin:Login;
+      obLogin.obUser= obUser;
+
+      this.authService.loginUser(obLogin).subscribe(
         data=> this.correctLogin(data),
         error=>console.log(error)
       );
 
     }
   }
-  private correctLogin(data: Session){
+  private correctLogin(data: Login){
     this.authService.setSession(data);
     console.log(data);
     this.router.navigate(['/home/videos']);

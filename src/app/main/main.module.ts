@@ -18,6 +18,10 @@ import { NgxFileDropModule } from 'ngx-file-drop';
     CommonModule,
     MainRoutingModule,
     NgxFileDropModule
-  ]
+  ],
+
 })
+  // exports:[
+  //   NavComponent
+  // ] 
 export class MainModule { }

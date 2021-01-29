@@ -19,24 +19,24 @@ export class UserService {
   }
   constructor(private http:HttpClient) { }
 
-  createUser(obUser:user)
+  create(obUser:user)
   {
     return this.http.post(`${environment.url_api}/register/`,{"username":obUser.user,"first_name":obUser.name,"email":obUser.email,"password":obUser.password},this.httpOptions); //INSERTAR API
   }
 
-  getAllUsers():Observable<user[]>
+  getAll():Observable<user[]>
   {
     return this.http.get<user[]>("url");
   }
-  getUser(id:string)
+  get(id:string)
   {
     return this.http.get<user>(`url/${id}`);
   }
-  updateUser(id:string,changes:Partial<user>)
+  update(id:string,changes:Partial<user>)
   {
     return this.http.put(`apiurl/${id}`,changes);
   }
-  deleteUser(id:string)
+  delete(id:string)
   {
     return this.http.delete(`url/${id}`);
   }

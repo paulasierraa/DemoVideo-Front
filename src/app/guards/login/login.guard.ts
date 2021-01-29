@@ -18,5 +18,4 @@ export class LoginGuard implements CanActivate {
     }
       return true; //no deja entrar a la página
   }
-  //sii tu me envías el token pero si existe un token me deja entrar , sino no :v  voy a revisar si se está guardando el token
 }

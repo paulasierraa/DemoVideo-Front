@@ -17,42 +17,32 @@ export class AuthService {
     })
     
   }
-  private currentSession : Session;
+  private currentSession : Login;
 
   constructor(private http:HttpClient) { 
     this.currentSession = this.loadSessionData(); //cargo la información de la sesión
   }
 
   loginUser(obLogin:Login):Observable<any>{
-    return this.http.post(`${environment.url_api}/login/`,{"username":obLogin.user,"password":obLogin.password},this.httpOptions).pipe(map(data=>data));
+    return this.http.post(`${environment.url_api}/login/`,{"username":obLogin.obUser.user,"password":obLogin.obUser.password},this.httpOptions).pipe(map(data=>data));
   }
 
-  setSession(session:Session):void { //guardaremos nuestro usuario
-  
+  setSession(session:Login):void { //guardaremos nuestro usuario
     this.currentSession=session;
     localStorage.setItem('currentUser',JSON.stringify(session));
   }
-  loadSessionData() //saber qué usuario está en ese momento
-  {
-    let user_string = localStorage.getItem('currentUser');
-    if(user_string)
-    {
-      let user= JSON.parse(user_string);
-      return user;
-    }
-    return null;
-  }
-  getCurrentSession(): Session {
+  getCurrentSession(): Login {
     return this.currentSession;
   }
   getCurrentUser() {
-    var session: Session = this.getCurrentSession();
+    var session: Login = this.getCurrentSession();
     if(session)
     {
-      return session.user;
+      return session.obUser;
     }
     return null;
   };
+
   getCurrentToken() {
     var session = this.getCurrentSession();
     return (session && session.token) ? session.token : null;
@@ -60,8 +50,6 @@ export class AuthService {
 
   logOutUser()
   {
-    // let accesToken = localStorage.getItem('userInfo');
-    // localStorage.removeItem('userInfo');
     localStorage.removeItem('currentUser');
     return this.http.post(`${environment.url_api}/logout`,this.httpOptions);
   }
@@ -71,4 +59,13 @@ export class AuthService {
   
 
 }
- 
+  // loadSessionData() //saber qué usuario está en ese momento
+  // {
+  //   let user_string = localStorage.getItem('currentUser');
+  //   if(user_string)
+  //   {
+  //     let user= JSON.parse(user_string);
+  //     return user;
+  //   }
+  //   return null;
+  // }
