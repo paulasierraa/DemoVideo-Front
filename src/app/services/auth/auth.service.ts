@@ -32,8 +32,8 @@ export class AuthService {
     return null;
   }
 
-  loginUser(obLogin:Login):Observable<any>{
-    return this.http.post(`${environment.url_api}/login/`,{"username":obLogin.user,"password":obLogin.password},this.httpOptions).pipe(map(data=>data));
+  loginUser(obLogin:Login):Observable<Login>{
+    return this.http.post<Login>(`${environment.url_api}/login/`,{"username":obLogin.user,"password":obLogin.password},this.httpOptions).pipe(map(data=>data));
   }
 
   setSession(session:Login):void { //guardaremos nuestro usuario

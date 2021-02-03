@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { HttpHeaders, HttpClient } from '@angular/common/http';
-import { environment } from '../../../../../../Angular-course/platzi-store/platzi-store/src/environments/environment.prod';
+import { environment } from '../../../environments/environment';
 import { Observable } from 'rxjs';
 import { env } from 'process';
 import { Video } from '../../models/Video';
@@ -16,16 +16,16 @@ export class VideoService {
   }
   constructor(private http:HttpClient) { }
 
-  upload(video:Video,file:FormData)
+  upload(file:FormData)
   {
-      return this.http.post(`${environment.url_api}/uplodad`,{"title":video.name,"description":video.description,"videofile":file},this.httpOptions);
+      return this.http.post(`${environment.url_api}/videos/`,file);
   }
   getAll():Observable<Video[]>
   {
-    return this.http.get<Video[]>(`${environment.url_api}/getVideo`);
+    return this.http.get<Video[]>(`${environment.url_api}/videos/`);
   }
   get(id:string):Observable<Video>
   {
-    return this.http.get<Video>(`${environment.url_api}/getVideo/${id}`);
+    return this.http.get<Video>(`${environment.url_api}/videos/${id}`);
   }
 }

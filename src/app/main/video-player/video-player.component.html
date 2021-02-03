@@ -8,15 +8,17 @@
         preload="auto"
         data-setup='{fluid:true}'
         width="100vw"
+        src="http://127.0.0.1:8000{{video.videofile}}"
+        autoplay
       >
-      <source src="../../../assets/videos/prueba.mp4" type = "video/mp4"/>
       </video>
       
         <div class="p-3 content">
-            <h4>Set for the Ashes</h4>
-            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+            <h4>{{video.name}}</h4>
+            <p>{{video.description}}</p>
         </div>
 
     </div>
+
 
    

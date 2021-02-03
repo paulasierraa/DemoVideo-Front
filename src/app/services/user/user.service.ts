@@ -5,6 +5,7 @@ import {user} from 'src/app/models/user.model';
 //import enviroments to use api's url
 import {environment} from 'src/environments/environment';
 import { Observable } from 'rxjs';
+import {filter,map} from 'rxjs/operators';
 
 @Injectable({
   providedIn: 'root'
@@ -21,7 +22,7 @@ export class UserService {
 
   create(obUser:user)
   {
-    return this.http.post(`${environment.url_api}/register/`,{"username":obUser.user,"first_name":obUser.name,"email":obUser.email,"password":obUser.password},this.httpOptions); //INSERTAR API
+    return this.http.post(`${environment.url_api}/register/`,{"username":obUser.user,"first_name":obUser.name,"email":obUser.email,"password":obUser.password},this.httpOptions).pipe(map(data=>data)); //INSERTAR API
   }
 
   getAll():Observable<user[]>

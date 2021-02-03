@@ -40,15 +40,13 @@ export class LoginComponent implements OnInit {
       obLogin.password = value.password;
 
       this.authService.loginUser(obLogin).subscribe(
-        data=>{
+        data=>{ 
            this.authService.setSession(data);
             this.router.navigate(['/home/videos']);
-            console.log(data);
+         
         },
-        
         error=>
         {
-          console.log(error)
           this.loginError=true;
         }
         

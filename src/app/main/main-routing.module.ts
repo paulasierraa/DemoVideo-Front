@@ -18,7 +18,7 @@ const routes: Routes = [
         component:UploadVideoComponent
       },
       {
-        path:'play',
+        path:'play/:id',
         component:VideoPlayerComponent
       }
     ]
