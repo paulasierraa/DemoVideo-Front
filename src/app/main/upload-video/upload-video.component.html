@@ -10,8 +10,32 @@
         <textarea class="form-control" formControlName="description" placeholder="Describe tu video" id="floatingTextarea2" style="height: 100px"></textarea>
       </div>
     </div>
-        <!--FILEDROP-->
-    <label class="form-label">Inserta tu vídeo</label>
+ 
+    <div class="mb-3" *ngIf="files.length===0">
+      <label for="formFile" class="form-label">o seleccionalo</label>
+      <input class="form-control"  formControlName="video" type="file" id="formFile" (change)="getFileDetails($event)">
+    </div>
+    <button type="submit" class="btn btn-primary">Subir</button>
+  </form> 
+</section>
+<div class="preview" *ngIf="enviado">
+  <!---->
+  <video
+  id="my-video"
+  class="fm-video video-js video-player vjs-big-play-centered"
+  controls
+  preload="auto"
+  data-setup='{fluid:true}'
+  width="270" height="270"
+>
+<source [src]="url" type = "video/mp4"/>
+</video>
+
+
+</div>
+
+       <!--FILEDROP-->
+    <!-- <label class="form-label">Inserta tu vídeo</label>
     <div class="center">
       <ngx-file-drop
       dropZoneLabel="Drop files here"
@@ -37,28 +61,5 @@
               </tbody>
           </table>
       </div>
-  </div>
+  </div> -->
     <!--/FILEDROP  -->
-    <div class="mb-3" *ngIf="files.length===0">
-      <label for="formFile" class="form-label">o seleccionalo</label>
-      <input class="form-control"  formControlName="video" type="file" id="formFile" (change)="getFileDetails($event)">
-    </div>
-    <button type="submit" class="btn btn-primary">Subir</button>
-  </form> 
-</section>
-<div class="preview" *ngIf="enviado">
-  <!---->
-  <video
-  id="my-video"
-  class="fm-video video-js video-player vjs-big-play-centered"
-  controls
-  preload="auto"
-  data-setup='{fluid:true}'
-  width="270" height="270"
->
-<source [src]="url" type = "video/mp4"/>
-</video>
-
-
-</div>
-

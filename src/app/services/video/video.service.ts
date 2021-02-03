@@ -18,7 +18,7 @@ export class VideoService {
 
   upload(video:Video,file:FormData)
   {
-      return this.http.post(`${environment.url_api}/uplodad`,{"name":video.name,"description":video.description,"video":file},this.httpOptions);
+      return this.http.post(`${environment.url_api}/uplodad`,{"title":video.name,"description":video.description,"videofile":file},this.httpOptions);
   }
   getAll():Observable<Video[]>
   {
