@@ -1,6 +1,11 @@
 .upload-video{
     margin:0 auto;
 }
+.fileDescription
+{
+  display: flex;
+  justify-content: space-between;
+}
 @media only screen and (min-width: 534px) {
     .upload-video{
       width: 500px;
