@@ -1,0 +1,9 @@
+footer{
+    background: #5f56561f !important;
+    width: 100%;
+    position: absolute;
+    bottom: 0;
+}
+footer .texto{
+    color: white;
+}

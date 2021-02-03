@@ -6,12 +6,14 @@ import {NavComponent} from './components/nav/nav.component';
 import { LoginComponent } from './components/login/login.component';
 import { RegisterComponent } from './components/register/register.component';
 import {ReactiveFormsModule,FormsModule} from '@angular/forms';
+import { FooterComponent } from './components/footer/footer.component';
 
 @NgModule({
   declarations: [
   NavComponent,
   LoginComponent,
   RegisterComponent,
+  FooterComponent,
   ],
   imports: [
     CommonModule,

@@ -12,8 +12,8 @@ import { Router } from '@angular/router';
 })
 export class RegisterComponent implements OnInit {
  
-  form!:FormGroup;
- 
+  form:FormGroup;
+  successRegister:boolean=false;
   constructor(private formBuilder:FormBuilder,private userService:UserService,private router:Router) {
     this.buildRegister();
    }
@@ -41,18 +41,17 @@ export class RegisterComponent implements OnInit {
     if(this.form.valid)
     {
       const value = this.form.value;
-      var obuser:user;
-    
-       obuser.name= value.name;
-       obuser.email= value.email;
-       obuser.user= value.user;
-       obuser.password= value.password;
-    
+      let obuser:user = new user();
+      obuser.name=value.name;
+      obuser.email=value.email;
+      obuser.user=value.user;
+      obuser.password=value.password;
       this.userService.create(obuser)
-      .subscribe()
+      .subscribe() 
       {
-        this.router.navigate(['/login']);
-        console.log("registrado");
+        this.successRegister=true;
+        setTimeout(()=>this.router.navigate(['/login']),1500);      
+       
       }
     }
   }

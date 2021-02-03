@@ -3,6 +3,7 @@ import { Routes, RouterModule } from '@angular/router';
 import { VideosComponent } from './videos/videos.component';
 import { UploadVideoComponent } from './upload-video/upload-video.component';
 import { NavComponent } from './nav/nav.component';
+import { VideoPlayerComponent } from './video-player/video-player.component';
 const routes: Routes = [
   {
     path:'',
@@ -15,6 +16,10 @@ const routes: Routes = [
       {
         path:'upload',
         component:UploadVideoComponent
+      },
+      {
+        path:'play',
+        component:VideoPlayerComponent
       }
     ]
   }

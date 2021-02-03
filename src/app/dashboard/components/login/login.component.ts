@@ -2,7 +2,6 @@ import { Component, OnInit } from '@angular/core';
 import { AuthService } from '../../../services/auth/auth.service';
 import { Router } from '@angular/router';
 import { Login } from '../../../models/Login.model';
-import { Session } from '../../../models/Session.model';
 import { user } from '../../../models/user.model';
 import{FormBuilder,FormGroup,Validators} from '@angular/forms';
 import { ObjectUnsubscribedError } from 'rxjs';
@@ -15,7 +14,7 @@ import { ObjectUnsubscribedError } from 'rxjs';
 export class LoginComponent implements OnInit {
 
   form!:FormGroup;
-
+  loginError:boolean=false;
   constructor(private formBuilder:FormBuilder,private authService:AuthService
     , private router:Router) {
     this.buildLogin();
@@ -36,22 +35,26 @@ export class LoginComponent implements OnInit {
     {
       var value = this.form.value;
 
-      var obUser:user;
-      obUser.user = value.user;
-      obUser.password = value.password;
-      var obLogin:Login;
-      obLogin.obUser= obUser;
+      let obLogin:Login=new Login();
+      obLogin.user = value.user;
+      obLogin.password = value.password;
 
       this.authService.loginUser(obLogin).subscribe(
-        data=> this.correctLogin(data),
-        error=>console.log(error)
+        data=>{
+           this.authService.setSession(data);
+            this.router.navigate(['/home/videos']);
+            console.log(data);
+        },
+        
+        error=>
+        {
+          console.log(error)
+          this.loginError=true;
+        }
+        
       );
 
     }
   }
-  private correctLogin(data: Login){
-    this.authService.setSession(data);
-    console.log(data);
-    this.router.navigate(['/home/videos']);
-  }
+
 }

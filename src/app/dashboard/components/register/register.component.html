@@ -34,6 +34,9 @@
         Debe digitar una contraseña
       </div>
     </div>
+    <div class="alert alert-secondary" role="alert" *ngIf="successRegister">
+      Datos registrados con éxito!
+    </div>
     <button type="submit" class="btn btnEnviar" [disabled]="form.invalid">Registrarme</button>
   </form>
 </section>

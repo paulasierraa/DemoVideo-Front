@@ -29,8 +29,10 @@
           <div id="validationServerPasswordFeedback" class="invalid-feedback"> 
             Debe digitar una contraseña
           </div>
+        </div>    
         </div>
-         
+        <div class="alert alert-danger" role="alert" *ngIf="loginError">
+         <strong>Error! </strong> usuario y/o contraseña incorrecta
         </div>
       <button type="submit" class="btn btnEnviar" [disabled]="form.invalid">Ingresar</button>
     </form>
@@ -43,5 +45,4 @@
                   </div>
                   <input type="text" id="input1-group1" name="input1-group1" class="form-control" placeholder="Username">
                 </div> -->
- 
 

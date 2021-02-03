@@ -6,18 +6,23 @@ import { NavComponent } from './nav/nav.component';
 import { UploadVideoComponent } from './upload-video/upload-video.component';
 import { VideosComponent } from './videos/videos.component';
 import { NgxFileDropModule } from 'ngx-file-drop';
+import { VideoPlayerComponent } from './video-player/video-player.component';
+import { ReactiveFormsModule, FormsModule } from '@angular/forms';
 
 
 @NgModule({
   declarations: [
     NavComponent,
     UploadVideoComponent,
-    VideosComponent
+    VideosComponent,
+    VideoPlayerComponent,
   ],
   imports: [
     CommonModule,
     MainRoutingModule,
-    NgxFileDropModule
+    NgxFileDropModule,
+    ReactiveFormsModule,
+    FormsModule
   ],
 
 })

@@ -20,6 +20,3 @@ const routes: Routes = [
   exports: [RouterModule]
 })
 export class AppRoutingModule { }
-//tienes cosas que hacer?
-// Dale, estoy leyendo en el celular:v
-//vale entonce slo voy a seguir intentando jaajs

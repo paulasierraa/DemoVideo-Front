@@ -7,11 +7,8 @@
     cursor: pointer;
 }
 .dashboard{
-    background-image: url('../../../../assets/images/f1.jpg') ;
+    background-image: url('src\assets\images\f1.jpg') ;
     height: 100vh;
-    background-repeat: no-repeat;
-    background-image: fixed;
-    background-image: center;
     -webkit-background-size: cover;
     -moz-background-size: cover;
     -o-background-size: cover;
@@ -32,12 +29,3 @@
 
 }
 
-footer{
-    background: #5f56561f !important;
-    width: 100%;
-    position: absolute;
-    bottom: 0;
-}
-footer .texto{
-    color: white;
-}

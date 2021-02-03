@@ -13,7 +13,7 @@ export class UserService {
 
   httpOptions={
     headers: new HttpHeaders({
-      'Content-type':'application/json'
+      'Content-type':'application/json',
     })
     
   }
