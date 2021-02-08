@@ -1,6 +1,6 @@
 <div class="row row-cols-1 row-cols-md-4 g-4" *ngIf="videos.length!==0">
   <div class="col videoPanel" [routerLink]="['/home/play',item.id]" *ngFor="let item of videos">
-    <div class="card">
+    <div class="card video-container">
       <img src="https://phantom-elmundo.unidadeditorial.es/0b02f8d5f415175b0796a8b6e6ae2ace/resize/746/f/jpg/assets/multimedia/imagenes/2020/12/14/16079645639088.jpg" alt="imagenPrueba">
       <div class="card-body">
         <h5 class="card-title">{{item.name}}</h5>

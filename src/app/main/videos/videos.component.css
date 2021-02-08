@@ -1,3 +1,6 @@
 .videoPanel{
     cursor: pointer;
 }
+.video-container{
+    height: 100%;
+}

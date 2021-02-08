@@ -1,4 +1,5 @@
-<section class ="register-container">
+<section class="register-section">
+  <div class="register-container">
   <form class="register_form needs-validation" [formGroup]="form" (ngSubmit)="register()">
     <h2>Registrarse</h2>
     <div class="mb-3 datos">
@@ -39,5 +40,6 @@
     </div>
     <button type="submit" class="btn btnEnviar" [disabled]="form.invalid">Registrarme</button>
   </form>
+</div>
 </section>
 

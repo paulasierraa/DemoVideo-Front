@@ -12,10 +12,11 @@ export class NavComponent implements OnInit {
 
   ngOnInit() {
     this.getUrl();
+
   }
 
   getUrl()
     {
-      return this.router.url;
+      return this.router.url;    
     }
 }

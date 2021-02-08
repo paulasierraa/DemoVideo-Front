@@ -1,6 +1,6 @@
 
-
- <section class ="login-container">
+ <section class="login-section">
+   <div class="login-container">
     <form class="login_form" [formGroup]="form" (ngSubmit)="login()">
       <h2>Iniciar Sesión</h2>
         <div class="mb-3 datos">
@@ -37,6 +37,8 @@
       <button type="submit" class="btn btnEnviar" [disabled]="form.invalid">Ingresar</button>
     </form>
     <p class="login__container--register">No tienes ninguna cuenta      <a routerLink="/register">    Regístrate</a></p>
+    
+   </div>
   </section>
   
     <!-- <div class="input-group">

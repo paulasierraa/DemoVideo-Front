@@ -1,0 +1,43 @@
+.section-title{
+    font-size: 46px;
+    font-weight: 600;
+    color: #232938;
+    text-align: center;
+}
+.section-description{
+    text-align: center;
+}
+.card-img-top{
+    height: 300px;
+}
+.skill-title{
+    font-size: 18px;
+    margin-bottom: 3px;
+}
+
+.skill-pill{
+    color:white;
+    margin-right: 5px;
+    padding: 4px;
+}
+.prize-content{
+    display:flex;
+    margin:15px 0px;
+}
+.prize-icon{
+    width: 21px;
+    margin-right: 7px;
+}
+.prize-info{
+    margin-bottom: 0;
+}
+.btn44{
+  
+        background: transparent;
+        border: 2px solid #efa44b;
+        color: #efa44b
+}
+.btn44:hover {
+    background: #efa44b;
+    color: #fff
+}

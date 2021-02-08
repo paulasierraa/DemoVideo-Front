@@ -7,6 +7,7 @@ import { LoginComponent } from './components/login/login.component';
 import { RegisterComponent } from './components/register/register.component';
 import {ReactiveFormsModule,FormsModule} from '@angular/forms';
 import { FooterComponent } from './components/footer/footer.component';
+import { ChallengeComponent } from './components/challenge/challenge.component';
 
 @NgModule({
   declarations: [
@@ -14,6 +15,7 @@ import { FooterComponent } from './components/footer/footer.component';
   LoginComponent,
   RegisterComponent,
   FooterComponent,
+  ChallengeComponent,
   ],
   imports: [
     CommonModule,
