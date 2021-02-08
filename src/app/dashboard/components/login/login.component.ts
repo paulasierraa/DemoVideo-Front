@@ -2,9 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { AuthService } from '../../../services/auth/auth.service';
 import { Router } from '@angular/router';
 import { Login } from '../../../models/Login.model';
-import { user } from '../../../models/user.model';
 import{FormBuilder,FormGroup,Validators} from '@angular/forms';
-import { ObjectUnsubscribedError } from 'rxjs';
 
 @Component({
   selector: 'app-login',
@@ -48,6 +46,7 @@ export class LoginComponent implements OnInit {
         error=>
         {
           this.loginError=true;
+          console.log(error);
         }
         
       );

@@ -1,0 +1,10 @@
+.btnEnviar{
+    background-color: #c79812;
+    color:white;
+}
+.info-container{
+    display: flex;
+    justify-content: center;
+    margin-top: 50px;
+    margin-top: 40vh;
+}
