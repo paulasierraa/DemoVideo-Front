@@ -7,8 +7,8 @@ import { LoginComponent } from './components/login/login.component';
 import { RegisterComponent } from './components/register/register.component';
 import {ReactiveFormsModule,FormsModule} from '@angular/forms';
 import { FooterComponent } from './components/footer/footer.component';
-import { ChallengeComponent } from './components/challenge/challenge.component';
-import { ChallengeInfoComponent } from './components/challenge-info/challenge-info.component';
+import { ChallengeComponent } from '../challenge/components/challenge/challenge.component';
+import { ChallengeInfoComponent } from '../challenge/components/challenge-info/challenge-info.component';
 
 @NgModule({
   declarations: [

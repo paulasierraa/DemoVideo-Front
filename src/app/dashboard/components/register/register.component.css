@@ -1,12 +1,15 @@
 
+.register-section{
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
 .register-container{
-
+    width: 500px;
     background-color: #000000b5; 
-       margin: 0 auto;
     padding: 60px 68px 40px;
     border-radius: 40px;
-    vertical-align: middle;
-    margin-top: 50px;
     color:white;
 }
 .register-container h2{
@@ -17,6 +20,9 @@
     display: flex;
     flex-direction: column;
 }
+.invalid-feedback p{
+  margin: 0;
+}
 .register_form .btnEnviar{
     margin-top: 25px;
     margin-bottom: 38px;
@@ -25,14 +31,13 @@
 background-color: #c79812;
 color:white;
 }
-@media only screen and (min-width: 534px) {
+
+  @media only screen and (max-width: 540px) {
     .register-container{
-      width: 500px;
+      width: 100%;
     }
-  }
-  @media only screen and (max-width: 368px) {
     .register-container{
-      padding: 15px 68px 5px;
-      margin-top: 7px;
+      padding: 15px 35px 0px;
+      margin-top: 70px;
     }
   }

@@ -7,8 +7,10 @@
 .nav{
     background-color: #e7e7e74f;
 }
+
 .nav-item a
-{
+{    
+    text-align: center;
     cursor: pointer;
 }
 
@@ -61,5 +63,12 @@
 @media (max-width:628px){
     .banner h2{
         font-size: 50px;
+    }
+}
+
+@media (min-width: 992px)
+{
+    .navbar-expand-lg .navbar-collapse{
+        justify-content: flex-end;
     }
 }

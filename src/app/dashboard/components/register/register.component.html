@@ -5,10 +5,11 @@
     <div class="mb-3 datos">
       <label for="nombretxt" class="form-label">Nombre</label>
         <input type="text" class="form-control" formControlName="name" id="nombretxt"
-        [ngClass]="{'is-invalid': form.get('name')?.dirty && form.get('name')?.hasError('required')}" 
+        [ngClass]="{'is-invalid': form.get('name')?.dirty && form.get('name')?.hasError('required')||form.get('name')?.hasError('pattern')}" 
         required/>
       <div id="validationServerNameFeedback" class="invalid-feedback"> 
-        Debe digitar un nombre
+       <p *ngIf="form.get('name')?.hasError('required')"> Debe digitar un nombre</p>
+       <p *ngIf="form.get('name')?.hasError('pattern')"> Este campo sólo admite letras</p>
       </div>
     </div>
     <div class="mb-3 datos">
@@ -38,6 +39,9 @@
     <div class="alert alert-secondary" role="alert" *ngIf="successRegister">
       Datos registrados con éxito!
     </div>
+    <div class="alert alert-danger" role="alert" *ngIf="registerError">
+      <strong>Error! </strong> {{message}}
+     </div>
     <button type="submit" class="btn btnEnviar" [disabled]="form.invalid">Registrarme</button>
   </form>
 </div>

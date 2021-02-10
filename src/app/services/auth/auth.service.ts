@@ -67,7 +67,7 @@ export class AuthService {
   logOutUser()
   {
     localStorage.removeItem('currentUser');
-    // return this.http.post(`${environment.url_api}/logout`,this.httpOptions);
+    return this.http.post(`${environment.url_api}/logout`,this.httpOptions);
   }
 
 }

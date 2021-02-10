@@ -9,8 +9,8 @@
             <div class="input-group-prepend">
               <span class="input-group-text"><i class="fa fa-user"></i></span>
             </div>
-            <input type="text" class="form-control" formControlName="user" id="usuariotxt" 
-            [ngClass]="{'is-invalid': form.get('user')?.dirty && form.get('user')?.hasError('required')}"
+            <input type="text" class="form-control" formControlName="user" id="usuariotxt"
+            [ngClass]="{'is-invalid': form.get('user')?.dirty && form.get('user')?.hasError('required') || form.get('user')?.hasError('pattern')}"
             required />
             <div id="validationServerUsernameFeedback" class="invalid-feedback"> 
               Debe digitar un usuario
@@ -32,7 +32,7 @@
         </div>    
         </div>
         <div class="alert alert-danger" role="alert" *ngIf="loginError">
-         <strong>Error! </strong> usuario y/o contraseña incorrecta
+         <strong>Error! </strong> {{message}}
         </div>
       <button type="submit" class="btn btnEnviar" [disabled]="form.invalid">Ingresar</button>
     </form>

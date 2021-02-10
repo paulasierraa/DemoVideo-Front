@@ -14,7 +14,10 @@ export class RegisterComponent implements OnInit {
  
   form:FormGroup;
   successRegister:boolean=false;
-  constructor(private formBuilder:FormBuilder,private userService:UserService,private router:Router) {
+  message:string;
+  registerError:boolean=false;
+ 
+    constructor(private formBuilder:FormBuilder,private userService:UserService,private router:Router) {
     this.buildRegister();
    }
 
@@ -29,7 +32,7 @@ export class RegisterComponent implements OnInit {
   {
     this.form = this.formBuilder.group(
       {
-        name:['',Validators.required],
+        name:['',[Validators.required,Validators.pattern('[a-zA-Z *]+')]],
         user:['',Validators.required],
         email:['',[Validators.required,Validators.email]],
         password:['',Validators.required]
@@ -38,9 +41,9 @@ export class RegisterComponent implements OnInit {
   }
   register()
   {
-    if(this.form.valid)
-    {
-      const value = this.form.value;
+    const value = this.form.value;
+    if(this.form.valid&&value.name.trim()!=""&&value.user.trim()!="")
+    { 
       let obuser:user = new user();
       obuser.name=value.name;
       obuser.email=value.email;
@@ -49,10 +52,14 @@ export class RegisterComponent implements OnInit {
       this.userService.create(obuser)
       .subscribe() 
       {
-        this.successRegister=true;
+        this.successRegister=true; 
         setTimeout(()=>this.router.navigate(['/login']),1500);      
        
       }
+    }
+    else{
+      this.message="Debe completar todos los campos";
+      this.registerError=true;
     }
   }
   

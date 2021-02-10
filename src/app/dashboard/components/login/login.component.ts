@@ -13,6 +13,7 @@ export class LoginComponent implements OnInit {
 
   form!:FormGroup;
   loginError:boolean=false;
+  message: string;
   constructor(private formBuilder:FormBuilder,private authService:AuthService
     , private router:Router) {
     this.buildLogin();
@@ -23,22 +24,21 @@ export class LoginComponent implements OnInit {
   private buildLogin()
   {
     this.form=this.formBuilder.group({
-      user:['',Validators.required],
+      user:['',[Validators.required]],
       password:['',Validators.required]
     });
   }
   login()
   {
-    if(this.form.valid)
+    var value = this.form.value;
+    if(this.form.valid&&value.user.trim()!=""&&value.password.trim()!="")
     {
-      var value = this.form.value;
-
       let obLogin:Login=new Login();
       obLogin.user = value.user;
       obLogin.password = value.password;
-
       this.authService.loginUser(obLogin).subscribe(
         data=>{ 
+           this.loginError=false;
            this.authService.setSession(data);
             this.router.navigate(['/home/videos']);
          
@@ -46,12 +46,24 @@ export class LoginComponent implements OnInit {
         error=>
         {
           this.loginError=true;
-          console.log(error);
+
+          if(error.error.non_field_errors)
+          {
+            this.message=error.error.non_field_errors[0];
+          }
+         else{
+           this.message="";
+         }
         }
         
       );
 
     }
+    else{
+      this.message="Debe completar todos los campos";
+      this.loginError=true;
+     
+    }
   }
-
+  
 }
