@@ -2,18 +2,28 @@
   <form  class="mt-4"(ngSubmit)="uploadVideo()" [formGroup]="form">
     <div class="mb-3">
       <label for="nombretxt" class="form-label">Nombre del video</label>
-      <input type="text" class="form-control" formControlName="name" name="name"id="nombretxt" aria-describedby="nameHelp" >
+      <input type="text" class="form-control" formControlName="name" name="name"id="nombretxt" aria-describedby="nameHelp"
+      [ngClass]="{'is-invalid':form.get('name')?.dirty  && form.get('name')?.hasError('required')}">
+      <div id="validationServerUsernameFeedback" class="invalid-feedback"> 
+        Debe digitar un nombre
+      </div>
     </div>
     <div class="mb-3">
       <label class="form-label">Descripción</label>
-      <div class="form-floating">
-        <textarea class="form-control" formControlName="description" name="description" placeholder="Describe tu video" id="floatingTextarea2" style="height: 100px"></textarea>
+        <textarea class="form-control " formControlName="description" name="description" placeholder="Describe tu video" id="floatingTextarea2" style="height: 100px"
+        [ngClass]="{'is-invalid':form.get('description')?.dirty  && form.get('description')?.hasError('required')||form.get('description')?.hasError('minlength')}">
+        ></textarea>
+      <div id="validationServerUsernameFeedback" class="invalid-feedback"> 
+         
+         <p *ngIf="form.get('description')?.hasError('required')">Debe digitar una descripción </p>
+         <p *ngIf="form.get('description')?.hasError('minlength')">La descripción debe tener almenos 10 caracteres</p>
       </div>
     </div>
        <!--FILEDROP-->
     <label class="form-label">Inserta tu vídeo</label>
-    <div class="center" *ngIf="myFile===undefined">
+    <div class="center">
       <ngx-file-drop
+      *ngIf="myFile===undefined||myFile===null"
       accept="audio/*,video/*,image/*"
       dropZoneLabel="Drop files here"
      (onFileDrop)="dropped($event)" (onFileOver)="fileOver($event)" (onFileLeave)="fileLeave($event)" >
@@ -47,7 +57,10 @@
     <div class="alert alert-success" role="alert" *ngIf="enviado">
       Vídeo cargado con éxito!
     </div>
-    <button type="submit" class="btn btn-primary" [disabled]="!isValid()">Subir</button>
+    <div class="d-flex justify-content-center mt-4">
+      <button type="submit" class="btn btn-primary"  [disabled]="!isValid()">Subir Vídeo</button>
+    </div>
+    
   </form> 
 </section>
 

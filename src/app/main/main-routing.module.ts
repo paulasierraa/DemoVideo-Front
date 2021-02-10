@@ -4,6 +4,7 @@ import { VideosComponent } from './components/videos/videos.component';
 import { UploadVideoComponent } from './components/upload-video/upload-video.component';
 import { NavComponent } from './components/nav/nav.component';
 import { VideoPlayerComponent } from './components/video-player/video-player.component';
+import { CreateEventComponent } from './components/create-event/create-event.component';
 const routes: Routes = [
   {
     path:'',
@@ -20,6 +21,10 @@ const routes: Routes = [
       {
         path:'play/:id',
         component:VideoPlayerComponent
+      },
+      {
+        path:'create-event',
+        component:CreateEventComponent
       }
     ]
   }

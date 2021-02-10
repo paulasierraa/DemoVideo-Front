@@ -8,6 +8,7 @@ import { VideosComponent } from './components/videos/videos.component';
 import { NgxFileDropModule } from 'ngx-file-drop';
 import { VideoPlayerComponent } from './components/video-player/video-player.component';
 import { ReactiveFormsModule, FormsModule } from '@angular/forms';
+import { CreateEventComponent } from './components/create-event/create-event.component';
 
 
 @NgModule({
@@ -16,6 +17,7 @@ import { ReactiveFormsModule, FormsModule } from '@angular/forms';
     UploadVideoComponent,
     VideosComponent,
     VideoPlayerComponent,
+    CreateEventComponent,
   ],
   imports: [
     CommonModule,

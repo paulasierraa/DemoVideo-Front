@@ -1,0 +1,10 @@
+.create-event{
+    width: 500px;
+    margin:0 auto;
+    height: 100%;
+}
+.fileDescription
+{
+  display: flex;
+  justify-content: space-between;
+}

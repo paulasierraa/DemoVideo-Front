@@ -13,6 +13,7 @@ export class LoginComponent implements OnInit {
 
   form!:FormGroup;
   loginError:boolean=false;
+ public static loginEvent:boolean=false;
   message: string;
   constructor(private formBuilder:FormBuilder,private authService:AuthService
     , private router:Router) {
@@ -40,7 +41,14 @@ export class LoginComponent implements OnInit {
         data=>{ 
            this.loginError=false;
            this.authService.setSession(data);
+           if(!LoginComponent.loginEvent)
+           {
             this.router.navigate(['/home/videos']);
+           }
+           else{
+            this.router.navigate(['/home/upload']);
+           }
+           
          
         },
         error=>

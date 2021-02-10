@@ -2,8 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { NgxFileDropEntry, FileSystemFileEntry, FileSystemDirectoryEntry } from 'ngx-file-drop';
 import { VideoService } from '../../../services/video/video.service';
 import { FormBuilder, Validators, FormGroup } from '@angular/forms';
-import { Video } from '../../../models/Video';
 import { Router } from '@angular/router';
+import { LoginComponent } from '../../../dashboard/components/login/login.component';
 
 @Component({
   selector: 'app-upload-video',
@@ -19,28 +19,41 @@ export class UploadVideoComponent implements OnInit {
   //creamos un array para guardar los videos
   myFile:File;
   enviado:boolean=false;
-  state:boolean=false;
+  selected:boolean=false;
 
   ngOnInit() {
-    this.buildUpload();
+    this.buildUpload(); //construimos el formulario
+    LoginComponent.loginEvent=false;
   }
+
   buildUpload()
   {
     this.form = this.formBuilder.group(
       {
         name:['',Validators.required],
-        description:['',Validators.required],
+        description:['',[Validators.required,Validators.minLength(10)]],
         video:['',Validators.required],
       }
     );
   }
  
-  getFileDetails(e){
+  getFileDetails(e){ //obtenemos los detalles del archivo seleccionado
      
       this.myFile=<File>e.target.files[0];
+      this.selected=true;
       this.validateType();
   }
 
+  public dropped(files: NgxFileDropEntry[]) {
+    this.files = files;
+    if (this.files[0].fileEntry.isFile) {
+      const fileEntry = this.files[0].fileEntry as FileSystemFileEntry;
+      fileEntry.file((file: File) => { 
+        this.myFile=file;
+       this.validateType();
+      });
+    }
+  }
   public uploadVideo()
   {
     if(this.form.valid&&this.myFile!=undefined)
@@ -54,24 +67,13 @@ export class UploadVideoComponent implements OnInit {
       console.log(this.myFile.size);
       
   
-      // this.videoService.upload(formData).subscribe(data=>{
-      //   this.enviado=true;
-      //   setTimeout(()=>(this.router.navigate(['/home/videos'])),1200);
+      this.videoService.upload(formData).subscribe(data=>{
+        this.enviado=true;
+        setTimeout(()=>(this.router.navigate(['/home/videos'])),1200);
         
-      // });
-    }
- 
-  }
-  public dropped(files: NgxFileDropEntry[]) {
-    this.files = files;
-    if (this.files[0].fileEntry.isFile) {
-      const fileEntry = this.files[0].fileEntry as FileSystemFileEntry;
-      fileEntry.file((file: File) => {
-        
-        this.myFile=file;
-        this.validateType();
       });
     }
+ 
   }
   public fileOver(event:Event){
     console.log(event);
@@ -81,6 +83,7 @@ export class UploadVideoComponent implements OnInit {
     console.log(event);
   }
   public deleteVideo():void{
+    this.myFile=null;
     this.files=[];
   }
   public isValid():boolean{
@@ -90,7 +93,7 @@ export class UploadVideoComponent implements OnInit {
     }
     return false;
   }
-  public validateType():void{
+  public validateType():void{ //elimina los archivos que no son de tipo video o imagen
 
     if(this.myFile!==undefined)
     if(!this.myFile.type.includes("video")&&!this.myFile.type.includes("image"))
