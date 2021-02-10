@@ -1,8 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { NgxFileDropEntry, FileSystemFileEntry, FileSystemDirectoryEntry } from 'ngx-file-drop';
-import { VideoService } from '../../services/video/video.service';
+import { VideoService } from '../../../services/video/video.service';
 import { FormBuilder, Validators, FormGroup } from '@angular/forms';
-import { Video } from '../../models/Video';
+import { Video } from '../../../models/Video';
 import { Router } from '@angular/router';
 
 @Component({

@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { VideoService } from '../../services/video/video.service';
-import { Video } from '../../models/Video';
+import { VideoService } from '../../../services/video/video.service';
+import { Video } from '../../../models/Video';
 
 @Component({
   selector: 'app-videos',
@@ -15,7 +15,7 @@ export class VideosComponent implements OnInit {
   ngOnInit() {
     this.videoService.getAll().subscribe(data=>{
       this.videos=data;
-    });
+    }); 
   }
 
 }

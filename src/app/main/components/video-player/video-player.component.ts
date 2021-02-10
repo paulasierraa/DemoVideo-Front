@@ -2,7 +2,7 @@ import { Component, ElementRef, Input, OnDestroy, OnInit, ViewChild, ViewEncapsu
 import { Video } from 'src/app/models/Video';
 
 import videojs from 'video.js';
-import { VideoService } from '../../services/video/video.service';
+import { VideoService } from '../../../services/video/video.service';
 import { ActivatedRoute, Params } from '@angular/router';
 @Component({
   selector: 'app-video-player',
