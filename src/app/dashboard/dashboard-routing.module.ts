@@ -4,7 +4,8 @@ import { Routes, RouterModule } from '@angular/router';
 import {LoginComponent} from './components/login/login.component';
 import { NavComponent } from './components/nav/nav.component';
 import {RegisterComponent} from './components/register/register.component';
-import { ChallengeInfoComponent } from '../challenge/components/challenge-info/challenge-info.component';
+import { EventDetailComponent } from '../events/components/event-detail/event-detail.component';
+
 const routes: Routes = [
   {
     path:'',
@@ -20,7 +21,7 @@ const routes: Routes = [
       },
       {
         path:'information',
-        component: ChallengeInfoComponent
+        component: EventDetailComponent
       }
     ]
   }
