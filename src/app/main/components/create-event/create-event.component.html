@@ -1,7 +1,7 @@
 
 <section class="create-event">
     <p class="h3 mb-3">Evento</p>
-    <form [formGroup]="form">
+    <form [formGroup]="form" (ngSubmit)="createrEvent()">
         <div class="mb-3">
           <label for="namelbl" class="form-label ">Nombre del evento</label>
           <input type="text" formControlName="name" class="form-control" id="namelbl"
@@ -46,12 +46,20 @@
             <!-- Drop file -->
             <div class="center">
                 <ngx-file-drop
+                class="file-drop"
                 *ngIf="myFile===undefined||myFile===null"
-                accept="audio/*,video/*,image/*"
+                accept="image/*"
                 dropZoneLabel="Drop files here"
-               (onFileDrop)="dropped($event)" >
+                (onFileDrop)="dropped($event)"
+                 >
                     <ng-template  ngx-file-drop-content-tmp let-openFileSelector="openFileSelector">
-                      Arrastra tu vídeo aquí.
+                      <div class="drop-content">
+                        <p>Arrastra tu vídeo aquí.</p>
+                        o
+                        <button type="button" class="navigate-btn" (click)="openFileSelector()">buscalo</button>
+                      </div>
+             
+
                     </ng-template>
                 </ngx-file-drop>
                 <div class="upload-table">
@@ -72,8 +80,6 @@
                     </table>
                 </div>
             </div>
-            <!--Select file-->
-            <input type="file" *ngIf="files.length===0" formControlName="flayer" class="form-control"  name="videofile" accept="video/*,image/*" id="formFile">
           </div>
         <button type="submit" class="btn btn-primary" [disabled]="form.invalid">Crear evento</button>
       </form>

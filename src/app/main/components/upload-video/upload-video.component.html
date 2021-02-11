@@ -26,16 +26,20 @@
       *ngIf="myFile===undefined||myFile===null"
       accept="audio/*,video/*,image/*"
       dropZoneLabel="Drop files here"
-     (onFileDrop)="dropped($event)" (onFileOver)="fileOver($event)" (onFileLeave)="fileLeave($event)" >
+     (onFileDrop)="dropped($event)">
           <ng-template  ngx-file-drop-content-tmp let-openFileSelector="openFileSelector">
-            Arrastra tu vídeo aquí.
+            <div class="drop-content">
+              <p>Arrastra tu vídeo aquí.</p>
+              o
+              <button type="button" class="navigate-btn" (click)="openFileSelector()">buscalo</button>
+            </div>
           </ng-template>
       </ngx-file-drop>
       <div class="upload-table">
           <table class="table">
               <thead>
                   <tr>
-                      <th>Nombre del archivo</th>
+                      <th>Tu archivo</th>
                   </tr>
               </thead>
               <tbody class="upload-name-style">
@@ -50,10 +54,6 @@
       </div>
   </div>
     <!--/FILEDROP  -->
-    <div class="mb-3" *ngIf="files.length===0">
-      <label for="formFile" class="form-label">o seleccionalo</label>
-      <input type="file" class="form-control" formControlName="video" name="videofile" accept="video/*,image/*" id="formFile" (change)="getFileDetails($event)">
-    </div>
     <div class="alert alert-success" role="alert" *ngIf="enviado">
       Vídeo cargado con éxito!
     </div>

@@ -42,8 +42,22 @@ export class CreateEventComponent implements OnInit {
       });
     }
   }
+  createrEvent()
+  {
+    console.log(this.myFile);
+  }
   public deleteVideo():void{
     this.myFile=null;
     this.files=[];
+  }
+  public validateType():void{ //elimina los archivos que no son de tipo video o imagen
+
+    if(this.myFile!==undefined)
+    if(!this.myFile.type.includes("image"))
+    {
+        this.myFile=null;
+        this.form.get('video').reset();
+        this.deleteVideo();
+    }
   }
 }

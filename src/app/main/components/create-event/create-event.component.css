@@ -3,6 +3,21 @@
     margin:0 auto;
     height: 100%;
 }
+.drop-content
+{
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+}
+.drop-content .navigate-btn{
+  border:none;
+  background-color: white;
+  color: #0782d0;
+  font-weight: 600;
+}
+.drop-content p,button{
+  margin: 0;
+}
 .fileDescription
 {
   display: flex;

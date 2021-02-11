@@ -32,17 +32,10 @@ export class UploadVideoComponent implements OnInit {
       {
         name:['',Validators.required],
         description:['',[Validators.required,Validators.minLength(10)]],
-        video:['',Validators.required],
       }
     );
   }
- 
-  getFileDetails(e){ //obtenemos los detalles del archivo seleccionado
-     
-      this.myFile=<File>e.target.files[0];
-      this.selected=true;
-      this.validateType();
-  }
+
 
   public dropped(files: NgxFileDropEntry[]) {
     this.files = files;
@@ -75,13 +68,7 @@ export class UploadVideoComponent implements OnInit {
     }
  
   }
-  public fileOver(event:Event){
-    console.log(event);
-  }
-
-  public fileLeave(event:Event){
-    console.log(event);
-  }
+ 
   public deleteVideo():void{
     this.myFile=null;
     this.files=[];
