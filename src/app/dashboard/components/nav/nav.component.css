@@ -14,7 +14,7 @@
     cursor: pointer;
 }
 
-.dashboard{
+.dashboard{ 
     position: relative;
     height: 100%;
     background-image: url('src\assets\images\f1.jpg');

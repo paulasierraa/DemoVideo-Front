@@ -1,3 +1,4 @@
+
 .section-title{
     font-size: 46px;
     font-weight: 600;
@@ -90,4 +91,16 @@
 .list-challenges:hover .event-card:hover{
     transform: scale(1.01);
     opacity: 1;
+}
+.carousel-control-prev-icon img{
+    width: 50px;
+    height: 50px;
+}
+.carousel-control-next-icon img
+{
+    width: 50px;
+    height: 50px;
+}
+.carousel-inner{
+    padding: 10px;
 }
