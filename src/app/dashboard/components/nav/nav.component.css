@@ -4,8 +4,18 @@
 .main-dashboard{
     height: 99vh;
 }
+.navbar-brand{
+    background-image: url("../../../../assets/images/Logo_Insiider.png");
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    -webkit-background-size: cover;
+    width: 150px;
+    height: 50px;
+}
 .nav{
     background-color: #e7e7e74f;
+
 }
 
 .nav-item a
@@ -13,7 +23,17 @@
     text-align: center;
     cursor: pointer;
 }
-
+.nav .sticky-nav{
+    box-shadow: -4px 11px 8px -8px rgba(25,25,25,0.86);
+}
+.sticky-nav{
+    position: fixed;
+    z-index: 99;
+    top: 0;
+}
+.sticky-nav a{
+    color: black;
+}
 .dashboard{ 
     position: relative;
     height: 100%;
@@ -56,10 +76,12 @@
     justify-content:flex-end;
 }
 .banner h2{
-   color: #c79812;
+   color: #FF9900;
    margin-right: 25px;
 
 }
+
+
 @media (max-width:628px){
     .banner h2{
         font-size: 50px;

@@ -1,5 +1,5 @@
-import { Component, OnInit } from '@angular/core';
-import { Router } from '@angular/router';
+import { Component, OnInit,HostListener } from '@angular/core';
+import { Router, Event } from '@angular/router';
 
 @Component({
   selector: 'app-nav',
@@ -7,16 +7,34 @@ import { Router } from '@angular/router';
   styleUrls: ['./nav.component.css']
 })
 export class NavComponent implements OnInit {
+  
+  constructor(private router:Router) { 
 
-  constructor(private router:Router) { }
-
+  }
+  scrHeight:any;
+  scrWidth:any;
+  principalWindow:boolean;
   ngOnInit() {
     this.getUrl();
-
   }
 
   getUrl()
     {
       return this.router.url;    
     }
+
+  @HostListener("window:scroll", ['$event'])
+  doSomethingOnWindowsScroll($event){
+    let scrollOffset = $event.srcElement.children[0].scrollTop;
+    //console.log("window scroll: ", scrollOffset);
+    if(scrollOffset>=700)
+    {
+      this.principalWindow=true;
+    }
+    else{
+      this.principalWindow=false;
+    }
+  }
+
+ 
 }

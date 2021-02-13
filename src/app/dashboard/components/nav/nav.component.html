@@ -1,39 +1,68 @@
-  <section class="main" [ngClass]="{'main-dashboard':getUrl()==='/'||getUrl()==='','main-auth':getUrl()==='/login'||getUrl()==='/register'||getUrl()==='/information'}"><!--Dependiendo la ruta , será la altura de la imagen-->
+<section
+  (window:scroll)="doSomethingOnWindowsScroll($event)"
+  class="main"
+  [ngClass]="{
+    'main-dashboard': getUrl() === '/' || getUrl() === '',
+    'main-auth':
+      getUrl() === '/login' ||
+      getUrl() === '/register' ||
+      getUrl() === '/information'
+  }"
+>
+  <!--Dependiendo la ruta , será la altura de la imagen-->
 
-      <div class="dashboard container-fluid" [ngClass]="{'dash2':getUrl()==='/'}">  <!--Agrega el divisor-->
-        <div class="row">     
-          <nav class="navbar navbar-expand-lg navbar-light dashboard-nav shadow p-3 rounded nav col navbar-toggleable-sm fixed-top">
-            <div class="container-fluid">
-              <a class="navbar-brand" routerLink="">DemoVideo</a>
-             <!-- Collapse button -->
-              <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-                <span class="navbar-toggler-icon"></span>
-              </button>
-              <!-- Collapse content -->
-              <div class="collapse navbar-collapse" id="navbarNav">
-                <ul class="navbar-nav">
-                  <li class="nav-item">
-                    <a class="nav-link active" aria-current="page" routerLink="register">Registrarse</a>
-                  </li>
-                  <li class="nav-item">
-                  <a class="nav-link" routerLink="login">Iniciar sesión</a> 
-                  </li>
-                </ul>
-              </div> 
-              <!-- /Collapse content -->
-            </div>
-          </nav>
-        </div>
- 
-        <div class="banner container-fluid" *ngIf="getUrl()==='/'">
-          <h2 class="display-1">Comienza a crear!</h2> 
-        </div>
-        <div class="overlay">
-          
-        </div>  
-        <router-outlet></router-outlet>
-      </div>
-    </section>
-    <app-event *ngIf="getUrl()==='/'"></app-event>
-    <app-footer></app-footer>
+  <div
+    class="dashboard container-fluid"
+    [ngClass]="{ dash2: getUrl() === '/' }"
+  >
     
+    <div class="row">
+      <nav
+        class="navbar navbar-expand-lg navbar-light dashboard-nav shadow p-3 rounded nav col navbar-toggleable-sm animate__animated "
+        [ngClass]="{ 'sticky-nav animate__fadeInDown': principalWindow === true , 'animate__slideInUp': principalWindow===false}"
+      >
+        <div class="container-fluid">
+          <div class="navbar-brand insider-logo"></div>
+          <!-- Collapse button -->
+          <button
+            class="navbar-toggler"
+            type="button"
+            data-bs-toggle="collapse"
+            data-bs-target="#navbarNav"
+            aria-controls="navbarNav"
+            aria-expanded="false"
+            aria-label="Toggle navigation"
+          >
+            <span class="navbar-toggler-icon"></span>
+          </button>
+          <!-- Collapse content -->
+          <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav">
+              <li class="nav-item">
+                <a class="nav-link" href="#event-section">Eventos</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" routerLink="/">Quienes somos</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" routerLink="login">Iniciar sesión</a>
+              </li>
+            </ul>
+          </div>
+          <!-- /Collapse content -->
+        </div>
+      </nav>
+    </div>
+
+    <div class="banner container-fluid" *ngIf="getUrl() === '/'">
+      <h2 class="display-1">Comienza a crear!</h2>
+    </div>
+    <div class="overlay"></div>
+    <router-outlet
+      id="event-section"
+      [ngClass]="{ 'fixed-top': principalWindow }"
+    ></router-outlet>
+  </div>
+</section>
+<app-event *ngIf="getUrl() === '/'"></app-event>
+<app-footer></app-footer>

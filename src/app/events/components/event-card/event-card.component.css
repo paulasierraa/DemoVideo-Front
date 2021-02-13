@@ -1,13 +1,3 @@
-
-.section-title{
-    font-size: 46px;
-    font-weight: 600;
-    color: #232938;
-    text-align: center;
-}
-.section-description{
-    text-align: center;
-}
 .event-card{
     box-shadow: 1px 9px 16px -5px rgb(0 0 0 / 83%);
     border-radius: 21px 21px 21px 21px;
@@ -84,23 +74,4 @@
     color: #fffdfc;
     font-weight:600;
     border-radius:30px;
-}
-.list-challenges:hover .event-card{
-    opacity:0.3;
-}
-.list-challenges:hover .event-card:hover{
-    transform: scale(1.01);
-    opacity: 1;
-}
-
-.controls img
-{
-    width: 50px;
-    height: 50px;
-}
-.carousel-control-prev{
-    justify-content: flex-end;
-}
-.carousel-control-next{
-    justify-content: end;
 }
