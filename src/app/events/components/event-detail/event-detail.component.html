@@ -1,12 +1,23 @@
 <section class="detail-section">
     <div class="detail-container">
-        <div class="detail-image">
-            <img src="../../../../assets/images/dash2.jpg" alt="" srcset="">
-            <div class="creator-info">
-                <i class="fas fa-user creator-icon"></i>
-                <p class="creator-name">Nombre de creador</p>
-            </div>
-        </div>             
+        <div class="flayer-skills">
+            <div class="detail-image">
+                <img src="../../../../assets/images/dash2.jpg" alt="" srcset="">
+                <div class="creator-info">
+                    <i class="fas fa-user creator-icon"></i>
+                    <p class="creator-name">Nombre de creador</p>
+                </div>
+            </div>    
+            <div class="skills">
+                <hr>
+                <h5>Hábilidades</h5>
+                <span class="skill-pill badge rounded-pill bg-primary"
+                  >Fotografía</span
+                >
+                <span class="skill-pill badge rounded-pill bg-info">Diseño</span>
+              </div>      
+        </div>
+         
         <div class="detail-description">
             <h2 class="animate__animated animate__fadeInRight">Nombre evento</h2>
             <p class="animate__animated animate__fadeInRight animate__delay-05 event-state"><strong>Estado: </strong>Activo</p>
@@ -32,10 +43,10 @@
                     <p>5000</p>
                 </div>
             </div>
-            <div class="send-container">
-                <button type="submit" class="btn btnEnviar" routerLink="/login" (click)="participate()">Quiero participar!</button>
-            </div>
+          
         </div>
     </div>
-   
+    <div class="send-container">
+        <button type="submit" class="btn btnEnviar" routerLink="/login" (click)="participate()">Quiero participar!</button>
+    </div>
 </section>
