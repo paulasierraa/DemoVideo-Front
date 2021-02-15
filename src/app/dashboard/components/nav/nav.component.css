@@ -10,6 +10,7 @@
     background-position: center;
     background-repeat: no-repeat;
     -webkit-background-size: cover;
+    cursor: pointer;
     width: 150px;
     height: 50px;
 }

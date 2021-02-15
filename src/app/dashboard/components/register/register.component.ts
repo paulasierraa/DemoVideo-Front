@@ -16,7 +16,7 @@ export class RegisterComponent implements OnInit {
   successRegister:boolean=false;
   message:string;
   registerError:boolean=false;
- 
+  isText:boolean=false;
     constructor(private formBuilder:FormBuilder,private userService:UserService,private router:Router) {
     this.buildRegister();
    }
@@ -54,7 +54,6 @@ export class RegisterComponent implements OnInit {
       {
         this.successRegister=true; 
         setTimeout(()=>this.router.navigate(['/login']),1500);      
-       
       }
     }
     else{
@@ -62,5 +61,17 @@ export class RegisterComponent implements OnInit {
       this.registerError=true;
     }
   }
-  
+  showPassword()
+  {
+    let passwordInput :any = document.getElementById('passwordtxt');
+    if(!this.isText)
+    {
+      passwordInput.type = "text";
+      this.isText=true;
+    }
+    else{
+      passwordInput.type="password";
+      this.isText=false;
+    }
+  }
 }

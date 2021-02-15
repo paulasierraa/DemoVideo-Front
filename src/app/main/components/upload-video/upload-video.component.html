@@ -26,11 +26,13 @@
       *ngIf="myFile===undefined||myFile===null"
       accept="audio/*,video/*,image/*"
       dropZoneLabel="Drop files here"
-     (onFileDrop)="dropped($event)">
+     (onFileDrop)="dropped($event)"
+     (onChange)="change($event)"
+     id="videoDrop">
           <ng-template  ngx-file-drop-content-tmp let-openFileSelector="openFileSelector">
             <div class="drop-content">
               <p>Arrastra tu vídeo aquí.</p>
-              o
+              o 
               <button type="button" class="navigate-btn" (click)="openFileSelector()">buscalo</button>
             </div>
           </ng-template>

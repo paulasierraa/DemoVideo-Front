@@ -18,6 +18,19 @@
     display: flex;
     flex-direction: column;
 }
+.form-control.is-invalid , .invalid-password .was-validated .form-control:invalid{
+    background-image: none;
+}
+.password--icons__container{
+    cursor: pointer;
+}
+#passwordtxt{
+    border-right: none;
+}
+.password--icons__container{
+    border-left: none;
+    background-color: #fff;
+}
 .login_form .btnEnviar{
     margin-top: 25px;
     margin-bottom: 38px;

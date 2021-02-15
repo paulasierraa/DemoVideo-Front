@@ -8,6 +8,9 @@
 .section-description{
     text-align: center;
 }
+.list-challenges{
+    height: 550px;
+}
 .event-card{
     box-shadow: 1px 9px 16px -5px rgb(0 0 0 / 83%);
     border-radius: 21px 21px 21px 21px;

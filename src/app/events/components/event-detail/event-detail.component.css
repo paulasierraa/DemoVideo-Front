@@ -1,13 +1,100 @@
 
+.animate__delay-05{
+    animation-delay: 0.5s;
+}
 .detail-section{
-    height: 80%;
+    /* height: 70%; */
     background-color: #ffffffeb;
-    /* display: flex;
-    justify-content: center; */
-    margin-top: 100px;
+    justify-content: center;
+    margin:30px 40px;
+    border-radius: 30px;
+}
+.event-state{
+    margin-bottom: 0;
+}
+.detail-container{
+    display: flex;
+    padding: 30px 40px;
+}
+.detail-image{
+    width: 30%;
+    height: 320px;
+    position: relative;
+    box-shadow: 0px 10px 13px -7px #000000, 5px 5px 15px 5px rgba(0,0,0,0);
+}
+.detail-image img{
+    position: absolute;
+    width: 100%;
+    height: 100%;
+}
+.creator-info{
+    width: 100%;
+    position: absolute;
+    display: flex;
+    bottom: 0;  
+    padding: 10px;
+    justify-content: flex-start;
+    align-items: center;
+    color: white;
+    background-color: #171212ba;
+}
+.creator-icon{
+    margin: 0px 10px;
+}
+.creator-name{
+    margin-bottom: 0;
+}
+.skills{
+    border:1px solid red;
+    width: 100%;
+    height: 10px;
+}
+.detail-description{
+    width: 70%;
+    padding: 16px 24px;
+}
+.details-prize-participation{
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+}
+.detail-title{
+    font-weight: 800;
+}
 
+.detail-prize img{
+    width: 80px;
+}
+.detail-prize p{
+    margin-bottom: 0;
+    text-align: center;
+}
+.detail-participation
+{
+    display: flex;
+    flex-direction: column;
+}
+.detail-participation img{
+    margin: 0 auto;
+    width: 80px;
+}
+.detail-participation p{
+    margin-bottom: 0;
+    text-align: center;
+}
+.send-container{
+    width: 100%;
+    margin-top: 10px;
+    display: flex;
+    justify-content: flex-end;
 }
 .btnEnviar{
-    background-color: #c79812;
+    background-color: #FF9900;
     color:white;
+}
+@media only screen and (min-width:1280px)
+{
+    .detail-flayer-skills{
+        height: 280px;
+    }
 }

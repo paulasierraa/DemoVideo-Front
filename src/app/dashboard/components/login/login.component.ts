@@ -13,6 +13,7 @@ export class LoginComponent implements OnInit {
 
   form!:FormGroup;
   loginError:boolean=false;
+  isText:boolean=false;
  public static loginEvent:boolean=false;
   message: string;
   constructor(private formBuilder:FormBuilder,private authService:AuthService
@@ -29,6 +30,7 @@ export class LoginComponent implements OnInit {
       password:['',Validators.required]
     });
   }
+
   login()
   {
     var value = this.form.value;
@@ -70,8 +72,19 @@ export class LoginComponent implements OnInit {
     else{
       this.message="Debe completar todos los campos";
       this.loginError=true;
-     
     }
   }
-  
+  showPassword()
+  {
+    let passwordInput :any = document.getElementById('passwordtxt');
+    if(!this.isText)
+    {
+      passwordInput.type = "text";
+      this.isText=true;
+    }
+    else{
+      passwordInput.type="password";
+      this.isText=false;
+    }
+  }
 }

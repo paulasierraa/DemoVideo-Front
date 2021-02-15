@@ -21,9 +21,16 @@
           <div class="input-group">
           <input type="password" class="form-control" id="passwordtxt"  formControlName="password" 
           [ngClass]="{'is-invalid': form.get('password')?.dirty && form.get('password')?.hasError('required')}"/>
-          <div id="validationServerPasswordFeedback" class="invalid-feedback"> 
+          <div class="input-group-prepend">
+            <span class="input-group-text password--icons__container" (click)="showPassword()">
+              <i  *ngIf="!isText"class="fa fa-eye" aria-hidden="true"></i>
+              <i  *ngIf="isText" class="fa fa-eye-slash" aria-hidden="true"></i>
+            </span>
+          </div>
+          <div id="validationServerPasswordFeedback" class="invalid-feedback invalid-password"> 
             Debe digitar una contraseña
           </div>
+        
         </div>    
         </div>
         <div class="alert alert-danger" role="alert" *ngIf="loginError">

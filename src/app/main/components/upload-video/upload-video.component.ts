@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { NgxFileDropEntry, FileSystemFileEntry, FileSystemDirectoryEntry } from 'ngx-file-drop';
 import { VideoService } from '../../../services/video/video.service';
-import { FormBuilder, Validators, FormGroup } from '@angular/forms';
+import { FormBuilder, Validators, FormGroup, ReactiveFormsModule } from '@angular/forms';
 import { Router } from '@angular/router';
 import { LoginComponent } from '../../../dashboard/components/login/login.component';
 
@@ -57,9 +57,6 @@ export class UploadVideoComponent implements OnInit {
       formData.append("name",value.name);
       formData.append("description",value.description);
       formData.append("videofile",this.myFile);
-      console.log(this.myFile.size);
-      
-  
       this.videoService.upload(formData).subscribe(data=>{
         this.enviado=true;
         setTimeout(()=>(this.router.navigate(['/home/videos'])),1200);
@@ -90,8 +87,11 @@ export class UploadVideoComponent implements OnInit {
         this.deleteVideo();
     }
   }
-  
-  
+
+  change(e)
+  {
+    console.log(e.target.duration);
+  }
 }
 
 
