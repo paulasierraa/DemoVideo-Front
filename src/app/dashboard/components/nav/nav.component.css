@@ -4,6 +4,7 @@
 .main-dashboard{
     height: 99vh;
 }
+
 .navbar-brand{
     background-image: url("../../../../assets/images/Logo_Insiider.png");
     background-size: cover;
@@ -83,12 +84,18 @@
 }
 
 
-@media (max-width:628px){
-    .banner h2{
-        font-size: 50px;
+@media (max-width:988px){
+    .details .dashboard{
+        height: auto;
     }
+    
 }
-
+@media screen and (max-width:1150px)
+{
+    /* .details .dashboard{
+        height: auto;
+    } */
+}
 @media (min-width: 992px)
 {
     .navbar-expand-lg .navbar-collapse{

@@ -6,14 +6,16 @@
     'main-auth':
       getUrl() === '/login' ||
       getUrl() === '/register' ||
-      getUrl() === '/information'
+      getUrl() === '/information',
+    'details':getUrl()==='/information'
   }"
 >
   <!--Dependiendo la ruta , será la altura de la imagen-->
 
   <div
+    id="dash"
     class="dashboard container-fluid"
-    [ngClass]="{ dash2: getUrl() === '/' }"
+    [ngClass]="{ dash2: getUrl() === '/'}"
   >
     
     <div class="row">
@@ -59,8 +61,8 @@
     </div>
     <div class="overlay"></div>
     <router-outlet
-      id="event-section"
-      [ngClass]="{ 'fixed-top': principalWindow }"
+      id="event-section"    
+      *ngIf="getUrl() !== '/'"
     ></router-outlet>
   </div>
 </section>

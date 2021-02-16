@@ -2,8 +2,9 @@
 .animate__delay-05{
     animation-delay: 0.5s;
 }
+
 .detail-section{
-    height: 65%;
+    height: 60vh;
     background-color: #ffffffeb;
     justify-content: center;
     margin:30px 40px;
@@ -97,18 +98,83 @@
 }
 .send-container{
     width: 100%;
-    margin-top: 10px;
     display: flex;
     justify-content: flex-end;
 }
 .btnEnviar{
     background-color: #FF9900;
     color:white;
-    margin-right: 70px;
+    margin-top: 20px;
 }
-@media only screen and (min-width:1280px)
-{
-    .detail-flayer-skills{
+@media only screen and (max-width:1280px){
+    .detail-section{
+        height: auto;
+    }
+    .flayer-skills{
         height: 280px;
+    }
+}
+@media only screen and (max-height:860px), (max-width:1322px)
+{
+    .detail-container{
+        padding: 18px 40px;
+    }
+    .detail-description{
+        padding: 0 24px;
+    }
+    .btnEnviar{
+
+        margin-top: 5px;
+    }
+}
+
+@media only screen and (max-width:938px)
+{
+    .flayer-skills{
+        height: 200px;
+    }
+}
+@media only screen and (max-width:860px)
+{
+    .detail-prize img{
+        width: 60px;
+    }
+    .detail-participation img{
+        margin: 0 auto;
+        width: 60px;
+    }
+}
+@media only screen and (max-width:794px){
+    .detail-section{
+        height: auto;
+    }
+    .detail-container{
+        
+        flex-direction: column;
+        padding: 13px 13px;
+    }
+    .flayer-skills{
+        width: 80%;
+        height: 180px;
+        margin: 0 auto;
+    }
+    .detail-description h2{      
+        font-size: 20px;
+        margin-top: 7px;
+    }
+    .detail-description{
+        width: auto;
+        font-size: 15px;
+        text-align: center;
+    }
+    .skills{
+        display: none;
+    }
+    .send-container{
+        margin:0;
+        justify-content: center;
+    }
+    .btnEnviar{
+       margin-right: 0;
     }
 }

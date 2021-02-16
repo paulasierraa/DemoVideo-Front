@@ -20,7 +20,7 @@ export class NavComponent implements OnInit {
 
   getUrl()
     {
-      return this.router.url;    
+      return this.router.url; 
     }
 
   @HostListener("window:scroll", ['$event'])
@@ -35,6 +35,14 @@ export class NavComponent implements OnInit {
       this.principalWindow=false;
     }
   }
+  detailEvent()
+  {
+    if(this.getUrl()==='/information')
+    {
+      let element:any =document.getElementById('dash');
+      element.removeClass("dashboard");
 
+    }
+  }
  
 }
