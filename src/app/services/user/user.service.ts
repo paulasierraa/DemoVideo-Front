@@ -22,12 +22,23 @@ export class UserService {
 
   create(obUser:user)
   {
-    return this.http.post(`${environment.url_api}/register/`,{"username":obUser.getUser(),"first_name":obUser.getName(),"email":obUser.getEmail(),"password":obUser.getPassword()},this.httpOptions).pipe(map(data=>data)); //INSERTAR API
+    return this.http.post(`${environment.url_api}/register/`,{
+      "id_account":obUser.getId(),
+      "username":obUser.getUser(),
+      "password":obUser.getPassword(),
+      "full_name":obUser.getName(),
+      "email":obUser.getEmail(),
+      "gender":obUser.getGender(),
+      "id_city":1,
+      "id_type_login":1,
+      "id_type_account":1,
+      "id_rol":1,
+  },this.httpOptions).pipe(map(data=>data)); //INSERTAR API
   }
 
-  getAll():Observable<user[]>
+  getAll():Observable<Object[]>
   {
-    return this.http.get<user[]>("url");
+    return this.http.get<Object[]>(`${environment.url_api}/register`);
   }
   get(id:string)
   {

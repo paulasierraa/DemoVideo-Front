@@ -8,9 +8,9 @@
       <h2>Registrarse</h2>
       <!-- ID -->
       <div class="mb-3 datos data-container">
-        <div class="data-content">
-          <label for="nombretxt" class="form-label">Identificación</label>
-          <div class="input-group">
+        <div class="data-content personal-info">
+          <label for="idtxt" class="form-label">Identificación</label>
+          <div class="input-group ">
             <select class="form-select" aria-label="Default select example">
               <option selected>CC</option>
             </select>
@@ -22,24 +22,28 @@
               [ngClass]="{
                 'is-invalid':
                   (form.get('id')?.dirty &&
-                    form.get('id')?.hasError('required'))
+                   form.get('id')?.hasError('required')||
+                   form.get('id')?.hasError('pattern'))
               }"
               required
             />
+            <!-- Validate Message -->
             <div id="validationServerNameFeedback" class="invalid-feedback">
-              <p *ngIf="form.get('name')?.hasError('required')">
+              <p *ngIf="form.get('id')?.hasError('required')">
                 Debe digitar una identificación
               </p>
+              <p *ngIf="form.get('id')?.hasError('pattern')">
+                Sólo puede digitar números
+              </p>
             </div>
-          </div>
-
-         
+            <!-- /Validate message -->
+          </div>       
         </div>
         <!-- /ID -->
         <!-- NOMBRE -->
-        <div class="data-content">
-          <label for="nombretxt" class="form-label">Nombre</label>
-          <div class="input-group">
+        <div class="data-content personal-info">
+          <label for="nametxt" class="form-label">Nombre</label>
+          <div class="input-group personal-info">
             <div class="input-group-prepend">
               <span class="input-group-text"
                 ><i class="far fa-address-card"></i
@@ -58,21 +62,22 @@
               }"
               required
             />
+            <div id="validationServerNameFeedback" class="invalid-feedback">
+              <p *ngIf="form.get('name')?.hasError('required')">
+                Debe digitar un nombre
+              </p>
+              <p *ngIf="form.get('name')?.hasError('pattern')">
+                Este campo sólo admite letras
+              </p>
+            </div>
           </div>
-          <div id="validationServerNameFeedback" class="invalid-feedback">
-            <p *ngIf="form.get('name')?.hasError('required')">
-              Debe digitar un nombre
-            </p>
-            <p *ngIf="form.get('name')?.hasError('pattern')">
-              Este campo sólo admite letras
-            </p>
-          </div>
+       
         </div>
       <!-- /NOMBRE -->
       </div>
       <!-- EMAIL -->
       <div class="mb-3 datos ">
-          <label for="correotxt" class="form-label">Correo</label>
+          <label for="emailtxt" class="form-label">Correo</label>
           <div class="input-group">
             <div class="input-group-prepend">
               <span class="input-group-text"
@@ -92,16 +97,17 @@
               }"
               required
             />
+            <div id="validationServerEmailFeedback" class="invalid-feedback">
+              Debe digitar un correo valido
+            </div>
           </div>
-          <div id="validationServerEmailFeedback" class="invalid-feedback">
-            Debe digitar un correo valido
-          </div>
+          
         
       </div>
       <!--/EMAIL -->
       <!-- USER -->
       <div class="mb-3 datos">
-        <label for="usuariotxt" class="form-label">Usuario</label>
+        <label for="usertxt" class="form-label">Usuario</label>
         <div class="input-group">
           <div class="input-group-prepend">
             <span class="input-group-text"><i class="far fa-user"></i></span>
@@ -154,11 +160,12 @@
                 <i  *ngIf="isText" class="fa fa-eye-slash" aria-hidden="true"></i>
               </span>
             </div>
-          </div>
-
+            
           <div id="validationServerPasswordFeedback" class="invalid-feedback">
             Debe digitar una contraseña
           </div>
+          </div>
+
         </div>
       </div>
       <!-- /PASSWORD -->
@@ -166,7 +173,7 @@
       <div class="mb-3 datos data-container ubication">
          <!-- COUNTRY -->
         <div class="data-content">
-          <label for="passwordtxt" class="form-label">País</label>
+          <label for="ubicationcmbx" class="form-label">País</label>
           <div class="input-group">
             <div class="input-group-prepend">
               <span class="input-group-text"
@@ -177,6 +184,7 @@
               class="form-select"
               aria-label="Default select example"
               formControlName="country"
+              id="ubicationcmbx"
             >
               <option selected>Open this select menu</option>
             </select>
@@ -185,7 +193,7 @@
         <!-- COUNTRY -->
         <!-- CITY -->
         <div class="data-content">
-          <label for="passwordtxt" class="form-label">Ciudad</label>
+          <label for="citycmbx" class="form-label">Ciudad</label>
           <div class="input-group">
             <div class="input-group-prepend">
               <span class="input-group-text"
@@ -196,6 +204,7 @@
               class="form-select"
               aria-label="Default select example"
               formControlName="city"
+              id="citycmbx"
             >
               <option selected>Open this select menu</option>
             </select>
@@ -206,7 +215,7 @@
       <!-- GENDER -->
       <div class="mb-3 datos data-container gender">
         <div class="data-content">
-          <label for="gedertxt" class="form-label">Género</label>
+          <label class="form-label">Género</label>
           <div class="input-group">
             <div class="form-check">
               <input

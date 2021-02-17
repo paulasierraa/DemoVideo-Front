@@ -17,11 +17,14 @@ export class RegisterComponent implements OnInit {
   message:string;
   registerError:boolean=false;
   isText:boolean=false;
+  infoUser:Object[];
     constructor(private formBuilder:FormBuilder,private userService:UserService,private router:Router) {
     this.buildRegister();
    }
 
   ngOnInit() {
+    // this.fetchUsers();
+    // console.table(this.infoUser);
   }
   // encrypt(password:string):string
   // {
@@ -32,7 +35,7 @@ export class RegisterComponent implements OnInit {
   {
     this.form = this.formBuilder.group(
       {
-        id:['',[Validators.required]],
+        id:['',[Validators.required,Validators.pattern('[0-9]+')]],
         name:['',[Validators.required,Validators.pattern('[a-zA-Z *]+')]],
         user:['',Validators.required],
         email:['',[Validators.required,Validators.email]],
@@ -56,17 +59,24 @@ export class RegisterComponent implements OnInit {
       obuser.setGender(value.gender);
       obuser.setPassword(value.password);
       console.log(obuser);
-      // this.userService.create(obuser)
-      // .subscribe() 
-      // {
-      //   this.successRegister=true; 
-      //   setTimeout(()=>this.router.navigate(['/login']),1500);      
-      // }
+      this.userService.create(obuser)
+      .subscribe() 
+      {
+        this.successRegister=true; 
+        
+        // setTimeout(()=>this.router.navigate(['/login']),1500);      
+      }
     }
     else{
       this.message="Debe completar todos los campos";
       this.registerError=true;
     }
+  }
+  fetchUsers()
+  {
+    this.userService.getAll().subscribe(data=>{
+      this.infoUser=data;
+    })
   }
   showPassword()
   {

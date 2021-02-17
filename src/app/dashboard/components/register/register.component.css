@@ -1,4 +1,17 @@
 
+span i{
+  color:#000000e8;
+}
+span{
+  background-color: #ffff;
+  border:none;
+}
+input{
+  border:none;
+}
+select{
+ border:none;
+}
 .register-section{
   height: 84%;
   display: flex;
@@ -6,8 +19,7 @@
   align-items: center;
 }
 .register-container{
-  width: 600px;
-    /* width: 50%; */
+    width: 600px;
     background-color: #000000b5; 
     padding: 30px 40px 15px;
     border-radius: 40px;
@@ -16,7 +28,6 @@
 .register-container h2{
     margin-bottom: 25px;
 } 
-
 .register_form{
     display: flex;
     flex-direction: column;
@@ -24,27 +35,16 @@
 .form-control.is-invalid , .invalid-password .was-validated .form-control:invalid{
   background-image: none;
 }
-
-
 .data-container{
   display: flex;
   justify-content: space-between;
 }
-span i{
-  color:#000000e8;
-}
-span{
-  background-color: #ffff;
-  border-right: none;
-}
-input{
-  border-left: none;
-}
-select{
- border:none;
+.personal-info{
+  max-width: 240px;
 }
 .password--icons__container{
   cursor: pointer;
+  border-radius: 0;
 }
 .ubication{
   justify-content: space-evenly;
@@ -58,6 +58,9 @@ select{
 }
 .invalid-feedback p{
   margin: 0;
+}
+.invalid{
+  border: 1px solid #dc3545;
 }
 .register_form .btnEnviar{
     margin-top: 25px;
@@ -89,3 +92,5 @@ color:white;
       margin-top: 70px;
     }
   }
+
+
