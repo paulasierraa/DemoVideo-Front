@@ -1,14 +1,6 @@
 <section
   (window:scroll)="doSomethingOnWindowsScroll($event)"
   class="main"
-  [ngClass]="{
-    'main-dashboard': getUrl() === '/' || getUrl() === '',
-    'main-auth':
-      getUrl() === '/login' ||
-      getUrl() === '/register' ||
-      getUrl() === '/information',
-    'details':getUrl()==='/information'
-  }"
 >
   <!--Dependiendo la ruta , será la altura de la imagen-->
 
@@ -18,7 +10,7 @@
     [ngClass]="{ dash2: getUrl() === '/'}"
   >
     
-    <div class="row">
+    <div class="row dash-container">
       <nav
         class="navbar navbar-expand-lg navbar-light dashboard-nav shadow p-3 rounded nav col navbar-toggleable-sm animate__animated "
         [ngClass]="{ 'sticky-nav animate__fadeInDown': principalWindow === true , 'animate__slideInUp': principalWindow===false}"
@@ -60,11 +52,13 @@
       <h2 class="display-1">Comienza a crear!</h2>
     </div>
     <div class="overlay"></div>
+    <app-footer *ngIf="getUrl() !== '/'"></app-footer>
     <router-outlet
       id="event-section"    
       *ngIf="getUrl() !== '/'"
-    ></router-outlet>
+    >
+  </router-outlet>
   </div>
 </section>
 <app-event *ngIf="getUrl() === '/'"></app-event>
-<app-footer></app-footer>
+<app-footer *ngIf="getUrl() === '/'"></app-footer>

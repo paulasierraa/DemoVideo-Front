@@ -22,7 +22,7 @@ export class UserService {
 
   create(obUser:user)
   {
-    return this.http.post(`${environment.url_api}/register/`,{"username":obUser.user,"first_name":obUser.name,"email":obUser.email,"password":obUser.password},this.httpOptions).pipe(map(data=>data)); //INSERTAR API
+    return this.http.post(`${environment.url_api}/register/`,{"username":obUser.getUser(),"first_name":obUser.getName(),"email":obUser.getEmail(),"password":obUser.getPassword()},this.httpOptions).pipe(map(data=>data)); //INSERTAR API
   }
 
   getAll():Observable<user[]>

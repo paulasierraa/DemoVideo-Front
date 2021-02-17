@@ -10,16 +10,22 @@ import { Login } from '../../models/Login.model';
 })
 export class AuthService {
 
+  private currentSession : Login = new Login();
+
   httpOptions={
     headers: new HttpHeaders({
       'Content-type':'application/json'
     })
     
   }
-  private currentSession : Login = new Login();
+ 
 
   constructor(private http:HttpClient) { 
-     this.currentSession.token = this.loadSessionData(); //cargo la información de la sesión
+     this.currentSession.setToken(this.loadSessionData()); //cargo la información de la sesión
+  }
+
+  loginUser(obLogin:Login){
+    return this.http.post<Login>(`${environment.url_api}/login/`,{"username":obLogin.getUser(),"password":obLogin.getPassword()},this.httpOptions).pipe(map(data=>data));
   }
 
   loadSessionData() //saber qué usuario está en ese momento
@@ -32,33 +38,29 @@ export class AuthService {
     return null;
   }
 
-  loginUser(obLogin:Login):Observable<Login>{
-    return this.http.post<Login>(`${environment.url_api}/login/`,{"username":obLogin.user,"password":obLogin.password},this.httpOptions).pipe(map(data=>data));
-  }
-
-  setSession(session:Login):void { //guardaremos nuestro usuario
+  setSession(token:string,user:string):void { //guardaremos nuestro usuario
      this.currentSession= new Login();
-     this.currentSession.token=session.token;
-    localStorage.setItem('currentUser',this.currentSession.token);
+     this.currentSession.setUser(user);
+     this.currentSession.setToken(token);
+    localStorage.setItem('currentUser',this.currentSession.getToken());
   }
   getCurrentSession(): Login {
     return this.currentSession;
   }
 
-  // getCurrentUser() {
-  //   var session: Login = this.getCurrentSession();
-  //   if(session)
-  //   {
-  //     return session.user;
-  //   }
-  //   return null;
-  // };
+  getCurrentUser() {
+    let session: Login = this.getCurrentSession();
+    if(session)
+    {
+      return session.getUser();
+    }
+    return null;
+  };
 
   getCurrentToken() {
     var session = this.getCurrentSession();
-    return (session && session.token) ? session.token : null;
+    return (session && session.getToken()) ? session.getToken() : null;
   };
-
 
   isAuthenticated(): boolean {
     return (this.getCurrentToken() != null) ? true : false;

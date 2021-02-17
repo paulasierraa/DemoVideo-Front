@@ -1,14 +1,15 @@
 
 .register-section{
-  height: 80%;
+  height: 84%;
   display: flex;
   justify-content: center;
   align-items: center;
 }
 .register-container{
-    width: 500px;
+  width: 600px;
+    /* width: 50%; */
     background-color: #000000b5; 
-    padding: 60px 68px 40px;
+    padding: 30px 40px 15px;
     border-radius: 40px;
     color:white;
 }
@@ -23,8 +24,37 @@
 .form-control.is-invalid , .invalid-password .was-validated .form-control:invalid{
   background-image: none;
 }
+
+
+.data-container{
+  display: flex;
+  justify-content: space-between;
+}
+span i{
+  color:#000000e8;
+}
+span{
+  background-color: #ffff;
+  border-right: none;
+}
+input{
+  border-left: none;
+}
+select{
+ border:none;
+}
 .password--icons__container{
   cursor: pointer;
+}
+.ubication{
+  justify-content: space-evenly;
+}
+.gender{
+  text-align: center;
+  justify-content: center;
+}
+.form-check{
+  margin-right: 45px;
 }
 .invalid-feedback p{
   margin: 0;
@@ -32,6 +62,18 @@
 .register_form .btnEnviar{
     margin-top: 25px;
     margin-bottom: 38px;
+}
+
+.prepend-container{
+  padding: 0;
+  height: 38px;
+}
+.prepend-icon{
+  width: 40px;
+}
+.input-group-pospend span{
+  height: 38px;
+  border:none;
 }
 .btnEnviar{
 background-color: #c79812;

@@ -1,8 +1,13 @@
-footer{
-    background: linear-gradient(90deg, rgba(79,76,76,0.9023984593837535) 31%, rgba(122,122,143,0.8155637254901961) 63%, rgba(52,52,52,0.76234243697479) 92%);
+.footer-container{
+    background:#070613f2!important;
+    margin: 0;
     width: 100%;
 }
-
+.init{
+    position: absolute;
+    bottom: 0;
+    background-color: #00000054  !important;
+}
 footer .texto{
     color: white;
 }

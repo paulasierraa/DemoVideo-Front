@@ -32,10 +32,14 @@ export class RegisterComponent implements OnInit {
   {
     this.form = this.formBuilder.group(
       {
+        id:['',[Validators.required]],
         name:['',[Validators.required,Validators.pattern('[a-zA-Z *]+')]],
         user:['',Validators.required],
         email:['',[Validators.required,Validators.email]],
-        password:['',Validators.required]
+        password:['',Validators.required],
+        country:['',Validators.required],
+        city:['',Validators.required],
+        gender:['',Validators.required]
       }
     );
   }
@@ -45,16 +49,19 @@ export class RegisterComponent implements OnInit {
     if(this.form.valid&&value.name.trim()!=""&&value.user.trim()!="")
     { 
       let obuser:user = new user();
-      obuser.name=value.name;
-      obuser.email=value.email;
-      obuser.user=value.user;
-      obuser.password=value.password;
-      this.userService.create(obuser)
-      .subscribe() 
-      {
-        this.successRegister=true; 
-        setTimeout(()=>this.router.navigate(['/login']),1500);      
-      }
+      obuser.setId(value.id);
+      obuser.setName(value.name);
+      obuser.setEmail(value.email);
+      obuser.setUser(value.user);
+      obuser.setGender(value.gender);
+      obuser.setPassword(value.password);
+      console.log(obuser);
+      // this.userService.create(obuser)
+      // .subscribe() 
+      // {
+      //   this.successRegister=true; 
+      //   setTimeout(()=>this.router.navigate(['/login']),1500);      
+      // }
     }
     else{
       this.message="Debe completar todos los campos";
