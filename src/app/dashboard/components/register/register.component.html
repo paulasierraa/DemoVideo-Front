@@ -10,7 +10,7 @@
       <div class="mb-3 datos data-container">
         <div class="data-content personal-info">
           <label for="idtxt" class="form-label">Identificación</label>
-          <div class="input-group ">
+          <div class="input-group">
             <select class="form-select" aria-label="Default select example">
               <option selected>CC</option>
             </select>
@@ -22,8 +22,8 @@
               [ngClass]="{
                 'is-invalid':
                   (form.get('id')?.dirty &&
-                   form.get('id')?.hasError('required')||
-                   form.get('id')?.hasError('pattern'))
+                    form.get('id')?.hasError('required')) ||
+                  form.get('id')?.hasError('pattern')
               }"
               required
             />
@@ -37,7 +37,7 @@
               </p>
             </div>
             <!-- /Validate message -->
-          </div>       
+          </div>
         </div>
         <!-- /ID -->
         <!-- NOMBRE -->
@@ -71,38 +71,35 @@
               </p>
             </div>
           </div>
-       
         </div>
-      <!-- /NOMBRE -->
+        <!-- /NOMBRE -->
       </div>
       <!-- EMAIL -->
-      <div class="mb-3 datos ">
-          <label for="emailtxt" class="form-label">Correo</label>
-          <div class="input-group">
-            <div class="input-group-prepend">
-              <span class="input-group-text"
-                ><i class="far fa-envelope"></i
-              ></span>
-            </div>
-            <input
-              type="text"
-              class="form-control"
-              formControlName="email"
-              id="emailtxt"
-              [ngClass]="{
-                'is-invalid':
-                  (form.get('email')?.dirty &&
-                    form.get('email')?.hasError('required')) ||
-                  form.get('email')?.hasError('email')
-              }"
-              required
-            />
-            <div id="validationServerEmailFeedback" class="invalid-feedback">
-              Debe digitar un correo valido
-            </div>
+      <div class="mb-3 datos">
+        <label for="emailtxt" class="form-label">Correo</label>
+        <div class="input-group">
+          <div class="input-group-prepend">
+            <span class="input-group-text"
+              ><i class="far fa-envelope"></i
+            ></span>
           </div>
-          
-        
+          <input
+            type="text"
+            class="form-control"
+            formControlName="email"
+            id="emailtxt"
+            [ngClass]="{
+              'is-invalid':
+                (form.get('email')?.dirty &&
+                  form.get('email')?.hasError('required')) ||
+                form.get('email')?.hasError('email')
+            }"
+            required
+          />
+          <div id="validationServerEmailFeedback" class="invalid-feedback">
+            Debe digitar un correo valido
+          </div>
+        </div>
       </div>
       <!--/EMAIL -->
       <!-- USER -->
@@ -136,11 +133,9 @@
           <label for="passwordtxt" class="form-label">Contraseña</label>
           <div class="input-group">
             <div class="input-group-prepend">
-              <span class="input-group-text prepend-container"
-                ><img
-                  class="prepend-icon"
-                  src="https://img.icons8.com/carbon-copy/100/000000/password.png"
-              /></span>
+              <span class="input-group-text prepend-container">
+                <i class="fas fa-key"></i
+              ></span>
             </div>
             <input
               type="password"
@@ -155,23 +150,29 @@
               required
             />
             <div class="input-group-pospend">
-              <span class="input-group-text password--icons__container" (click)="showPassword()">
-                <i  *ngIf="!isText"class="fa fa-eye" aria-hidden="true"></i>
-                <i  *ngIf="isText" class="fa fa-eye-slash" aria-hidden="true"></i>
+              <span
+                class="input-group-text password--icons__container"
+                (click)="showPassword()"
+              >
+                <i *ngIf="!isText" class="fa fa-eye" aria-hidden="true"></i>
+                <i
+                  *ngIf="isText"
+                  class="fa fa-eye-slash"
+                  aria-hidden="true"
+                ></i>
               </span>
             </div>
-            
-          <div id="validationServerPasswordFeedback" class="invalid-feedback">
-            Debe digitar una contraseña
-          </div>
-          </div>
 
+            <div id="validationServerPasswordFeedback" class="invalid-feedback">
+              Debe digitar una contraseña
+            </div>
+          </div>
         </div>
       </div>
       <!-- /PASSWORD -->
-      <!-- UBICATION -->  
+      <!-- UBICATION -->
       <div class="mb-3 datos data-container ubication">
-         <!-- COUNTRY -->
+        <!-- COUNTRY -->
         <div class="data-content">
           <label for="ubicationcmbx" class="form-label">País</label>
           <div class="input-group">
@@ -186,7 +187,7 @@
               formControlName="country"
               id="ubicationcmbx"
             >
-              <option selected>Open this select menu</option>
+              <option *ngFor="let item of countries; index as i" value="{{item.id}}">{{item.name}}</option>
             </select>
           </div>
         </div>
@@ -206,7 +207,7 @@
               formControlName="city"
               id="citycmbx"
             >
-              <option selected>Open this select menu</option>
+              <option *ngFor="let item of cities; index as i" value="{{item.id}}" >{{item.name}}</option>
             </select>
           </div>
         </div>
@@ -216,14 +217,14 @@
       <div class="mb-3 datos data-container gender">
         <div class="data-content">
           <label class="form-label">Género</label>
-          <div class="input-group">
+          <div class="input-group gender-container">
             <div class="form-check">
               <input
                 class="form-check-input"
                 type="radio"
                 name="gender"
                 id="flexRadioDefault1"
-                value="femenino"
+                value="false"
                 formControlName="gender"
               />
               <label class="form-check-label" for="flexRadioDefault1">
@@ -238,28 +239,15 @@
                 id="flexRadioDefault2"
                 checked
                 formControlName="gender"
-                value="masculino"
+                value="true"
               />
               <label class="form-check-label" for="flexRadioDefault2">
                 Masculino
               </label>
             </div>
-            <div class="form-check">
-              <input
-                class="form-check-input"
-                type="radio"
-                name="gender"
-                id="flexRadioDefault3"
-                formControlName="gender"
-                value="otro"
-              />
-              <label class="form-check-label" for="flexRadioDefault2">
-                Otro
-              </label>
-            </div>
+     
           </div>
         </div>
-     
       </div>
       <!-- /GENDER -->
       <!-- Messages -->

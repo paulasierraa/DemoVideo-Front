@@ -4,7 +4,11 @@ export class user{
    private email:string;
    private user:string;
    private password:string;
-   private gender:string;
+   private gender:boolean;
+   private id_country:number;
+   private id_city:number;
+ 
+
     constructor()
     {
 
@@ -25,10 +29,15 @@ export class user{
     getPassword():string{
         return this.password;
     }
-    getGender():string{
+    getGender():boolean{
         return this.gender;
     }
-    
+    getIdCountry():number{
+        return this.id_country;
+    }
+    getIdCity():number{
+        return this.id_city;
+    }
     setId(id:number):void{
          this.id=id;
     }
@@ -44,9 +53,13 @@ export class user{
     setPassword(password:string):void{
         this.password=password;
     }
-    setGender(gender:string):void{
+    setGender(gender:boolean):void{
         this.gender=gender;
     }
-
-    
+    setIdCountry(id:number):void{
+        this.id_country=id;
+   }
+   setIdCity(id:number):void{
+    this.id_city=id;
+    }
 }
