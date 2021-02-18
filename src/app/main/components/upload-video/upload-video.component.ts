@@ -43,6 +43,7 @@ export class UploadVideoComponent implements OnInit {
       const fileEntry = this.files[0].fileEntry as FileSystemFileEntry;
       fileEntry.file((file: File) => { 
         this.myFile=file;
+        console.log(this.myFile);
        this.validateType();
       });
     }

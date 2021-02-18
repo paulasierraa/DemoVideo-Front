@@ -5,6 +5,7 @@ import {LoginComponent} from './components/login/login.component';
 import { NavComponent } from './components/nav/nav.component';
 import {RegisterComponent} from './components/register/register.component';
 import { EventDetailComponent } from '../events/components/event-detail/event-detail.component';
+import { AuthComponent } from './components/auth/auth.component';
 
 const routes: Routes = [
   {
@@ -13,11 +14,11 @@ const routes: Routes = [
     children:[
       {
         path:'login',
-        component:LoginComponent
+        component:AuthComponent
       },
       {
         path:'register',
-        component:RegisterComponent
+        component:AuthComponent
       },
       {
         path:'information',

@@ -1,0 +1,43 @@
+.auth-section{
+    background-color: #ffffffe6;
+    box-shadow: 1px 2px 15px 4px rgba(0,0,0,0.43);
+}
+.card {
+    max-width: 25rem;
+    padding: 0;
+    border: none;
+    border-radius: 0.5rem
+}
+.auth-section u{
+    box-shadow: none  !important;
+}
+a.active {
+    border-bottom: 2px solid #FF3300;
+}
+.nav-item{
+    cursor: pointer;
+}
+.nav-link {
+    color: rgb(110, 110, 110);
+    font-weight: 500
+}
+
+.nav-link:hover {
+    color: #FF3300;
+}
+
+.nav-pills .nav-link.active {
+    color: black;
+    background-color:#ffffff30;
+    border-radius: 0.5rem 0.5rem 0 0;
+    font-weight: 600
+}
+
+.tab-content {
+    padding-bottom: 1.3rem
+}
+
+label {
+    font-weight: 500;
+    color: rgb(104, 104, 104)
+}

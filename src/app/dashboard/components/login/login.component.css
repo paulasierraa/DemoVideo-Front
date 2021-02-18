@@ -1,10 +1,10 @@
 span i {
-    color: #000000e8;
-  }
-  span {
-    background-color: #ffffff4d;
-    border: none;
-  }
+  color: #000000e8;
+}
+span {
+  background-color: #ffffff4d;
+  border: none;
+}
 input {
   border: none;
   background-color: #ffffff4d;
@@ -20,7 +20,7 @@ select {
   align-items: center;
 }
 .login-container {
-  background-color: #fdfdfde0;
+  background-color: #ffffff05;
   padding: 60px 68px 40px;
   border-radius: 40px;
   color: #0a0a0a;
@@ -38,24 +38,18 @@ select {
 .invalid-password .was-validated .form-control:invalid {
   background-image: none;
 }
-.input-group span {
+.input-group > span,
+.input-group > select,
+.input-group > input {
   border-bottom: 1px solid #b3b0b0;
 }
-.input-group select {
-  border-bottom: 1px solid #b3b0b0;
-}
-.input-group input {
-  border-bottom: 1px solid #b3b0b0;
-}
-.input-group:hover input {
+
+.input-group:focus > input,
+.input-group:focus > select,
+.input-group:focus > span {
   border-bottom: 1px solid #c79812;
 }
-.input-group:hover select {
-  border-bottom: 1px solid #c79812;
-}
-.input-group:hover span {
-  border-bottom: 1px solid #c79812;
-}
+
 .password--icons__container {
   cursor: pointer;
 }
@@ -65,7 +59,6 @@ select {
 .password--icons__container {
   border-left: none;
   background-color: #ffffff4d;
-
 }
 .login_form .btnEnviar {
   margin-top: 25px;

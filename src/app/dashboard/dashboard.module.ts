@@ -8,6 +8,7 @@ import { FooterComponent } from './components/footer/footer.component';
 import { EventDetailComponent } from '../events/components/event-detail/event-detail.component';
 import { EventComponent } from '../events/components/event/event.component';
 import { CommonModule } from '@angular/common';
+import { AuthComponent } from './components/auth/auth.component';
 
 @NgModule({
   declarations: [
@@ -17,6 +18,7 @@ import { CommonModule } from '@angular/common';
   FooterComponent,
   EventDetailComponent,
   EventComponent,
+  AuthComponent
   ],
   imports: [
     CommonModule,

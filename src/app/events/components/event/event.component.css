@@ -8,6 +8,12 @@
 .section-description{
     text-align: center;
 }
+.event-list-container{
+    height: 800px;
+}
+.isList{
+    overflow-y:scroll
+}
 .list-challenges{
     height: 550px;
 }

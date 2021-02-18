@@ -62,13 +62,12 @@ export class RegisterComponent implements OnInit {
         obuser.setPassword(value.password);
         obuser.setIdCountry(value.country);
         obuser.setIdCity(value.city);
-
         this.userService.create(obuser)
           .subscribe()
         {
           this.successRegister = true;
           
-          // setTimeout(()=>this.router.navigate(['/login']),1500);      
+          setTimeout(()=>this.router.navigate(['/login']),1500);      
         }
       }
       else {
