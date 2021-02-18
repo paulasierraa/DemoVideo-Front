@@ -4,6 +4,14 @@
     font-weight: 600;
     color: #232938;
     text-align: center;
+    margin-top: 20px;
+}
+.type-description{
+    font-size: 30px;
+    font-weight: 500;
+    color: #232938;
+    text-align: center;
+    margin-top: 20px;
 }
 .section-description{
     text-align: center;
@@ -18,7 +26,7 @@
     height: 550px;
 }
 .event-card{
-    box-shadow: 1px 9px 16px -5px rgb(0 0 0 / 83%);
+    box-shadow: 6px 5px 13px -2px rgb(0 0 0 / 72%);
     border-radius: 21px 21px 21px 21px;
     transition: 450ms all;
     transform-origin:center left;
