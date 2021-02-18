@@ -1,6 +1,12 @@
-import { NodeCompatibleEventEmitter } from "rxjs/internal/observable/fromEvent";
+import { Country } from './Country.models';
 
-export class City{
+export class City {
     id: number;
     name:string;
+    
+    // constructor(id:number,name:string)
+    // {
+    //     super();
+    // }
+    
 }

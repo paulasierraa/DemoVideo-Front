@@ -4,6 +4,7 @@ import { VideoService } from '../../../services/video/video.service';
 import { FormBuilder, Validators, FormGroup, ReactiveFormsModule } from '@angular/forms';
 import { Router } from '@angular/router';
 import { LoginComponent } from '../../../dashboard/components/login/login.component';
+import { DomSanitizer } from '@angular/platform-browser';
 
 @Component({
   selector: 'app-upload-video',
@@ -13,8 +14,12 @@ import { LoginComponent } from '../../../dashboard/components/login/login.compon
 export class UploadVideoComponent implements OnInit {
   public files: NgxFileDropEntry[] = [];
   form:FormGroup;
-
-  constructor(private router:Router,private formBuilder:FormBuilder,private videoService:VideoService) { }
+  url;
+  duration:string;
+  constructor(private router:Router,
+    private formBuilder:FormBuilder
+    ,private videoService:VideoService,
+    private sanitizer:DomSanitizer) { }
  
   //creamos un array para guardar los videos
   myFile:File;
@@ -43,10 +48,13 @@ export class UploadVideoComponent implements OnInit {
       const fileEntry = this.files[0].fileEntry as FileSystemFileEntry;
       fileEntry.file((file: File) => { 
         this.myFile=file;
+       this.url =  this.sanitizer.bypassSecurityTrustUrl(URL.createObjectURL(this.myFile));
+       console.log(this.url);
         console.log(this.myFile);
        this.validateType();
       });
     }
+    
   }
   public uploadVideo()
   {
@@ -89,9 +97,12 @@ export class UploadVideoComponent implements OnInit {
     }
   }
 
-  change(e)
+  change()
   {
-    console.log(e.target.duration);
+    let item:any = document.getElementById("video");
+    let duracion = item.duration;
+    console.log("Duración"+duracion);
+    this.duration=duracion;
   }
 }
 

@@ -39,7 +39,9 @@ export class LoginComponent implements OnInit {
         let obLogin: Login = new Login();
         obLogin.setUser(value.user);
         obLogin.setPassword(value.password);
+        debugger;
         this.authService.loginUser(obLogin).subscribe(
+          
           data => {
             this.loginError = false;
             this.authService.setSession(data.token, obLogin.getUser());
@@ -72,7 +74,8 @@ export class LoginComponent implements OnInit {
       }
     }
     else {
-      
+      this.loginError=true;
+      this.message=" se ha perdido la conexión!";
     }
   }
   showPassword() {

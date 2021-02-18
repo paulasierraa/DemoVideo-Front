@@ -52,7 +52,9 @@
                 dropZoneLabel="Drop files here"
                 (onFileDrop)="dropped($event)"
                  >
-                    <ng-template  ngx-file-drop-content-tmp let-openFileSelector="openFileSelector">
+                    <ng-template  ngx-file-drop-content-tmp let-openFileSelector="openFileSelector"
+                        
+                    >
                       <div class="drop-content">
                         <p>Arrastra tu vídeo aquí.</p>
                         o
@@ -81,7 +83,7 @@
                 </div>
             </div>
           </div>
-        <button type="submit" class="btn btn-primary" [disabled]="form.invalid">Crear evento</button>
+        <button type="submit" class="btn btn-primary btnSend" [disabled]="form.invalid">Crear evento</button>
       </form>
 </section>
   

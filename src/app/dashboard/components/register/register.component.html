@@ -12,7 +12,7 @@
           <label for="idtxt" class="form-label">Identificación</label>
           <div class="input-group">
             <select class="form-select" aria-label="Default select example">
-              <option selected>CC</option>
+              <option *ngFor="let type of typedocs" value="{{type.getId()}}">{{type.getName()}}</option>
             </select>
             <input
               type="text"
@@ -130,7 +130,7 @@
       <!-- PASSWORD -->
       <div class="mb-3 datos">
         <div class="data-content">
-          <label for="passwordtxt" class="form-label">Contraseña</label>
+          <label for="passwordrtxt" class="form-label">Contraseña</label>
           <div class="input-group">
             <div class="input-group-prepend">
               <span class="input-group-text prepend-container">
@@ -140,7 +140,7 @@
             <input
               type="password"
               class="form-control"
-              id="passwordtxt"
+              id="passwordrtxt"
               formControlName="password"
               [ngClass]="{
                 'is-invalid':

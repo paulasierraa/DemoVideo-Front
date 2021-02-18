@@ -3,8 +3,13 @@
     margin:0 auto;
     height: 100%;
 }
+
+.file-drop .ngx-file-drop__drop-zone{
+  border:2px dotted #FF9900 !important;
+}
 .drop-content
 {
+  color: #0782d0  !important;
   display: flex;
   flex-direction: column;
   text-align: center;
@@ -22,4 +27,8 @@
 {
   display: flex;
   justify-content: space-between;
+}
+.btnSend{
+  border: none;
+  background-color: #FF9900;
 }

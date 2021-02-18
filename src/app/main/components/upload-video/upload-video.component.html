@@ -1,4 +1,5 @@
 <section class="upload-video">
+  <p class="h3 mb-3">Video</p>
   <form  class="mt-4"(ngSubmit)="uploadVideo()" [formGroup]="form">
     <div class="mb-3">
       <label for="nombretxt" class="form-label">Nombre del video</label>
@@ -27,7 +28,6 @@
       accept="audio/*,video/*,image/*"
       dropZoneLabel="Drop files here"
      (onFileDrop)="dropped($event)"
-     (onChange)="change($event)"
      id="videoDrop">
           <ng-template  ngx-file-drop-content-tmp let-openFileSelector="openFileSelector">
             <div class="drop-content">
@@ -50,17 +50,23 @@
                         <strong>{{files[0].relativePath}}</strong>
                         <button type="button" class="btn btn-outline-danger btn-sm" (click)="deleteVideo()">Eliminar</button>
                       </td>
+                      <td>
+                        <video [src]="url" id="video" width="200px" height="200px" ></video>
+                      </td>
                   </tr>
               </tbody>
           </table>
       </div>
   </div>
+  <button (click)="change()">Obtener duración</button>
+  <p>{{duration}}</p>
+
     <!--/FILEDROP  -->
     <div class="alert alert-success" role="alert" *ngIf="enviado">
       Vídeo cargado con éxito!
     </div>
     <div class="d-flex justify-content-center mt-4">
-      <button type="submit" class="btn btn-primary"  [disabled]="!isValid()">Subir Vídeo</button>
+      <button type="submit" class="btn btn-primary btnSend"  [disabled]="!isValid()">Subir Vídeo</button>
     </div>
     
   </form> 

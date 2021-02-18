@@ -25,7 +25,7 @@ export class AuthService {
   }
 
   loginUser(obLogin:Login){
-    return this.http.post<Login>(`${environment.url_api}/login/`,{"username":obLogin.getUser(),"password":obLogin.getPassword()},this.httpOptions).pipe(map(data=>data));
+    return this.http.post<Login>(`${environment.url_api}/login/`,{"username":obLogin.getUser(),"password":obLogin.getPassword()}).pipe(map(data=>data));
   }
 
   loadSessionData() //saber qué usuario está en ese momento

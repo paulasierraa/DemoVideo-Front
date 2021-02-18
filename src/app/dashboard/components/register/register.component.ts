@@ -8,6 +8,8 @@ import { Router } from '@angular/router';
 import { LocationService } from '../../../services/location/location.service';
 import { Country } from '../../../models/Country.models';
 import { City } from '../../../models/City.models';
+import { TypedocService } from '../../../services/typedoc/typedoc.service';
+import { Typedoc } from '../../../models/Typedoc.model';
 @Component({
   selector: 'app-register',
   templateUrl: './register.component.html',
@@ -22,20 +24,25 @@ export class RegisterComponent implements OnInit {
   isText: boolean = false;
   countries: Country[]=[];
   cities:City[]=[];
-  constructor(private formBuilder: FormBuilder, private userService: UserService,private LocationService:LocationService, private router: Router) {
+  typedocs:Typedoc[]=[];
+  constructor(private formBuilder: FormBuilder,
+     private userService: UserService,
+     private LocationService:LocationService, 
+     private typeDocService:TypedocService,
+     private router: Router) {
     this.buildRegister();
   }
 
   ngOnInit() {
     this.fetchLocation();
-    
+    this.fetchTypeDoc();
   }
   // encrypt(password:string):string
   // {
   //   // const val = this.form.value;
   //   return CryptoJS.SHA256(password.trim()).toString();
   // }
-  buildRegister() {
+  buildRegister() { //building the form
     this.form = this.formBuilder.group(
       {
         id: ['', [Validators.required, Validators.pattern('[0-9]+')]],
@@ -50,9 +57,9 @@ export class RegisterComponent implements OnInit {
     );
   }
   register() {
-    if (window.navigator.onLine) {
+    if (window.navigator.onLine) { //verify connection
       const value = this.form.value;
-      if (this.form.valid && value.name.trim() != "" && value.user.trim() != "") {
+      if (this.form.valid && value.name.trim() != "" && value.user.trim() != "") { //verify blank spaces
         let obuser: user = new user();
         obuser.setId(value.id);
         obuser.setName(value.name);
@@ -62,6 +69,7 @@ export class RegisterComponent implements OnInit {
         obuser.setPassword(value.password);
         obuser.setIdCountry(value.country);
         obuser.setIdCity(value.city);
+        debugger;
         this.userService.create(obuser)
           .subscribe()
         {
@@ -92,8 +100,14 @@ export class RegisterComponent implements OnInit {
       console.log(this.cities);
     })
   }
+  fetchTypeDoc()
+  {
+    this.typeDocService.getAll().subscribe(data=>{
+      this.typedocs=data;
+    })
+  }
   showPassword() {
-    let passwordInput: any = document.getElementById('passwordtxt');
+    let passwordInput: any = document.getElementById('passwordrtxt');
     if (!this.isText) {
       passwordInput.type = "text";
       this.isText = true;

@@ -21,6 +21,10 @@
   display: flex;
   justify-content: space-between;
 }
+.btnSend{
+  border:none;
+  background-color: #FF9900;
+}
 @media only screen and (min-width: 534px) {
     .upload-video{
       width: 500px;

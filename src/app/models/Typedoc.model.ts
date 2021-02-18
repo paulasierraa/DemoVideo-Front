@@ -1,6 +1,6 @@
 export class Typedoc{
-    id:number;
-    name:string;
+   private id:number;
+   private name:string;
 
     constructor()
     {

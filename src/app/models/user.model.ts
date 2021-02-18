@@ -7,7 +7,7 @@ export class user{
    private gender:boolean;
    private id_country:number;
    private id_city:number;
- 
+   private idTypedoc:number;
 
     constructor()
     {
@@ -38,6 +38,9 @@ export class user{
     getIdCity():number{
         return this.id_city;
     }
+    getIdTypeDoc():number{
+        return this.idTypedoc;
+    }
     setId(id:number):void{
          this.id=id;
     }
@@ -61,5 +64,8 @@ export class user{
    }
    setIdCity(id:number):void{
     this.id_city=id;
+    }
+    setIdTypedoc(id:number):void{
+        this.id_city=id;
     }
 }

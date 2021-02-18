@@ -10,7 +10,7 @@ const routes: Routes = [
   },
   {
     path:'home',
-    canActivate:[LoginGuard], 
+    // canActivate:[LoginGuard], 
     loadChildren:()=>import('./main/main.module').then(m=>m.MainModule)
   }
 ];
