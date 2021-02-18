@@ -31,24 +31,28 @@
     text-align: center;
     cursor: pointer;
 }
+
 .sticky-nav{
     position: fixed;
     z-index: 99;
     top: 0;
     width: 101%;
+    /* background: linear-gradient(87deg,#f1b640 0,#F0653C 100%)!important; */
+    background: linear-gradient(90deg, rgba(241,182,64,0.8183648459383753) 0%, rgba(240,101,60,0.7511379551820728) 48%, rgba(240,101,60,0.8799894957983193) 100%);;
+    color: white;
     box-shadow: -4px 11px 8px -8px rgba(25,25,25,0.86);
 }
 .sticky-nav a{
-    color: black;
+    color:white;
 }
+/* .sticky-nav a{
+    color: whi;
+} */
 .dashboard{ 
     position: relative;
     padding: 0;
-    height: 100%;
-    /* background-image: url('src\assets\images\card5.jpg'); */
-    /* background-image: url('https://images.pexels.com/photos/3062539/pexels-photo-3062539.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260'); */
+    height: 95%;
     background-image: url('https://images.pexels.com/photos/6621410/pexels-photo-6621410.jpeg?auto=compress&cs=tinysrgb&dpr=3&h=750&w=1260');
-
     -webkit-background-size: cover;
     -moz-background-size: cover;
     -o-background-size: cover;
