@@ -25,12 +25,15 @@
 .list-challenges{
     height: 550px;
 }
-.event-card{
-    box-shadow: 6px 5px 13px -2px rgb(0 0 0 / 72%);
+.challenge-container{
+    margin-top: 5px;
     border-radius: 21px 21px 21px 21px;
+}
+.event-card{
+    border-radius: 21px 21px 21px 21px;
+    box-shadow: 6px 5px 13px -2px rgb(0 0 0 / 72%);
     transition: 450ms all;
-    transform-origin:center left;
-    
+    transform-origin:center left;  
 }
 .card-header{
    margin: 0;
