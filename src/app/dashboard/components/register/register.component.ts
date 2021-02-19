@@ -107,7 +107,7 @@ export class RegisterComponent implements OnInit {
     })
   }
   showPassword() {
-    let passwordInput: any = document.getElementById('passwordrtxt');
+    let passwordInput: any = document.getElementById('passwordtxt');
     if (!this.isText) {
       passwordInput.type = "text";
       this.isText = true;

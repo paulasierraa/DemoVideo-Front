@@ -1,5 +1,8 @@
 span i {
-  color: #000000e8;
+  color: #808080;
+}
+label{
+  color:#726f6f;
 }
 span {
   background-color: #ffffff4d;
@@ -93,7 +96,7 @@ input.form-control:after {
 }
 .input-group:hover
  {
-  border-bottom: 1px solid #c79812;
+  border-bottom: 1px solid #FF9900;
 }
 .id-container{
   display: flex;
@@ -113,9 +116,21 @@ input.form-control:after {
   margin-left: 7px;
   margin-top: 5px;
 }
-.password--icons__container {
+.password-container{
+  display: flex;
+}
+.password-container .form-group{
+  width: 500px;
+}
+.password-container:focus .form-group-pospend{
+  border-bottom: 1px solid #FF9900;
+}
+.form-group-pospend{
+  height: 38px;
+  display: flex;
+  align-items: center;
   cursor: pointer;
-  border-radius: 0;
+  border-bottom: 1px solid gray;
 }
 .ubication {
   justify-content: space-evenly;
