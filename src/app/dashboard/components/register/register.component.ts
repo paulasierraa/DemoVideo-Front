@@ -51,7 +51,7 @@ export class RegisterComponent implements OnInit {
         email: ['', [Validators.required, Validators.email]],
         password: ['', Validators.required],
         country: ['', Validators.required],
-        city: ['', Validators.required],
+        city:City,
         gender: ['', Validators.required]
       }
     );
@@ -59,24 +59,26 @@ export class RegisterComponent implements OnInit {
   register() {
     if (window.navigator.onLine) { //verify connection
       const value = this.form.value;
+      debugger;
       if (this.form.valid && value.name.trim() != "" && value.user.trim() != "") { //verify blank spaces
-        let obuser: user = new user();
-        obuser.setId(value.id);
-        obuser.setName(value.name);
-        obuser.setEmail(value.email);
-        obuser.setUser(value.user);
-        obuser.setGender(value.gender);
-        obuser.setPassword(value.password);
-        obuser.setIdCountry(value.country);
-        obuser.setIdCity(value.city);
-        debugger;
-        this.userService.create(obuser)
-          .subscribe()
-        {
-          this.successRegister = true;
+        let obcity: City = new City(value.city.id,value.city.name,value.country.id,value.country.name);
+        console.log(obcity.getNameCountry());
+        // let obuser: user = new user(
+        // value.id,
+        // value.name,
+        // value.email,
+        // value.user,
+        // value.gender,
+        // value.password,
+        
+        // );
+        // this.userService.create(obuser)
+        //   .subscribe()
+        // {
+        //   this.successRegister = true;
           
-          setTimeout(()=>this.router.navigate(['/login']),1500);      
-        }
+        //   setTimeout(()=>this.router.navigate(['/login']),1500);      
+        // }
       }
       else {
         this.message = "Debe completar todos los campos";

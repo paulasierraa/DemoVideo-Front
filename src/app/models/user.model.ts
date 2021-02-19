@@ -1,3 +1,4 @@
+import { City } from './City.models';
 export class user{
    private id: number;
    private name:string;
@@ -5,13 +6,17 @@ export class user{
    private user:string;
    private password:string;
    private gender:boolean;
-   private id_country:number;
-   private id_city:number;
-   private idTypedoc:number;
+   private city:City;
 
-    constructor()
+    constructor(id:number,name:string,email:string,user:string,password:string,gender:boolean,city:City)
     {
-
+        this.id=id;
+        this.name=name;
+        this.email=email;
+        this.user=user;
+        this.password=password;
+        this.gender=gender;
+        this.city=city;
     }
 
     getId():number{
@@ -29,17 +34,11 @@ export class user{
     getPassword():string{
         return this.password;
     }
+    getCity():City{
+        return this.city;
+    }
     getGender():boolean{
         return this.gender;
-    }
-    getIdCountry():number{
-        return this.id_country;
-    }
-    getIdCity():number{
-        return this.id_city;
-    }
-    getIdTypeDoc():number{
-        return this.idTypedoc;
     }
     setId(id:number):void{
          this.id=id;
@@ -58,14 +57,5 @@ export class user{
     }
     setGender(gender:boolean):void{
         this.gender=gender;
-    }
-    setIdCountry(id:number):void{
-        this.id_country=id;
-   }
-   setIdCity(id:number):void{
-    this.id_city=id;
-    }
-    setIdTypedoc(id:number):void{
-        this.id_city=id;
     }
 }

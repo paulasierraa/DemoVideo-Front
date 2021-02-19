@@ -29,7 +29,7 @@ export class UserService {
       "email":obUser.getEmail(),
       "password":obUser.getPassword(),
       "gender":obUser.getGender(),
-      "id_city":obUser.getIdCity(),
+      "id_city":obUser.getCity().getIdCity(),
       "id_type_login":1,
       "id_type_account":1,
       "id_rol":1,

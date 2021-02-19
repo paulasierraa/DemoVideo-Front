@@ -1,16 +1,29 @@
 import { City } from "./City.models";
 
 export class Country{
-    id:number;
-    name:string;
+    private idCountry:number;
+    private nameCountry:string;
 
-    setId(id:number)
+    constructor(idCountry:number,nameCountry:string)
     {
-        this.id=id;
+        this.idCountry=idCountry;
+        this.nameCountry=nameCountry;
     }
-    setName(name:string)
+    setCountryId(idCountry:number)
     {
-        this.name=name;
+        this.idCountry=idCountry;
+    }
+    setCountryName(nameCountry:string)
+    {
+        this.nameCountry=nameCountry;
+    }
+    getCountryId()
+    {
+        return this.idCountry;
+    }
+    getCountryName()
+    {
+        return this.nameCountry;
     }
     
 }
