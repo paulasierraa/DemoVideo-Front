@@ -2,16 +2,52 @@ span i {
   color: #000000e8;
 }
 span {
-  background-color: #ffffff4d;
+  background-color: #ffffff00;
   border: none;
 }
 input {
   border: none;
   background-color: #ffffff4d;
 }
+
 select {
   background-color: #ffffff4d;
   border: none;
+}
+
+.form-group {
+  position: relative;
+  margin-bottom: 1.5rem;
+}
+
+.form-control-placeholder {
+  position: absolute;
+  top: 0;
+  padding: 7px 0 0 13px;
+  transition: all 200ms;
+  opacity: 0.5;
+  color: grey
+}
+
+.form-control:focus+.form-control-placeholder,
+.form-control:valid+.form-control-placeholder {
+  font-size: 75%;
+  transform: translate3d(0, -100%, 0);
+  opacity: 1
+}
+
+.form-control {
+  background: transparent;
+  border: none;
+  border-bottom: 1px solid grey
+}
+input.form-control:focus,
+input.form-control:after ,
+.input-group-pospend:after
+{
+  outline-width: 0;
+  border-bottom: 1px solid #FF9900;
+  background: transparent;
 }
 .login-section {
   height: 80%;
@@ -20,16 +56,11 @@ select {
   align-items: center;
 }
 .login-container {
-  background-color: #ffffff05;
+  background-color: #ffffffe6;
   padding: 60px 68px 40px;
   border-radius: 40px;
   color: #0a0a0a;
 }
-.login-container h2 {
-  margin-bottom: 25px;
-  color: #ff3300;
-}
-
 .login_form {
   display: flex;
   flex-direction: column;
@@ -38,43 +69,53 @@ select {
 .invalid-password .was-validated .form-control:invalid {
   background-image: none;
 }
-.input-group > span,
-.input-group > select,
-.input-group > input {
-  border-bottom: 1px solid #b3b0b0;
+.login-container h2 {
+  color: #ff3300;
 }
-
-.input-group:focus > input,
-.input-group:focus > select,
-.input-group:focus > span {
-  border-bottom: 1px solid #c79812;
-}
-
-.password--icons__container {
+.input-group-pospend {
   cursor: pointer;
+  display: flex;
+  align-items: center;
+  height: 38px;
+  border-bottom: 1px solid #808080;
+}
+.password-container{
+  display: flex;
+}
+#passwordtxt:focus , .input-group-pospend 
+{
+  /* border-bottom: 1px solid #FF9900; */
 }
 #passwordtxt {
   border-right: none;
+  width: 325px;
 }
-.password--icons__container {
-  border-left: none;
-  background-color: #ffffff4d;
+.user-container,
+.password-container{
+  margin-top: 40px;
 }
 .login_form .btnEnviar {
   margin-top: 25px;
   margin-bottom: 38px;
 }
-.btnEnviar {
-  background-color: #c79812;
+.btnSend {
+  background-color: #FF9900;
   color: white;
 }
-.login__container--register {
-  display: flex;
-  justify-content: center;
+.btnRegister{
+  margin:0 auto;
+  width: 300px;
+  color:#FF9900;
+  border: 1px solid #FF9900;
 }
-.login__container--register a {
-  margin-left: 10px;
+.btnRegister:hover{
+  -webkit-transform:scale(1.03);
+  -moz-transform:scale(1.03);
+  -ms-transform:scale(1.03);
+  -o-transform:scale(1.03);
+  transform:scale(1.03);
 }
+
 @media only screen and (min-width: 534px) {
   .login-container {
     width: 500px;

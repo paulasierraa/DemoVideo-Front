@@ -1,51 +1,84 @@
-
- <section class="login-section">
-   <div class="login-container">
+<section class="login-section">
+  <div class="login-container">
     <form class="login_form" [formGroup]="form" (ngSubmit)="login()">
       <h2>Iniciar Sesión</h2>
-        <div class="mb-3 datos">
-          <label for="usuariotxt" class="form-label">Usuario</label>
-          <div class="input-group">
-
-            <input type="text" class="form-control" formControlName="user" id="usuariotxt"
-            [ngClass]="{'is-invalid': form.get('user')?.dirty && form.get('user')?.hasError('required') || form.get('user')?.hasError('pattern')}"
-            required />
-            <div id="validationServerUsernameFeedback" class="invalid-feedback"> 
+      <div class="datos">
+        <div class="form-group user-container">
+          <input
+            type="text"
+            id="usuariotxt"
+            class="form-control p-0"
+            formControlName="user"
+            [ngClass]="{
+              'is-invalid':
+                (form.get('user')?.dirty &&
+                  form.get('user')?.hasError('required'))
+            }"
+            required
+            style="box-shadow: none; border-radius: 0px"
+          />
+          <label class="form-control-placeholder p-0" for="name lbl"
+            >Usuario</label
+          >
+          <!-- Validate Message -->
+          <div id="validationServerNameFeedback" class="invalid-feedback">
+            <p *ngIf="form.get('user')?.hasError('required')">
               Debe digitar un usuario
-            </div>
+            </p>
           </div>
-         
+          <!-- /Validate message -->
         </div>
-        <div class="mb-3 datos">
-          <label for="passwordtxt" class="form-label">Contraseña</label>
-          <div class="input-group">
-          <input type="password" class="form-control" id="passwordtxt"  formControlName="password" 
-          [ngClass]="{'is-invalid': form.get('password')?.dirty && form.get('password')?.hasError('required')}"/>
-          <div class="input-group-prepend">
-            <span class="input-group-text password--icons__container" (click)="showPassword()">
-              <i  *ngIf="!isText"class="fa fa-eye" aria-hidden="true"></i>
-              <i  *ngIf="isText" class="fa fa-eye-slash" aria-hidden="true"></i>
+        <div class="password-container">
+          <div class="form-group">
+            <input
+              type="password"
+              id="passwordtxt"
+              formControlName="password"
+              [ngClass]="{
+                'is-invalid':
+                  form.get('password')?.dirty &&
+                  form.get('password')?.hasError('required')
+              }"
+              class="form-control p-0"
+              required
+              style="box-shadow: none; border-radius: 0px"
+            />
+            <label class="form-control-placeholder p-0" for="name"
+              >Contraseña</label
+            >
+          <!-- Validate Message -->
+          <div id="validationServerNameFeedback" class="invalid-feedback">
+            <p *ngIf="form.get('password')?.hasError('required')">
+              Debe digitar una contraseña
+            </p>
+          </div>
+          <!-- /Validate message -->
+          </div>
+          <!-- Show password icon -->
+          <div class="input-group-pospend">
+            <span
+              class="input-group-text"
+              (click)="showPassword()"
+            >
+              <i *ngIf="!isText" class="fa fa-eye" aria-hidden="true"></i>
+              <i *ngIf="isText" class="fa fa-eye-slash" aria-hidden="true"></i>
             </span>
           </div>
-          <div id="validationServerPasswordFeedback" class="invalid-feedback invalid-password"> 
-            Debe digitar una contraseña
-          </div>
-        
-        </div>    
+          <!-- /Show password icon -->
         </div>
-        <div class="alert alert-danger" role="alert" *ngIf="loginError">
-         <strong>Error! </strong> {{message}}
-        </div>
-      <button type="submit" class="btn btnEnviar" [disabled]="form.invalid">Ingresar</button>
+      </div>
+      <!-- MESSAGES -->
+      <div class="alert alert-danger" role="alert" *ngIf="loginError">
+        <strong>Error! </strong> {{ message }}
+      </div>
+      <!-- JOIN BUTTON -->
+      <button type="submit" class="btn btnSend mt-3" [disabled]="form.invalid">
+        Ingresar
+      </button>
+      <!-- REGISTER BUTTON -->
+      <button type="button" class="btn btnRegister mt-5" routerLink="/register">
+        Registrate
+      </button>
     </form>
-   
-   </div>
-  </section>
-  
-    <!-- <div class="input-group">
-                  <div class="input-group-prepend">
-                    <span class="input-group-text"><i class="fa fa-user"></i></span>
-                  </div>
-                  <input type="text" id="input1-group1" name="input1-group1" class="form-control" placeholder="Username">
-                </div> -->
-
+  </div>
+</section>
