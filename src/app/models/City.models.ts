@@ -1,29 +1,31 @@
 import { Country } from './Country.models';
 
-export class City  extends Country{
-    cityId: number;
-    cityName:string;
-    constructor(cityId:number,cityName:string,CountryId:number,CountryName:string)
+export class City extends Country {
+
+     private CityId: number;
+     private Cityname:string; 
+  
+    constructor(CountryId:number,Countryname:string,CityId:number,Cityname:string,)
     {
-        super(CountryId,CountryName);
-        this.cityId=cityId;
-        this.cityName=cityName;
+        super(CountryId,Countryname);
+        this.CityId=CityId;
+        this.Cityname=Cityname;
     }
-    setCityId(cityId:number)
+    setCityIdCity(CityId:number)
     {
-        this.cityId=cityId;
+        this.CityId=CityId;
     }
-    setCityName(cityName:string)
+    setCitynameCity(Cityname:string)
     {
-        this.cityName=cityName;
+        this.Cityname=Cityname;
     }
-    getCityId()
+    getCityId():number
     {
-        return this.cityId;
+        return this.CityId;
     }
-    getCityName()
+    getCityname():string
     {
-        return this.cityName;
+        return this.Cityname;
     }
 
 }

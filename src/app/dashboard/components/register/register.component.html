@@ -195,7 +195,7 @@
                 *ngFor="let item of countries; index as i"
                 [ngValue]="item"
               >
-                {{ item.name }}
+                {{ item.getnameCountry()}}
               </option>
             </select>
           </div>
@@ -220,7 +220,7 @@
                 *ngFor="let item of cities; index as i"
                 [ngValue]="item"
               >
-                {{ item.name }}
+                {{ item.getCityname() }}
               </option>
             </select>
           </div>

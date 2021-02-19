@@ -17,13 +17,13 @@ export class LocationService {
     headers: new HttpHeaders({
       'Content-type':'application/json',
     })};
-    getAllCountries():Observable<Country[]>
+    getAllCountries():Observable<any[]>
     {
-      return this.http.get<Country[]>(`${environment.url_api}/country`);
+      return this.http.get<any[]>(`${environment.url_api}/country`);
     }
-    getAllCities():Observable<City[]>
+    getAllCities():Observable<any[]>
     {
-      return this.http.get<City[]>(`${environment.url_api}/city`);
+      return this.http.get<any[]>(`${environment.url_api}/city`);
     }
     
 }

@@ -10,6 +10,7 @@ import { Country } from '../../../models/Country.models';
 import { City } from '../../../models/City.models';
 import { TypedocService } from '../../../services/typedoc/typedoc.service';
 import { Typedoc } from '../../../models/Typedoc.model';
+import { element } from 'protractor';
 @Component({
   selector: 'app-register',
   templateUrl: './register.component.html',
@@ -59,26 +60,22 @@ export class RegisterComponent implements OnInit {
   register() {
     if (window.navigator.onLine) { //verify connection
       const value = this.form.value;
-      debugger;
       if (this.form.valid && value.name.trim() != "" && value.user.trim() != "") { //verify blank spaces
-        let obcity: City = new City(value.city.id,value.city.name,value.country.id,value.country.name);
-        console.log(obcity.getNameCountry());
-        // let obuser: user = new user(
-        // value.id,
-        // value.name,
-        // value.email,
-        // value.user,
-        // value.gender,
-        // value.password,
+        let obcity: City = new City(value.country.id,value.country.name,value.city.id,value.city.Cityname);
+        console.log(obcity.getCityname());
+        let obuser: user = new user(
+        value.id,value.name,value.email,value.user,value.password,value.gender,obcity);
+        this.userService.create(obuser)
+          .subscribe()
+        {
+          data=>{
+            console.log(data);
+            this.successRegister = true;
+            setTimeout(()=>this.router.navigate(['/login']),1500);      
+          }
+         
+        }
         
-        // );
-        // this.userService.create(obuser)
-        //   .subscribe()
-        // {
-        //   this.successRegister = true;
-          
-        //   setTimeout(()=>this.router.navigate(['/login']),1500);      
-        // }
       }
       else {
         this.message = "Debe completar todos los campos";
@@ -94,12 +91,17 @@ export class RegisterComponent implements OnInit {
 
   }
   fetchLocation() {
-    this.LocationService.getAllCountries().subscribe(data => {
-      this.countries = data;
+    this.LocationService.getAllCountries().subscribe(country => {
+        country.forEach((element,index)=>{
+          this.countries[index] = new Country(element.id,element.name);
+        })
+        console.log(this.cities); 
     })
     this.LocationService.getAllCities().subscribe(city=>{
-      this.cities=city;
-      console.log(this.cities);
+      city.forEach((element,index)=>{
+        this.cities[index] = new City(element.id_country,"Colombia",element.id,element.name);
+      })
+      console.log(this.cities); 
     })
   }
   fetchTypeDoc()
