@@ -42,13 +42,13 @@ select {
   border-bottom: 1px solid grey
 }
 input.form-control:focus,
-input.form-control:after ,
-.input-group-pospend:after
+input.form-control:after
 {
   outline-width: 0;
   border-bottom: 1px solid #FF9900;
   background: transparent;
 }
+
 .login-section {
   height: 80%;
   display: flex;
@@ -82,10 +82,7 @@ input.form-control:after ,
 .password-container{
   display: flex;
 }
-#passwordtxt:focus , .input-group-pospend 
-{
-  /* border-bottom: 1px solid #FF9900; */
-}
+
 #passwordtxt {
   border-right: none;
   width: 325px;

@@ -21,6 +21,39 @@ select {
   background-color: #ffffff4d;
   border: none;
 }
+.form-group {
+  position: relative;
+  margin-bottom: 1.5rem
+}
+
+.form-control-placeholder {
+  position: absolute;
+  top: 0;
+  padding: 7px 0 0 13px;
+  transition: all 200ms;
+  opacity: 0.5;
+  color: grey
+}
+
+.form-control:focus+.form-control-placeholder,
+.form-control:valid+.form-control-placeholder {
+  font-size: 75%;
+  transform: translate3d(0, -100%, 0);
+  opacity: 1
+}
+
+.form-control {
+  background: transparent;
+  border: none;
+  border-bottom: 1px solid grey
+}
+
+input.form-control:focus,
+input.form-control:after {
+  outline-width: 0;
+  border-bottom: 1px solid aqua;
+  background: transparent
+}
 .register-section {
   height: 84%;
   display: flex;
