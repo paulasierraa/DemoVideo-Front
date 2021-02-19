@@ -51,7 +51,7 @@ select {
 input.form-control:focus,
 input.form-control:after {
   outline-width: 0;
-  border-bottom: 1px solid aqua;
+  border-bottom: 1px solid #FF9900;
   background: transparent
 }
 .register-section {
@@ -86,7 +86,6 @@ input.form-control:after {
 .personal-info {
   max-width: 240px;
 }
-
 .input-group
 {
   border-bottom: 1px solid #b3b0b0;
