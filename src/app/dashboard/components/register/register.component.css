@@ -5,28 +5,21 @@ label{
   color:#726f6f;
 }
 span {
-  background-color: #ffffff4d;
+  background-color: #fff0;
   border: none;
-}
-input {
-  border: none;
-  background-color: #ffffff4d;
-}
-input:focus{
-  background: #ffffffe6;
-  outline:none !important;
-  outline-width: 0 !important;
-  box-shadow: none;
-  -moz-box-shadow: none;
-  -webkit-box-shadow: none;
 }
 select {
   background-color: #ffffff4d;
   border: none;
 }
+.invalid-container{
+  font-size: 80%;
+  color: #dc3545;
+  border:none;
+}
 .form-group {
   position: relative;
-  margin-bottom: 1.5rem
+  margin-bottom: 0%;
 }
 
 .form-control-placeholder {
@@ -58,6 +51,7 @@ input.form-control:after {
   border-bottom: 1px solid #FF9900;
   background: transparent
 }
+
 .register-section {
   height: 84%;
   display: flex;
@@ -123,6 +117,13 @@ input.form-control:after {
   width: 500px;
 }
 .password-container:focus .form-group-pospend{
+  border-bottom: 1px solid #FF9900;
+}
+.password-container{
+ cursor:text;
+}
+.form-control:focus +
+.form-group-pospend{
   border-bottom: 1px solid #FF9900;
 }
 .form-group-pospend{

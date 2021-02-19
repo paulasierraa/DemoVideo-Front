@@ -1,8 +1,8 @@
 span i {
-  color: #000000e8;
+  color: #808080;
 }
 span {
-  background-color: #ffffff00;
+  background-color: #fff0;
   border: none;
 }
 input {
@@ -17,7 +17,7 @@ select {
 
 .form-group {
   position: relative;
-  margin-bottom: 1.5rem;
+  margin-bottom: 0;
 }
 
 .form-control-placeholder {

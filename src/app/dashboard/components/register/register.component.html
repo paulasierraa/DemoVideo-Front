@@ -78,7 +78,7 @@
         <!-- /NOMBRE -->
       </div>
       <!-- EMAIL -->
-      <div class="mt-2 datos">
+      <div class="mt-4 datos">
         <div class="form-group">
           <input
             type="text"
@@ -104,7 +104,7 @@
       </div>
       <!--/EMAIL -->
       <!-- USER -->
-      <div class="mt-2 datos">
+      <div class="mt-4 datos">
         <div class="form-group user-container">
           <input
             type="text"
@@ -133,7 +133,7 @@
       </div>
       <!-- /USER -->
       <!-- PASSWORD -->
-      <div class="mt-2 datos">
+      <div class="mt-4 datos">
         <div class="password-container">
           <div class="form-group">
             <input
@@ -152,13 +152,6 @@
             <label class="form-control-placeholder p-0" for="name"
               >Contraseña</label
             >
-            <!-- Validate Message -->
-            <div id="validationServerNameFeedback" class="invalid-feedback">
-              <p *ngIf="form.get('password')?.hasError('required')">
-                Debe digitar una contraseña
-              </p>
-            </div>
-            <!-- /Validate message -->
           </div>
           <!-- Show password icon -->
           <div class="form-group-pospend">
@@ -169,10 +162,20 @@
           </div>
           <!-- /Show password icon -->
         </div>
+        <!-- Validate Message -->
+        <div 
+        id="validationServerNameFeedback" class="invalid-container"
+        *ngIf="form.get('password')?.dirty &&
+        form.get('password')?.hasError('required')" >
+          <p >
+            Debe digitar una contraseña
+          </p>
+        </div>
+        <!-- /Validate message -->
       </div>
       <!-- /PASSWORD -->
       <!-- UBICATION -->
-      <div class="mt-2 datos data-container ubication">
+      <div class="mt-4 datos data-container ubication">
         <!-- COUNTRY -->
         <div class="data-content">
           <label for="ubicationcmbx" class="form-label">País</label>
@@ -225,7 +228,7 @@
         <!-- CITY -->
       </div>
       <!-- GENDER -->
-      <div class="mt-2 datos data-container gender">
+      <div class="mt-4 datos data-container gender">
         <div class="data-content">
           <label class="form-label">Género</label>
           <div class="input-group gender-container">
