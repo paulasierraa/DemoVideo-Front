@@ -20,7 +20,7 @@ export class UserService {
   }
   constructor(private http:HttpClient) { }
 
-  create(obUser:user)
+  create(obUser:user,skills:number[])
   {
     return this.http.post(`${environment.url_api}/register/`,{
       "id_account":obUser.getId(),
@@ -33,7 +33,8 @@ export class UserService {
       "id_type_login":1,
       "id_type_account":1,
       "id_rol":1,
-      "id_type_doc":1
+      "id_type_doc":1,
+      "skills":skills,
   },this.httpOptions).pipe(map(data=>data)); //INSERTAR API
   }
 

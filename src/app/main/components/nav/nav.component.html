@@ -1,16 +1,16 @@
 <nav class="navbar navbar-expand-lg navbar-light bg-light">
   <div class="container-fluid">
-    <a class="navbar-brand" routerLink="/home/videos"> DemoVideo</a>
+    <a class="navbar-brand" routerLink="/home/videos"></a>
    <!-- Collapse button -->
    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
     <span class="navbar-toggler-icon"></span>
   </button>
   <!-- Collapse content -->
-    <div class="collapse navbar-collapse container-links " id="navbarNavAltMarkup">
+    <div class="navbar-container collapse navbar-collapse container-links " id="navbarNavAltMarkup">
       <div class="navbar-nav ">
         <a class="nav-link" routerLink="videos">Vídeos</a>
         <a class="nav-link" routerLink="upload">Subir video</a>    
-        <a class="nav-link" routerLink="create-event">Crear evento</a>    
+        <!-- <a class="nav-link" routerLink="create-event">Crear evento</a>     -->
         <button class="nav-link logOut" (click)="logout()" >Cerrar sesión</button>            
       </div>
     </div>

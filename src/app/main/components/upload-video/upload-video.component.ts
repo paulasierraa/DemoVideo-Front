@@ -14,8 +14,9 @@ import { DomSanitizer } from '@angular/platform-browser';
 export class UploadVideoComponent implements OnInit {
   public files: NgxFileDropEntry[] = [];
   form:FormGroup;
-  url;
+  url=null;
   duration:string;
+  videoError:boolean=false;
   constructor(private router:Router,
     private formBuilder:FormBuilder
     ,private videoService:VideoService,
@@ -49,9 +50,10 @@ export class UploadVideoComponent implements OnInit {
       fileEntry.file((file: File) => { 
         this.myFile=file;
        this.url =  this.sanitizer.bypassSecurityTrustUrl(URL.createObjectURL(this.myFile));
-       console.log(this.url);
-        console.log(this.myFile);
+      
        this.validateType();
+       setTimeout(()=>( this.validateDuration()),1000);
+      
       });
     }
     
@@ -62,7 +64,6 @@ export class UploadVideoComponent implements OnInit {
     {
       const formData = new FormData();
       const value = this.form.value;
-  
       formData.append("name",value.name);
       formData.append("description",value.description);
       formData.append("videofile",this.myFile);
@@ -77,6 +78,7 @@ export class UploadVideoComponent implements OnInit {
  
   public deleteVideo():void{
     this.myFile=null;
+    this.url=null;
     this.files=[];
   }
   public isValid():boolean{
@@ -97,12 +99,23 @@ export class UploadVideoComponent implements OnInit {
     }
   }
 
-  change()
+  validateDuration()
   {
-    let item:any = document.getElementById("video");
-    let duracion = item.duration;
-    console.log("Duración"+duracion);
-    this.duration=duracion;
+    if(this.url!=null)
+    {
+      let item:any = document.getElementById("video");
+      let duration = item.duration;
+      console.log(duration);
+      if(duration>300)
+      {
+        this.videoError=true;
+        this.deleteVideo();
+      }
+      else{
+        this.videoError=false;
+      }
+    }
+
   }
 }
 

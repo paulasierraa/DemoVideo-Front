@@ -1,5 +1,5 @@
 .upload-video{
-    margin:0 auto;
+    /* margin:0 auto; */
 }
 .drop-content
 {
@@ -9,7 +9,7 @@
 }
 .drop-content .navigate-btn{
   border:none;
-  background-color: white;
+  background-color: transparent;
   color: #0782d0;
   font-weight: 600;
 }
@@ -20,6 +20,9 @@
 {
   display: flex;
   justify-content: space-between;
+}
+td video{
+  text-align: center;
 }
 .btnSend{
   border:none;

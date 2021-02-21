@@ -1,18 +1,17 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
-import { Typedoc } from '../../models/Typedoc.model';
-import { environment } from 'src/environments/environment';
 import { Observable } from 'rxjs';
+import { environment } from 'src/environments/environment';
 
 @Injectable({
   providedIn: 'root'
 })
-export class TypedocService {
+export class SkillsService {
 
 constructor(private http:HttpClient) { }
 
   getAll():Observable<any[]>
   {
-    return this.http.get<any[]>(`${environment.url_api}/typedoc/`);
+    return this.http.get<any[]>(`${environment.url_api}/skill`);
   }
 }

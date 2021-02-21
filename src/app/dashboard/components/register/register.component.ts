@@ -1,6 +1,6 @@
 import { ValueConverter } from '@angular/compiler/src/render3/view/template';
 import { Component, OnInit } from '@angular/core';
-import { FormBuilder, FormGroup, Validators, FormsModule } from '@angular/forms';
+import { FormBuilder, FormGroup, Validators, FormsModule, FormArray } from '@angular/forms';
 // import * as CryptoJS from 'crypto-js';
 import { UserService } from 'src/app/services/user/user.service';
 import { user } from '../../../models/user.model';
@@ -11,6 +11,9 @@ import { City } from '../../../models/City.models';
 import { TypedocService } from '../../../services/typedoc/typedoc.service';
 import { Typedoc } from '../../../models/Typedoc.model';
 import { element } from 'protractor';
+import { Skill } from '../../../models/Skill.model';
+import { SkillsService } from '../../../services/skills/skills.service';
+
 @Component({
   selector: 'app-register',
   templateUrl: './register.component.html',
@@ -23,21 +26,26 @@ export class RegisterComponent implements OnInit {
   message: string;
   registerError: boolean = false;
   isText: boolean = false;
-  countries: Country[]=[];
-  cities:City[]=[];
-  typedocs:Typedoc[]=[];
+  countries: Country[] = [];
+  cities: City[] = [];
+  typedocs: Typedoc[] = [];
+  skills:Skill[]=[];
+  skillNames:string="Skills";
+  skillIndex:number[]=[];
   constructor(private formBuilder: FormBuilder,
-     private userService: UserService,
-     private LocationService:LocationService, 
-     private typeDocService:TypedocService,
-     private router: Router) {
+    private userService: UserService,
+    private LocationService: LocationService,
+    private typeDocService: TypedocService,
+    private skillService:SkillsService,
+    private router: Router) {
     this.buildRegister();
   }
 
   ngOnInit() {
     this.fetchLocation();
     this.fetchTypeDoc();
-  }
+    this.fetchSkills();
+    }
   // encrypt(password:string):string
   // {
   //   // const val = this.form.value;
@@ -52,30 +60,61 @@ export class RegisterComponent implements OnInit {
         email: ['', [Validators.required, Validators.email]],
         password: ['', Validators.required],
         country: ['', Validators.required],
-        city:City,
+        city:['',Validators.required],
+        skillsc: new FormArray([]),
         gender: ['', Validators.required]
       }
     );
   }
+
+  fetchLocation() {
+    this.LocationService.getAllCountries().subscribe(country => {
+      country.forEach((element, index) => {
+        this.countries[index] = new Country(element.id, element.name);
+      })
+    })
+    this.LocationService.getAllCities().subscribe(city => {
+      city.forEach((element, index) => {
+        this.cities[index] = new City(element.id_country, "Colombia", element.id, element.name);
+      })
+    })
+  }
+  fetchTypeDoc() {
+    this.typeDocService.getAll().subscribe(data => {
+      data.forEach((element,index)=>{
+        this.typedocs[index] = new Typedoc(element.id,element.name);
+      });
+    })
+  }
+  fetchSkills()
+  {
+    this.skillService.getAll().subscribe(skill=>{
+      skill.forEach((element,index)=>{
+        this.skills[index] = new Skill(element.id,element.name);
+      });
+    });
+  }
+
+
+
   register() {
     if (window.navigator.onLine) { //verify connection
       const value = this.form.value;
       if (this.form.valid && value.name.trim() != "" && value.user.trim() != "") { //verify blank spaces
-        let obcity: City = new City(value.country.id,value.country.name,value.city.id,value.city.Cityname);
-        console.log(obcity.getCityname());
+        let obcity: City = new City(value.country.id, value.country.name, value.city.id, value.city.Cityname);
         let obuser: user = new user(
-        value.id,value.name,value.email,value.user,value.password,value.gender,obcity);
-        this.userService.create(obuser)
-          .subscribe()
-        {
-          data=>{
-            console.log(data);
-            this.successRegister = true;
-            setTimeout(()=>this.router.navigate(['/login']),1500);      
+          value.id, value.name, value.email, value.user, value.password, value.gender, obcity);
+    
+          this.userService.create(obuser,this.skillIndex)
+            .subscribe()
+          {
+            data => {
+              console.log(data);
+              this.successRegister = true;
+              setTimeout(() => this.router.navigate(['/login']), 1500);
+            }
+
           }
-         
-        }
-        
       }
       else {
         this.message = "Debe completar todos los campos";
@@ -83,33 +122,11 @@ export class RegisterComponent implements OnInit {
       }
     }
     else {
-      this.registerError=true;
-      this.message="Se ha perdido la conexión!"
-      console.log("Sin conexión");
+      this.registerError = true;
+      this.message = "Se ha perdido la conexión!"
     }
+  }
 
-
-  }
-  fetchLocation() {
-    this.LocationService.getAllCountries().subscribe(country => {
-        country.forEach((element,index)=>{
-          this.countries[index] = new Country(element.id,element.name);
-        })
-        console.log(this.cities); 
-    })
-    this.LocationService.getAllCities().subscribe(city=>{
-      city.forEach((element,index)=>{
-        this.cities[index] = new City(element.id_country,"Colombia",element.id,element.name);
-      })
-      console.log(this.cities); 
-    })
-  }
-  fetchTypeDoc()
-  {
-    this.typeDocService.getAll().subscribe(data=>{
-      this.typedocs=data;
-    })
-  }
   showPassword() {
     let passwordInput: any = document.getElementById('passwordtxt');
     if (!this.isText) {
@@ -119,6 +136,37 @@ export class RegisterComponent implements OnInit {
     else {
       passwordInput.type = "password";
       this.isText = false;
+    }
+  }
+  sendSkills()
+  {
+    this.skillNames="";
+    const value = this.form.value;
+    value.skillsc.forEach(element => {
+        this.skillNames+=" "+element.name;
+        this.skillIndex.push(element.id);
+    });
+    console.log(this.skillIndex);
+  }
+
+  onCheckChange(event,skill) {
+    const value = this.form.value;
+    const item:Skill[] = value.skillsc;
+    /* Selected */
+    if(event.target.checked){
+      // Add a new control in the arrayForm
+      let object=new Skill(skill.id,skill.name);
+      value.skillsc.push(object);
+      console.log("Nueva skill",value.skillsc);
+    }
+    /* unselected */
+    else{
+      // find the unselected element
+      let element = value.skillsc.find(element=>element.name===skill.name);
+      //remove the unselected element
+      let index=value.skillsc.indexOf(element);
+      item.splice(index,1);
+      console.log("Eliminando item "+value.skillsc);
     }
   }
 }

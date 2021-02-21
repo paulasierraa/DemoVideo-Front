@@ -1,4 +1,4 @@
-<section class="upload-video">
+<section class="container-fluid upload-video mt-4">
   <p class="h3 mb-3">Video</p>
   <form  class="mt-4"(ngSubmit)="uploadVideo()" [formGroup]="form">
     <div class="mb-3">
@@ -50,20 +50,24 @@
                         <strong>{{files[0].relativePath}}</strong>
                         <button type="button" class="btn btn-outline-danger btn-sm" (click)="deleteVideo()">Eliminar</button>
                       </td>
-                      <td>
-                        <video [src]="url" id="video" width="200px" height="200px" ></video>
-                      </td>
                   </tr>
+                  <tr *ngIf="url!==null"> 
+                    <td>
+                      <video [src]="url" id="video" width="500px" height="200px" (loadedmetadata)="validateDuration()" ></video>
+                    </td>
+                </tr>
               </tbody>
           </table>
       </div>
   </div>
-  <button (click)="change()">Obtener duración</button>
-  <p>{{duration}}</p>
-
     <!--/FILEDROP  -->
     <div class="alert alert-success" role="alert" *ngIf="enviado">
       Vídeo cargado con éxito!
+    </div>
+    <div class="alert alert-danger" role="alert" *ngIf="videoError===true">
+      <p>
+        Su vídeo no puede tener una duración mayor a 5 minutos
+      </p>
     </div>
     <div class="d-flex justify-content-center mt-4">
       <button type="submit" class="btn btn-primary btnSend"  [disabled]="!isValid()">Subir Vídeo</button>

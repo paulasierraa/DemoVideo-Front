@@ -2,8 +2,10 @@ export class Typedoc{
    private id:number;
    private name:string;
 
-    constructor()
-    {
+    constructor(id:number,name:string)
+    {   
+        this.id=id;
+        this.name=name;
 
     }
     getId():number{
