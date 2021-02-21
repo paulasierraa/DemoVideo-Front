@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
-import { VideoService } from '../../../services/video/video.service';
+import { Files } from 'src/app/models/Files.model';
+
 import { Video } from '../../../models/Video';
+import { FilesService } from '../../../services/files/files.service';
 
 @Component({
   selector: 'app-videos',
@@ -9,13 +11,17 @@ import { Video } from '../../../models/Video';
 })
 export class VideosComponent implements OnInit {
 
-  videos:Video[]=[];
-  constructor(private videoService:VideoService) { }
+  files:Files[]=[];
+  constructor(private filesService:FilesService) { }
 
   ngOnInit() {
-    this.videoService.getAll().subscribe(data=>{
-      this.videos=data;
-    }); 
+   this.fetchFiles();
   }
-
+  fetchFiles(){
+    this.filesService.getAll().subscribe(data=>{
+      data.forEach((element,index)=>{
+        this.files[index] = new Files(element.id,element.name,element.slug,element.path,element.type);
+      });
+    });
+  }
 }

@@ -2,8 +2,9 @@ import { Component, ElementRef, Input, OnDestroy, OnInit, ViewChild, ViewEncapsu
 import { Video } from 'src/app/models/Video';
 
 import videojs from 'video.js';
-import { VideoService } from '../../../services/video/video.service';
 import { ActivatedRoute, Params } from '@angular/router';
+import { FilesService } from '../../../services/files/files.service';
+import { Files } from 'src/app/models/Files.model';
 @Component({
   selector: 'app-video-player',
   templateUrl: './video-player.component.html',
@@ -13,10 +14,10 @@ export class VideoPlayerComponent implements OnInit,OnDestroy {
 
  
   player: videojs.Player;
-  video:Video={} as Video;
+  myfile:Files;
 
   constructor(
-    private elementRef: ElementRef, private videoService:VideoService,private route:ActivatedRoute
+    private elementRef: ElementRef, private fileService:FilesService,private route:ActivatedRoute
   ) { }
 
   ngOnInit() {
@@ -33,10 +34,10 @@ export class VideoPlayerComponent implements OnInit,OnDestroy {
   }
   fetchVideo(id:string)
   {
-    this.videoService.get(id).subscribe( video=>{
-      this.video=video;
+    this.fileService.get(id).subscribe( item=>{
+      debugger;
+      this.myfile=new Files(item.id,item.name,item.slug,item.path,item.type);
     }
-
     );
     
   }

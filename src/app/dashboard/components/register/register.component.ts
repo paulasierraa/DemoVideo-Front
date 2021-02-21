@@ -100,7 +100,7 @@ export class RegisterComponent implements OnInit {
   register() {
     if (window.navigator.onLine) { //verify connection
       const value = this.form.value;
-      if (this.form.valid && value.name.trim() != "" && value.user.trim() != "") { //verify blank spaces
+      if (this.form.valid && value.name.trim() != "" && value.user.trim() != "" &&this.skillNames!=="Skills") { //verify blank spaces
         let obcity: City = new City(value.country.id, value.country.name, value.city.id, value.city.Cityname);
         let obuser: user = new user(
           value.id, value.name, value.email, value.user, value.password, value.gender, obcity);
@@ -108,12 +108,10 @@ export class RegisterComponent implements OnInit {
           this.userService.create(obuser,this.skillIndex)
             .subscribe()
           {
-            data => {
-              console.log(data);
+           
               this.successRegister = true;
               setTimeout(() => this.router.navigate(['/login']), 1500);
-            }
-
+            
           }
       }
       else {
@@ -146,7 +144,10 @@ export class RegisterComponent implements OnInit {
         this.skillNames+=" "+element.name;
         this.skillIndex.push(element.id);
     });
-    console.log(this.skillIndex);
+    if(this.skillNames==="")
+    {
+      this.skillNames="Skills"
+    }
   }
 
   onCheckChange(event,skill) {
@@ -157,7 +158,6 @@ export class RegisterComponent implements OnInit {
       // Add a new control in the arrayForm
       let object=new Skill(skill.id,skill.name);
       value.skillsc.push(object);
-      console.log("Nueva skill",value.skillsc);
     }
     /* unselected */
     else{
@@ -166,7 +166,7 @@ export class RegisterComponent implements OnInit {
       //remove the unselected element
       let index=value.skillsc.indexOf(element);
       item.splice(index,1);
-      console.log("Eliminando item "+value.skillsc);
+
     }
   }
 }

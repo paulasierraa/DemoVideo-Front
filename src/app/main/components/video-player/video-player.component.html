@@ -1,6 +1,6 @@
 
 
-    <div class="card height-100"> 
+    <div class="card height-100" *ngIf="myfile!==undefined||myfile!==null"> 
         <video 
         oncontextmenu="return false;"
         id="my-video"
@@ -11,15 +11,15 @@
         preload="auto"
         data-setup='{fluid:true}'
         width="100vw"
-        src="http://127.0.0.1:8000{{video.videofile}}"
+        src="http://127.0.0.1:8000{{myfile.getPath()}}"
         autoplay
 
       >
       </video>
       
         <div class="p-3 content">
-            <h4>{{video.name}}</h4>
-            <p>{{video.description}}</p>
+            <h4>{{myfile.getName()}}</h4>
+            <!-- <p>{{.description}}</p> -->
         </div>
 
     </div>

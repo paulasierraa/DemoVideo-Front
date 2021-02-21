@@ -1,10 +1,10 @@
 import { Component, OnInit } from '@angular/core';
 import { NgxFileDropEntry, FileSystemFileEntry, FileSystemDirectoryEntry } from 'ngx-file-drop';
-import { VideoService } from '../../../services/video/video.service';
 import { FormBuilder, Validators, FormGroup, ReactiveFormsModule } from '@angular/forms';
 import { Router } from '@angular/router';
 import { LoginComponent } from '../../../dashboard/components/login/login.component';
 import { DomSanitizer } from '@angular/platform-browser';
+import { FilesService } from '../../../services/files/files.service';
 
 @Component({
   selector: 'app-upload-video',
@@ -19,7 +19,7 @@ export class UploadVideoComponent implements OnInit {
   videoError:boolean=false;
   constructor(private router:Router,
     private formBuilder:FormBuilder
-    ,private videoService:VideoService,
+    ,private filesService:FilesService,
     private sanitizer:DomSanitizer) { }
  
   //creamos un array para guardar los videos
@@ -37,7 +37,7 @@ export class UploadVideoComponent implements OnInit {
     this.form = this.formBuilder.group(
       {
         name:['',Validators.required],
-        description:['',[Validators.required,Validators.minLength(10)]],
+        // description:['',[Validators.required,Validators.minLength(10)]],
       }
     );
   }
@@ -50,7 +50,6 @@ export class UploadVideoComponent implements OnInit {
       fileEntry.file((file: File) => { 
         this.myFile=file;
        this.url =  this.sanitizer.bypassSecurityTrustUrl(URL.createObjectURL(this.myFile));
-      
        this.validateType();
        setTimeout(()=>( this.validateDuration()),1000);
       
@@ -65,10 +64,14 @@ export class UploadVideoComponent implements OnInit {
       const formData = new FormData();
       const value = this.form.value;
       formData.append("name",value.name);
-      formData.append("description",value.description);
-      formData.append("videofile",this.myFile);
-      this.videoService.upload(formData).subscribe(data=>{
+      let slug=value.name;
+      slug.trim();
+      formData.append("slug",slug.split(" ").join("-"));
+      formData.append("path",this.myFile);
+      formData.append("type","1");
+      this.filesService.upload(formData).subscribe(data=>{
         this.enviado=true;
+        console.log(formData);
         setTimeout(()=>(this.router.navigate(['/home/videos'])),1200);
         
       });
@@ -91,10 +94,11 @@ export class UploadVideoComponent implements OnInit {
   public validateType():void{ //elimina los archivos que no son de tipo video o imagen
 
     if(this.myFile!==undefined)
+    console.log(this.myFile.type);
     if(!this.myFile.type.includes("video")&&!this.myFile.type.includes("image"))
     {
+        // this.form.get('video').reset();
         this.myFile=null;
-        this.form.get('video').reset();
         this.deleteVideo();
     }
   }

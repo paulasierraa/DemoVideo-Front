@@ -123,6 +123,15 @@ input.form-control:after {
 .skills-container{
   cursor: pointer;
 }
+.skill-text
+{
+  color:#8080809e;
+}
+.btn-SaveSkills{
+  margin: 0 auto;
+  border:none;
+  background-color: #FF9900;
+}
 .ubication {
   justify-content: space-evenly;
 }
