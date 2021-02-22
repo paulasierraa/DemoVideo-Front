@@ -29,7 +29,14 @@
           <!-- /Validate message -->
         </div>
         <div class="password-container">
-          <div class="form-group">
+          <div class="form-group password-content">
+            <span
+            class="input-group-text eye-content"
+            (click)="showPassword()"
+          >
+            <i *ngIf="!isText" class="fa fa-eye" aria-hidden="true"></i>
+            <i *ngIf="isText" class="fa fa-eye-slash" aria-hidden="true"></i>
+          </span>
             <input
               type="password"
               id="passwordtxt"
@@ -55,20 +62,14 @@
           <!-- /Validate message -->
           </div>
           <!-- Show password icon -->
-          <div class="input-group-pospend">
-            <span
-              class="input-group-text"
-              (click)="showPassword()"
-            >
-              <i *ngIf="!isText" class="fa fa-eye" aria-hidden="true"></i>
-              <i *ngIf="isText" class="fa fa-eye-slash" aria-hidden="true"></i>
-            </span>
-          </div>
+          <!-- <div class="input-group-pospend">
+       
+          </div> -->
           <!-- /Show password icon -->
         </div>
       </div>
       <!-- MESSAGES -->
-      <div class="alert alert-danger" role="alert" *ngIf="loginError">
+      <div class="alert alert-danger mt-3" role="alert" *ngIf="loginError">
         <strong>Error! </strong> {{ message }}
       </div>
       <!-- JOIN BUTTON -->

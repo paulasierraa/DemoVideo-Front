@@ -72,12 +72,17 @@ input.form-control:after
 .login-container h2 {
   color: #ff3300;
 }
-.input-group-pospend {
+.password-content{
+  width: 100%;
+}
+.eye-content{
+  width: 30px;
+  margin: 0;
+  padding: 0;
+  position:absolute;
+  right: 0;
+  top: 9px;
   cursor: pointer;
-  display: flex;
-  align-items: center;
-  height: 38px;
-  border-bottom: 1px solid #808080;
 }
 .password-container{
   display: flex;
@@ -85,7 +90,6 @@ input.form-control:after
 
 #passwordtxt {
   border-right: none;
-  width: 325px;
 }
 .user-container,
 .password-container{

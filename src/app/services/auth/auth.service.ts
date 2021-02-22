@@ -1,9 +1,10 @@
 import { Injectable } from '@angular/core';
-import { Observable } from 'rxjs';
-import {filter,map} from 'rxjs/operators';
+import { Observable, throwError } from 'rxjs';
+import {catchError, filter,map} from 'rxjs/operators';
 import { HttpClient,HttpHeaders } from '@angular/common/http';
 import { environment } from '../../../environments/environment';
 import { Login } from '../../models/Login.model';
+import Swal from 'sweetalert2';
 
 @Injectable({
   providedIn: 'root'
@@ -25,7 +26,16 @@ export class AuthService {
   }
 
   loginUser(obLogin:Login){
-    return this.http.post<Login>(`${environment.url_api}/login/`,{"username":obLogin.getUser(),"password":obLogin.getPassword()}).pipe(map(data=>data));
+    return this.http.post<Login>(`${environment.url_api}/login/`,{"username":obLogin.getUser(),"password":obLogin.getPassword()}).pipe(
+      catchError(error=>{
+        if(error.status===400)
+        {
+          error.message="Error al iniciar sesión";
+        }
+        return throwError(error);
+      }),
+      map(data=>data)
+      );
   }
 
   loadSessionData() //saber qué usuario está en ese momento
