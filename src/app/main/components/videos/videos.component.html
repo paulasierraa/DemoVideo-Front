@@ -1,10 +1,10 @@
-<section class="video-section">
+<section class="video-section container mt-4">
   <h4 class="mt-4" *ngIf="files.length===0">No tienes vídeos aún, sube tu primer vídeo!</h4>
   <div class="row " *ngIf="files.length!==0">
-    <div class="col" *ngFor="let item of files">
+    <div class="col mb-3" *ngFor="let item of files">
       <div class="card video-container videoPanel" [routerLink]="['/home/play',item.getId()]" >
         <div class="image-container">
-          <img  class = "video-image" src="https://phantom-elmundo.unidadeditorial.es/0b02f8d5f415175b0796a8b6e6ae2ace/resize/746/f/jpg/assets/multimedia/imagenes/2020/12/14/16079645639088.jpg" alt="imagenPrueba">
+          <img  class = "video-image" src="../../../../assets/images/dash3.jpg" alt="imagenPrueba">
           <span class="video-data-content">
             <div class="view-container">
               <img src="../../../../assets/images/eye.png">
@@ -17,6 +17,11 @@
           <p class="card-title">{{item.getName()}}</p>
           <!-- <p class="card-text">{{item.description}}</p> -->
           <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Aperiam corrupti laborum atque!.</p>
+          <hr>
+          <div class="user-information">
+            <img src="https://los40es00.epimg.net/los40/imagenes/2020/09/09/cinetv/1599651323_053256_1599651719_noticia_normal.jpg" alt="" class="user-icon">
+            <p>nombre de usuario</p>
+          </div>
         </div>
       </div>
     </div>

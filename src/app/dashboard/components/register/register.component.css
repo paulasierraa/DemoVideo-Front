@@ -80,10 +80,14 @@ input.form-control:after {
 }
 .data-container {
   display: flex;
-  justify-content: space-around;
+  justify-content: space-between;
 }
 .personal-info {
   max-width: 240px;
+}
+
+#nametxt{
+  width: 200px;
 }
 .input-group
 {
