@@ -4,6 +4,7 @@ p{
 .video-section{
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     color: #484848;
+    background-color: #F9F6F6;
 }
 .col{
     width: 357px;
@@ -13,7 +14,10 @@ p{
     width: 357px;
     /* height: 418px; */
     border-radius: 30px;
+    border:none;
     cursor: pointer;
+    margin-top: 30px;
+
 }
 .image-container{
     position: relative;
