@@ -59,6 +59,9 @@
     background-size: cover;
     z-index: 99;
 }
+.dashboard-auth{
+    position: inherit;
+}
 .dashImage{
     height: 95%;
 }

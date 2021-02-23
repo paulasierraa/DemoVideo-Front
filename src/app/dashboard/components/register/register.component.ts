@@ -106,13 +106,21 @@ export class RegisterComponent implements OnInit {
           value.id, value.name, value.email, value.user, value.password, value.gender, obcity);
     
           this.userService.create(obuser,this.skillIndex)
-            .subscribe()
-          {
-           
-              this.successRegister = true;
-              setTimeout(() => this.router.navigate(['/login']), 1500);
-            
-          }
+            .subscribe(
+              data=>{
+                this.successRegister = true;
+                setTimeout(() => this.router.navigate(['/login']), 1500);
+              },
+              error=>{
+                console.log(error);
+                this.registerError=true;
+                if(error.error.id_account)
+                {
+                    this.message=error.error.id_account[0];
+                }
+              }
+            );
+        
       }
       else {
         this.message = "Debe completar todos los campos";

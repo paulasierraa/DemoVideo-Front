@@ -1,12 +1,25 @@
-<h4 class="mt-4" *ngIf="files.length===0">No tienes vídeos aún, sube tu primer vídeo!</h4>
-<div class="row row-cols-1 row-cols-md-4 mt-4 container g-4" *ngIf="files.length!==0">
-  <div class="col videoPanel" [routerLink]="['/home/play',item.getId()]" *ngFor="let item of files">
-    <div class="card video-container">
-      <img src="https://phantom-elmundo.unidadeditorial.es/0b02f8d5f415175b0796a8b6e6ae2ace/resize/746/f/jpg/assets/multimedia/imagenes/2020/12/14/16079645639088.jpg" alt="imagenPrueba">
-      <div class="card-body">
-        <h5 class="card-title">{{item.getName()}}</h5>
-        <!-- <p class="card-text">{{item.description}}</p> -->
+<section class="video-section">
+  <h4 class="mt-4" *ngIf="files.length===0">No tienes vídeos aún, sube tu primer vídeo!</h4>
+  <div class="row " *ngIf="files.length!==0">
+    <div class="col" *ngFor="let item of files">
+      <div class="card video-container videoPanel" [routerLink]="['/home/play',item.getId()]" >
+        <div class="image-container">
+          <img  class = "video-image" src="https://phantom-elmundo.unidadeditorial.es/0b02f8d5f415175b0796a8b6e6ae2ace/resize/746/f/jpg/assets/multimedia/imagenes/2020/12/14/16079645639088.jpg" alt="imagenPrueba">
+          <span class="video-data-content">
+            <div class="view-container">
+              <img src="../../../../assets/images/eye.png">
+              <p>1000</p>
+            </div>
+            <img src="../../../../assets/images/heart.png" alt="">
+          </span>
+        </div>
+        <div class="card-body">
+          <p class="card-title">{{item.getName()}}</p>
+          <!-- <p class="card-text">{{item.description}}</p> -->
+          <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Aperiam corrupti laborum atque!.</p>
+        </div>
       </div>
     </div>
+      
   </div>
-</div>
+</section>

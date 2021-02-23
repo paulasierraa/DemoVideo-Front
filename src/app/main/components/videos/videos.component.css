@@ -1,6 +1,56 @@
-.videoPanel{
-    cursor: pointer;
+p{
+    margin-bottom: 0;
+}
+.video-section{
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    color: #484848;
+}
+.col{
+    width: 357px;
+    height: 418px;
 }
 .video-container{
-    height: 100%;
+    width: 357px;
+    height: 418px;
+    border-radius: 30px;
+    cursor: pointer;
+}
+.image-container{
+    position: relative;
+}
+.image-container img{
+    width: 100%;
+}
+.video-image{
+}
+.video-data-content{
+    position:absolute;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    height: 54px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background-color: #746969b5;
+    padding: 10px;
+}
+.video-data-content img{
+    width: 27px;
+    height: 27px;
+    margin-right: 5px;
+}
+.view-container{
+    display: flex;
+    color: white;
+}
+.card-title{
+    font-size: 22px;
+    font-weight: 500;
+}
+.video-image{
+
+}
+.card-body{
+    border-radius: 30px;
 }

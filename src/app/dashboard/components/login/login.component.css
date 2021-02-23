@@ -91,6 +91,9 @@ input.form-control:after
 #passwordtxt {
   border-right: none;
 }
+.skill-text:hover{
+  border-bottom: 1px solid #FF9900;
+}
 .user-container,
 .password-container{
   margin-top: 40px;

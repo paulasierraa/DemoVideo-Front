@@ -9,7 +9,7 @@ span {
   border: none;
 }
 select {
-  background-color: #ffffff4d;
+  background-color: #ffffff21;
   border: none;
 }
 
@@ -87,16 +87,17 @@ input.form-control:after {
 }
 .input-group
 {
-  border-bottom: 1px solid #b3b0b0;
+  border-bottom: 1px solid gray;
 }
-
 .id-container{
   display: flex;
 }
 .id-container .type-container{
   height: 38px;
   border-bottom: 1px solid grey;
-
+}
+.id-container .type-container:hover{
+  border-bottom: 1px solid #FF9900;
 }
 .type-container select{
   width: 100%;
@@ -109,16 +110,14 @@ input.form-control:after {
   margin-top: 5px;
 }
 
-.form-group-pospend{
-  height: 38px;
-  display: flex;
-  align-items: center;
+.eye-content{
+  width: 30px;
+  margin: 0;
+  padding: 0;
+  position:absolute;
+  right: 0;
+  top: 9px;
   cursor: pointer;
-  border-bottom: 1px solid gray;
-}
-
-#showpass + label{ 
-  font-size: 14px;
 }
 .skills-container{
   cursor: pointer;
@@ -126,6 +125,11 @@ input.form-control:after {
 .skill-text
 {
   color:#8080809e;
+}
+.modal .modal-open::after{
+  display: flex  !important;
+  align-items: center;
+  margin-top: 0;
 }
 .btn-SaveSkills{
   margin: 0 auto;
@@ -180,6 +184,7 @@ input.form-control:after {
   -o-transform:scale(1.03);
   transform:scale(1.03);
 }
+
 @media only screen and (max-width: 540px) {
   .register-container {
     width: 100%;

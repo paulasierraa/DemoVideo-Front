@@ -138,6 +138,10 @@
       <div class="mt-4 datos">
         <div class="password-container">
           <div class="form-group">
+            <span class="form-group-text eye-content" (click)="showPassword()">
+              <i *ngIf="!isText" class="fa fa-eye" aria-hidden="true"></i>
+              <i *ngIf="isText" class="fa fa-eye-slash" aria-hidden="true"></i>
+            </span>
             <input
               type="password"
               id="passwordtxt"
@@ -155,14 +159,6 @@
               >Contraseña</label
             >
           </div>
-          <!-- Show password icon -->
-          <!-- <div class="form-group-pospend">
-            <span class="form-group-text" (click)="showPassword()">
-              <i *ngIf="!isText" class="fa fa-eye" aria-hidden="true"></i>
-              <i *ngIf="isText" class="fa fa-eye-slash" aria-hidden="true"></i>
-            </span>
-          </div> -->
-          <!-- /Show password icon -->
         </div>
         <!-- Validate Message -->
         <div
@@ -190,7 +186,7 @@
           <!-- Button trigger modal -->
           <label
             type="text"
-            id="usuariotxt"
+            id="skilltxt"
             class="form-control p-0 skill-text"
             required
             style="box-shadow: none; border-radius: 0px; cursor: pointer"
@@ -209,7 +205,6 @@
         role="dialog"
         aria-labelledby="exampleModalLabel"
         aria-hidden="true"
-        data-backdrop="false"
       >
         <div class="modal-dialog" role="document">
           <div class="modal-content">
@@ -224,6 +219,7 @@
                 <span aria-hidden="true">&times;</span>
               </button>
             </div>
+
             <div class="modal-body">
               <div
                 class="form-check form-check-inline"
@@ -342,21 +338,28 @@
         </div>
       </div>
       <!-- /GENDER -->
+      <!-- Messages -->
+      <div
+        class="alert alert-secondary mt-2"
+        role="alert"
+        *ngIf="successRegister"
+      >
+        Datos registrados con éxito!
+      </div>
+      <div
+        class="alert alert-danger mt-2"
+        role="alert"
+        *ngIf="registerError && !successRegister"
+      >
+        <strong>Error! </strong> {{ message }}
+      </div>
+      <!-- Messages -->
       <button type="submit" class="btn btnEnviar" [disabled]="form.invalid">
         Registrarme
       </button>
       <button type="button" class="btn btnLogin mt-3 mb-3" routerLink="/login">
         Iniciar sesión
       </button>
-
-            <!-- Messages -->
-            <div class="alert alert-secondary mt-2" role="alert" *ngIf="successRegister" >
-              Datos registrados con éxito!
-            </div>
-            <div class="alert alert-danger" role="alert" *ngIf="registerError">
-              <strong>Error! </strong> {{ message }}
-            </div>
-            <!-- Messages -->
     </form>
   </div>
 </section>
