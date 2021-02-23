@@ -35,7 +35,6 @@ export class VideoPlayerComponent implements OnInit,OnDestroy {
   fetchVideo(id:string)
   {
     this.fileService.get(id).subscribe( item=>{
-      debugger;
       this.myfile=new Files(item.id,item.name,item.slug,item.path,item.type);
     }
     );

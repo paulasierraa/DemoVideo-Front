@@ -1,28 +1,29 @@
+<div class="card container" *ngIf="myfile !== undefined || myfile !== null">
+  <video
+    oncontextmenu="return false;"
+    id="my-video"
+    class="fm-video video-js video-player vjs-big-play-centered"
+    controls
+    controlslist="nodownload"
+    preload="auto"
+    data-setup="{fluid:true}"
+    width="100vw"
+    src="http://127.0.0.1:8000{{ myfile.getPath() }}"
+    autoplay
+  ></video>
 
-
-    <div class="card height-100" *ngIf="myfile!==undefined||myfile!==null"> 
-        <video 
-        oncontextmenu="return false;"
-        id="my-video"
-        class="fm-video video-js video-player vjs-big-play-centered"
-        controls
-        controlslist="nodownload"
-
-        preload="auto"
-        data-setup='{fluid:true}'
-        width="100vw"
-        src="http://127.0.0.1:8000{{myfile.getPath()}}"
-        autoplay
-
-      >
-      </video>
-      
-        <div class="p-3 content">
-            <h4>{{myfile.getName()}}</h4>
-            <!-- <p>{{.description}}</p> -->
-        </div>
-
-    </div>
-
-
-   
+  <div class="p-3 content mb-4">
+    <h4>{{ myfile.getName() }}</h4>
+    <!-- <p>{{.description}}</p> -->
+    <p class="mb-3">
+      Lorem ipsum dolor, sit amet consectetur adipisicing elit. Voluptas sit
+      quia soluta culpa delectus distinctio optio quae repudiandae dicta
+      ratione, est sapiente ad praesentium nam ex saepe! Nobis, corporis.
+      Maiores?
+    </p>    
+    <div class="user-information">
+        <img src="https://los40es00.epimg.net/los40/imagenes/2020/09/09/cinetv/1599651323_053256_1599651719_noticia_normal.jpg" alt="" class="user-icon">
+        <p>Nombre de usuario</p>
+      </div>
+  </div>
+</div>
