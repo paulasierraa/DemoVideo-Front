@@ -2,7 +2,7 @@
   <div class="video-content container">
   <h4 class="mt-4" *ngIf="files.length===0">No tienes vídeos aún, sube tu primer vídeo!</h4>
   <div class="row " *ngIf="files.length!==0">
-    <div class="col mb-3" *ngFor="let item of files">
+    <div class="col col-lg-4 mb-3" *ngFor="let item of files">
       <div class="card video-container videoPanel" [routerLink]="['/home/play',item.getId()]" >
         <div class="image-container">
           <img  class = "video-image" src="../../../../assets/images/dash3.jpg" alt="imagenPrueba">

@@ -5,6 +5,8 @@ import videojs from 'video.js';
 import { ActivatedRoute, Params } from '@angular/router';
 import { FilesService } from '../../../services/files/files.service';
 import { Files } from 'src/app/models/Files.model';
+import { VideosComponent } from '../videos/videos.component';
+import { AppComponent } from '../../../app.component';
 @Component({
   selector: 'app-video-player',
   templateUrl: './video-player.component.html',
@@ -12,10 +14,10 @@ import { Files } from 'src/app/models/Files.model';
 })
 export class VideoPlayerComponent implements OnInit,OnDestroy {
 
- 
+  public isLike:boolean=false;
   player: videojs.Player;
-  myfile:Files;
-
+  myfile:Files=null;
+  favorites=0;
   constructor(
     private elementRef: ElementRef, private fileService:FilesService,private route:ActivatedRoute
   ) { }
@@ -39,6 +41,16 @@ export class VideoPlayerComponent implements OnInit,OnDestroy {
     }
     );
     
+  }
+  likeVideo()
+  {
+    if(this.isLike===true)
+    {
+      this.isLike=false;
+    }
+    else{
+      this.isLike=true;
+    }
   }
 }
 

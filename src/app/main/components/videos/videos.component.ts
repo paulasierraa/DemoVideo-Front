@@ -13,7 +13,6 @@ export class VideosComponent implements OnInit {
 
   files:Files[]=[];
   constructor(private filesService:FilesService) { }
-
   ngOnInit() {
    this.fetchFiles();
   }

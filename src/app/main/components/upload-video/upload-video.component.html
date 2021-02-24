@@ -1,5 +1,6 @@
 <section class="container-fluid upload-video mt-4">
-  <p class="h3 mb-3">Video</p>
+  <div class="container">
+    <p class="h3 mb-3">Video</p>
   <form  class="mt-4"(ngSubmit)="uploadVideo()" [formGroup]="form">
     <div class="mb-3">
       <label for="nombretxt" class="form-label">Nombre del video</label>
@@ -51,6 +52,13 @@
                         <button type="button" class="btn btn-outline-danger btn-sm" (click)="deleteVideo()">Eliminar</button>
                       </td>
                   </tr>
+                  <tr *ngIf="files.length===0">
+                    <td>
+                      <p>
+                        No se ha insertado ningun video
+                      </p>
+                    </td>
+                  </tr>
                   <tr *ngIf="url!==null"> 
                     <td>
                       <video [src]="url" id="video" width="500px" height="200px" (loadedmetadata)="validateDuration()" ></video>
@@ -74,6 +82,8 @@
     </div>
     
   </form> 
+  </div>
+  
 </section>
 
  

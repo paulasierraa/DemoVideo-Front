@@ -1,5 +1,7 @@
-<div class="card container" *ngIf="myfile !== undefined || myfile !== null">
+<section>
+<div class="card container" *ngIf="myfile !== undefined && myfile !== null">
   <video
+  *ngIf="myfile!==null"
     oncontextmenu="return false;"
     id="my-video"
     class="fm-video video-js video-player vjs-big-play-centered"
@@ -13,7 +15,26 @@
   ></video>
 
   <div class="p-3 content mb-4">
-    <h4>{{ myfile.getName() }}</h4>
+    <div class="video-data d-flex">
+      <h4  *ngIf="myfile!==null">{{ myfile.getName() }}</h4>
+ 
+      <div class="like-container d-flex">
+        <div class="view-container d-flex">
+          <p>100</p>
+          <span>
+            <i class="fas fa-eye"></i>
+          </span>
+        </div>
+        <p>{{10}}</p>
+        <span class="like-content" (click)="likeVideo()">
+          <i class="far fa-heart animate_animated animate__rubberBand" *ngIf="!isLike"></i>
+          <i class="fas fa-heart" *ngIf="isLike"></i>
+        </span> 
+        
+      </div>
+ 
+
+    </div>
     <!-- <p>{{.description}}</p> -->
     <p class="mb-3">
       Lorem ipsum dolor, sit amet consectetur adipisicing elit. Voluptas sit
@@ -27,3 +48,4 @@
       </div>
   </div>
 </div>
+</section>
