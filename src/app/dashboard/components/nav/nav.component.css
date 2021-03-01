@@ -39,6 +39,9 @@
     width: 101%;
     /* background: linear-gradient(87deg,#f1b640 0,#F0653C 100%)!important; */
     background: linear-gradient(90deg, rgba(241,182,64,0.8183648459383753) 0%, rgba(240,101,60,0.7511379551820728) 48%, rgba(240,101,60,0.8799894957983193) 100%);;
+    /* background: linear-gradient(90deg,rgba(240,101,60,0.8799894957983193)  0%, rgba(240,101,60,0.7511379551820728) 48%, rgba(241,182,64,0.8183648459383753) 100%);; */
+    /* background: linear-gradient(90deg,rgb(202 187 183 / 92%)  0%, rgba(240,101,60,0.7511379551820728) 48%, rgba(241,182,64,0.8183648459383753) 100%); */
+    /* background: linear-gradient(90deg,rgb(75 81 113 / 23%)  0%,rgb(160 88 37 / 28%)  27%, rgba(240,101,60,0.7511379551820728) 48%, rgba(241,182,64,0.8183648459383753) 100%); */
     color: white;
     box-shadow: -4px 11px 8px -8px rgba(25,25,25,0.86);
 }

@@ -1,5 +1,6 @@
 import { Component, OnInit,HostListener } from '@angular/core';
 import { Router, Event } from '@angular/router';
+import { LoginComponent } from '../login/login.component';
 
 @Component({
   selector: 'app-nav',
@@ -41,8 +42,13 @@ export class NavComponent implements OnInit {
     {
       let element:any =document.getElementById('dash');
       element.removeClass("dashboard");
-
     }
   }
- 
+  onClick()
+  {
+    if(LoginComponent.loginEvent===true)
+    {
+      LoginComponent.loginEvent=false;
+    }
+  }
 }

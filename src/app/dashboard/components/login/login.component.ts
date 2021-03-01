@@ -33,6 +33,7 @@ export class LoginComponent implements OnInit {
   }
 
   login() {
+ 
     if (window.navigator.onLine) {
       var value = this.form.value;
       if (this.form.valid && value.user.trim() != "" && value.password.trim() != "") {
