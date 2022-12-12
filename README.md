@@ -1,32 +1,31 @@
-<<<<<<< HEAD
-# DemoVideo-Front
-DemoVideo 
-=======
-# DemoVideo
+## DEMO VIDEO
+ 📽 En esta aplicación podrás subir retos para tu marca y encontrar el talento que necesitas 🔥.
+ 
+ Bienvenidos a DEMO VIDEO 💖
+ 
+ ![image](https://user-images.githubusercontent.com/48034536/206936937-671f731f-1ae4-480e-8839-b142d52fe7e2.png)
+ 
+ ¡Puedes tener diferentes tipos de eventos! 🌟
+ 
+ ![image](https://user-images.githubusercontent.com/48034536/206936955-47c28e01-f827-4dd5-a3d4-a6193459cdd3.png)
+ 
+ ¡Ver sobre qué se trata cada uno de ellos e inscribirte al que más te interese! 🤪
+ 
+ ![image](https://user-images.githubusercontent.com/48034536/206936987-c2891ade-10a6-43f7-b4cb-7e4c02d20153.png)
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 11.0.6.
+¡Inicia sesión o registrate para iniciar esta aventura! 🚀
 
-## Development server
+![image](https://user-images.githubusercontent.com/48034536/206937011-2192afc8-1fa6-4e84-bbf1-0e4047c910b3.png)
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
+![image](https://user-images.githubusercontent.com/48034536/206937043-040a48c0-c793-46b4-b605-3a6e877db6c7.png)
 
-## Code scaffolding
+¡Mira los videos que están en tendencia! 🔥
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+![image](https://user-images.githubusercontent.com/48034536/206937065-b6acac13-0aeb-44a6-aa71-700c7d6a7f7f.png)
 
-## Build
+![image](https://user-images.githubusercontent.com/48034536/206937092-6aed92e7-8586-4de9-92c2-34104d37a121.png)
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory. Use the `--prod` flag for a production build.
+¡Sube tus propios videos y demuestra tu talento!
 
-## Running unit tests
+![image](https://user-images.githubusercontent.com/48034536/206937114-2da78a62-c142-4c6a-82e5-9d8be3516716.png)
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
-
-## Running end-to-end tests
-
-Run `ng e2e` to execute the end-to-end tests via [Protractor](http://www.protractortest.org/).
-
-## Further help
-
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
->>>>>>> master
