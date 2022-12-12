@@ -11,10 +11,29 @@ import { FilesService } from '../../../services/files/files.service';
 })
 export class VideosComponent implements OnInit {
 
-  files:Files[]=[];
+  files:Files[]=[
+ 
+  ];
   constructor(private filesService:FilesService) { }
   ngOnInit() {
-   this.fetchFiles();
+    this.files.push(new Files(1,'Video test','slug','D:\DEV\temp\DemoVideo-Front\src\assets\videos\prueba.mp4',1));
+    this.files.push(new Files(1,'Video test','slug','D:\DEV\temp\DemoVideo-Front\src\assets\videos\prueba.mp4',1));
+    this.files.push(new Files(1,'Video test','slug','D:\DEV\temp\DemoVideo-Front\src\assets\videos\prueba.mp4',1));
+    this.files.push(new Files(1,'Video test','slug','D:\DEV\temp\DemoVideo-Front\src\assets\videos\prueba.mp4',1));
+    this.files.push(new Files(1,'Video test','slug','D:\DEV\temp\DemoVideo-Front\src\assets\videos\prueba.mp4',1));
+    this.files.push(new Files(1,'Video test','slug','D:\DEV\temp\DemoVideo-Front\src\assets\videos\prueba.mp4',1));
+    this.files.push(new Files(1,'Video test','slug','D:\DEV\temp\DemoVideo-Front\src\assets\videos\prueba.mp4',1));
+    this.files.push(new Files(1,'Video test','slug','D:\DEV\temp\DemoVideo-Front\src\assets\videos\prueba.mp4',1));
+    this.files.push(new Files(1,'Video test','slug','D:\DEV\temp\DemoVideo-Front\src\assets\videos\prueba.mp4',1));
+    this.files.push(new Files(1,'Video test','slug','D:\DEV\temp\DemoVideo-Front\src\assets\videos\prueba.mp4',1));
+    this.files.push(new Files(1,'Video test','slug','D:\DEV\temp\DemoVideo-Front\src\assets\videos\prueba.mp4',1));
+    this.files.push(new Files(1,'Video test','slug','D:\DEV\temp\DemoVideo-Front\src\assets\videos\prueba.mp4',1));
+    this.files.push(new Files(1,'Video test','slug','D:\DEV\temp\DemoVideo-Front\src\assets\videos\prueba.mp4',1));
+    this.files.push(new Files(1,'Video test','slug','D:\DEV\temp\DemoVideo-Front\src\assets\videos\prueba.mp4',1));
+
+
+
+  //  this.fetchFiles();
   }
   fetchFiles(){
     this.filesService.getAll().subscribe(data=>{

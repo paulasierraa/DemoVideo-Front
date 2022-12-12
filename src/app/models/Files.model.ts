@@ -1,10 +1,10 @@
 export class Files{
 
-    private id:number;
-    private name:string;
-    private slug:string;
-    private path:string;
-    private type:number;
+    public id:number;
+    public name:string;
+    public slug:string;
+    public path:string;
+    public type:number;
 
     constructor(id:number,name:string,slug:string,path:string,type:number){
         this.id=id;
